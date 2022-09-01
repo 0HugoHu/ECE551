@@ -1,0 +1,12 @@
+b is 9
+a * i + b = 9
+a * i + b = 12
+a * i + b = 15
+a * i + b = 18
+a * i + b = 21
+a * i + b = 24
+a is 4
+b is 7
+a * i + b = 7
+a * i + b = 12
+a is 6
