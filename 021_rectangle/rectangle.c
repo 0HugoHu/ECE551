@@ -39,11 +39,20 @@ rectangle canonicalize(rectangle r) {
 }
 rectangle intersection(rectangle r1, rectangle r2) {
   //WRITE THIS FUNCTION
+  r1 = canonicalize(r1);
+  r2 = canonicalize(r2);
+
   int width = min(r1.x + r1.width, r2.x + r2.width) - max(r1.x, r2.x);
   int height = min(r1.y + r1.height, r2.y + r2.height) - max(r1.y, r2.y);
 
-  r1.width = width < 0 ? 0 : width;
-  r1.height = height < 0 ? 0 : height;
+  if (width < 0 || height < 0) {
+    r1.width = 0;
+    r1.height = 0;
+  }
+  else {
+    r1.width = width;
+    r1.height = height;
+  }
   r1.x = max(r1.x, r2.x);
   r1.y = max(r1.y, r2.y);
 
