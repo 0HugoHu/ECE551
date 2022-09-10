@@ -30,7 +30,7 @@ int main() {
   working.contribution = 1000;
   working.rate_of_return = 0.045 / 12;
   retire_info retired;
-  retired.months = 354;
+  retired.months = 384;
   retired.contribution = -4000;
   retired.rate_of_return = 0.01 / 12;
 
