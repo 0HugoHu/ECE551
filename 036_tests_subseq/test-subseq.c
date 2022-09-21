@@ -36,6 +36,14 @@ int main() {
   expected_answer = 2;
   if (maxSeq(arr8, 4) != expected_answer)
     return EXIT_FAILURE;
+  int arr9[] = {1, 2};
+  expected_answer = 2;
+  if (maxSeq(arr9, 2) != expected_answer)
+    return EXIT_FAILURE;
+  int arr10[] = {3, -1, 10};
+  expected_answer = 1;
+  if (maxSeq(arr10, 3) != expected_answer)
+    return EXIT_FAILURE;
 
   return EXIT_SUCCESS;
 }
