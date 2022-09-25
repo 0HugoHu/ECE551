@@ -13,8 +13,8 @@ size_t maxSeq(int * array, size_t n) {
     else {
       if (cur_num > max_num) {
         max_num = cur_num;
-        cur_num = 1;
       }
+      cur_num = 1;
     }
   }
   return cur_num > max_num ? cur_num : max_num;
