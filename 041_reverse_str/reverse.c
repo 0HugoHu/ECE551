@@ -5,6 +5,8 @@
 void reverse(char * str) {
   //WRITE ME!
   //SURE! I WILL WRITE ON YOU!
+  if (str == NULL)
+    return;
   int size_str = 0;
   while (str[size_str] != '\0')
     size_str++;
