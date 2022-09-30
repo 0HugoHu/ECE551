@@ -6,6 +6,7 @@ int findMaxFreq(FILE * f);
 
 int main(int argc, char ** argv) {
   if (argc != 2) {
+    fprintf(stderr, "Must have 1 input file name!");
     perror("Must have 1 input file name!");
     printf("Must have 1 intput file name!");
     exit(EXIT_FAILURE);
