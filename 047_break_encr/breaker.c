@@ -16,6 +16,7 @@ int main(int argc, char ** argv) {
   if (f == NULL) {
     printf("File does not exist!");
     perror("File does not exist!");
+    perror("File does not exist!");
     exit(EXIT_FAILURE);
   }
 
@@ -46,6 +47,7 @@ int findMaxFreq(FILE * f) {
   for (int i = 0; i < 26; i++) {
     if (hashtable[i] == max && i != index) {
       printf("No maximum frequency!");
+      perror("No maximum frequency!");
       perror("No maximum frequency!");
       exit(EXIT_FAILURE);
     }
