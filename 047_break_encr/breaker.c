@@ -6,13 +6,15 @@ int findMaxFreq(FILE * f);
 
 int main(int argc, char ** argv) {
   if (argc != 2) {
-    printf("Must have 1 intpu file name!");
+    perror("Must have 1 input file name!");
+    printf("Must have 1 intput file name!");
     exit(EXIT_FAILURE);
   }
 
   FILE * f = fopen(argv[1], "r");
   if (f == NULL) {
     printf("File does not exist!");
+    perror("File does not exist!");
     exit(EXIT_FAILURE);
   }
 
@@ -43,6 +45,7 @@ int findMaxFreq(FILE * f) {
   for (int i = 0; i < 26; i++) {
     if (hashtable[i] == max && i != index) {
       printf("No maximum frequency!");
+      perror("No maximum frequency!");
       exit(EXIT_FAILURE);
     }
   }
