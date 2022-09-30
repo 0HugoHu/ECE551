@@ -1,0 +1,16 @@
+Job summary
+Amazon internships are full-time positions, and interns should expect to work Monday-Friday, up to 40 hours per week typically between 8am-5pm. Specific team norms around working hours will be communicated by your manager. Interns should not have conflicts such as classes or other employment during the Amazon work-day.
+
+Applicants should have a minimum of one quarter/semester/trimester remaining in their studies after their internship concludes. Applicants will be considered for all SDE roles inclusive of the Amazon Propel Program (APP) through this application. We will take your internship season and location preferences into consideration based on business availability. Please note that a majority of our internships take place in the summer.
+
+Start dates for our internships include the following periods:
+1. Winter (Starts January/February) – SDE only
+2. Summer (Starts May/June) – SDE and APP
+3. Fall (Starts August/September) – SDE only
+
+Software Development Engineer (SDE) Internships
+At Amazon, we hire the best minds in technology to innovate and build on behalf of our customers. The intense focus we have on our customers is why we are one of the world’s most beloved brands – customer obsession is part of our company DNA. Our interns write real software and collaborate with a select group of experienced software development engineers (SDEs) who guide interns on projects that matter to our customers.
+
+As an intern, you will be matched to a manager and a mentor. You will have the opportunity to influence the evolution of Amazon technology and lead mission critical projects early in your career. Your design, code, and raw smarts will contribute to solving some of the most complex technical challenges in the areas of distributed systems, data mining, automation, optimization, scalability, and security – just to name a few.
+
+In addition to working on an impactful project, you will have the opportunity to engage with Amazonians for both personal and professional development, expand your network, and participate in activities with other interns throughout your internship. No matter the location of your internship, we give you the tools to own your project and learn in a real-world setting. Many of our technologies overlap, and you would be hard pressed to find a team that is not using Amazon Web Services (AWS), touching the catalogue, or iterating services to better personalize for customers. We make the impossible, possible.
