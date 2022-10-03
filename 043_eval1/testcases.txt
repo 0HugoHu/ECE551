@@ -1,6 +1,44 @@
 #error
 printCountries invalid.csv
 printDailyMax population.csv
+printRunningAvg population.csv
+printCumulative
+printDailymax daily_small.csv population.csv
+printRunningAvg population.csv test1.csv
+printRunningAvg population.csv test2.csv
+printRunningAvg population.csv test3.csv
+printRunningAvg population.csv test4.csv
+printRunningAvg population.csv test5.csv
+printRunningAvg population.csv test6.csv
+printRunningAvg population.csv test7.csv
+printRunningAvg population.csv test8.csv
+printRunningAvg population.csv test9.csv
+printRunningAvg population.csv test10.csv
+printRunningAvg population.csv test11.csv
+printCumulative population.csv test1.csv
+printCumulative population.csv test2.csv
+printCumulative population.csv test3.csv
+printCumulative population.csv test4.csv
+printCumulative population.csv test5.csv
+printCumulative population.csv test6.csv
+printCumulative population.csv test7.csv
+printCumulative population.csv test8.csv
+printCumulative population.csv test9.csv
+printCumulative population.csv test10
+printCumulative population.csv test11.csv
+printDailymax population.csv test1.csv
+printDailymax population.csv test2.csv
+printDailymax population.csv test3.csv
+printDailymax population.csv test4.csv
+printDailymax population.csv test5.csv
+printDailymax population.csv test6.csv
+printDailymax population.csv test7.csv
+printDailymax population.csv test8.csv
+printDailymax population.csv test9.csv
+printDailymax population.csv test10.txt
+printDailymax population.csv test11.csv
+
+
 
 #success
 printCountries population.csv
