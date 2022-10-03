@@ -54,6 +54,40 @@ country_t parseLine(char * line) {
 
 void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   //WRITE ME
+  //CODE START HERE
+  if (data == NULL) {
+    fprintf(stderr, "No data is found!\n");
+    exit(EXIT_FAILURE);
+  }
+
+  double num_avg = 0.0;
+  size_t index = 0;
+  //Read first 6 data
+  for (; index < 6; index++) {
+    if (data[index] >= 0) {
+      num_avg += data[index];
+    }
+    //No sufficient data
+    else {
+      fprintf(stderr, "At least 7 data is required!\n");
+      exit(EXIT_FAILURE);
+    }
+  }
+
+  //Calculate rolling average
+  for (; index < n_days; index++) {
+    if (data[index] >= 0) {
+      num_avg += data[index];
+      avg[index - 6] = num_avg / 7.0;
+      num_avg -= data[index - 6];
+    }
+    //Bad data
+    else {
+      fprintf(stderr, "Contains bad data!\n");
+      exit(EXIT_FAILURE);
+    }
+  }
+  //CODE END HERE
 }
 
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
