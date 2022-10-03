@@ -2,7 +2,6 @@
 printCountries invalid.csv
 printDailyMax population.csv
 printRunningAvg population.csv
-printCumulative
 printDailymax daily_small.csv population.csv
 printRunningAvg population.csv test1.csv
 printRunningAvg population.csv test2.csv
