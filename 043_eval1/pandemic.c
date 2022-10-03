@@ -3,7 +3,9 @@
 #include <stdio.h>
 
 country_t parseLine(char * line) {
-  //WRITE ME
+  //This function read the country,population
+  //format data, and save it in a country_t struct
+
   country_t ans;
   ans.name[0] = '\0';
   ans.population = 0;
@@ -54,7 +56,9 @@ country_t parseLine(char * line) {
 }
 
 void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
-  //WRITE ME
+  //This function calculates the rolling 7-average case
+  //numbers for the given n_days period.
+
   //CODE START HERE
   if (data == NULL) {
     fprintf(stderr, "data: No data is found!\n");
@@ -97,7 +101,9 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
 }
 
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
-  //WRITE ME
+  //This function calculate the cumulative sum of the country
+  //per 100,000 people at the nth day.
+
   //CODE START HERE
   if (data == NULL) {
     fprintf(stderr, "data: No data is found!\n");
@@ -129,7 +135,9 @@ void printCountryWithMax(country_t * countries,
                          size_t n_countries,
                          unsigned ** data,
                          size_t n_days) {
-  //WRITE ME
+  //This function searches the maximum case number starts from
+  //n_days and print the maximum number with its country name.
+
   //CODE START HERE
   if (countries == NULL) {
     fprintf(stderr, "country_t: No data is found!\n");
@@ -154,9 +162,6 @@ void printCountryWithMax(country_t * countries,
         //Find the temperate maximum number
         max = data[i][j];
         country_index = i;
-      }
-      //Bad data
-      else {
       }
     }
   }
