@@ -1,6 +1,6 @@
-Grading at 10/03/2022:22:13:20.560178
-For commit ID abb7c53fe172f791c84f6b030843e06fe0ff2a2b
-Grading at Mon Oct  3 06:12:59 PM EDT 2022
+Grading at 10/03/2022:22:33:31.957695
+For commit ID 1d569bf621c1f452d51fc485af9e31e72efe9915
+Grading at Mon Oct  3 06:33:30 PM EDT 2022
 
 Compiling 
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
@@ -15,101 +15,7 @@ Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printDailyMax population.csv
 Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCumulative 
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printDailyMax daily_small.csv population.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv test1.csv
-Valgrind reported memory errors
-+-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv test2.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv test3.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv test4.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv test5.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv test6.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv test7.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv test8.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv test9.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv test10.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv test11.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCumulative population.csv test1.csv
-Valgrind reported memory errors
-+-----------------------------------------------------------------------+
-Test case printCumulative population.csv test2.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCumulative population.csv test3.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCumulative population.csv test4.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCumulative population.csv test5.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCumulative population.csv test6.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCumulative population.csv test7.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCumulative population.csv test8.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCumulative population.csv test9.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCumulative population.csv test10
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printCumulative population.csv test11.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printDailyMax population.csv test1.csv
-Valgrind reported memory errors
-+-----------------------------------------------------------------------+
-Test case printDailyMax population.csv test2.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printDailyMax population.csv test3.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printDailyMax population.csv test4.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printDailyMax population.csv test5.csv
-Your program successfully indicated a failure case
-
-Grading has taken more than 20 seconds
-Skipping remaining test cases
-
-You have FAILED one or more of your test cases
-Keep debugging
+Program must be one of printCountries printRunningAvg printCumulative printDailyMax
+But found "#printRunningAvg"
 
 Overall Grade: NO GRADE YET
