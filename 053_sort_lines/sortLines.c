@@ -18,9 +18,10 @@ void sort_stdin(void * f) {
   char ** lines = NULL;
   lines = malloc(sizeof(*lines));
   char * cur_line = NULL;
-  cur_line = (char *)malloc(sizeof(char));
+  cur_line = malloc(sizeof(char *));
   int num_line = 0;
-  while (getline(&cur_line, NULL, f) >= 0) {
+  size_t sz = 0;
+  while (getline(&cur_line, &sz, f) >= 0 && cur_line[0] != '\n') {
     lines = realloc(lines, (num_line + 1) * sizeof(*lines));
     lines[num_line++] = cur_line;
     cur_line = NULL;
@@ -29,7 +30,7 @@ void sort_stdin(void * f) {
   sortData(lines, num_line);
 
   for (int i = 0; i < num_line; i++) {
-    printf("%s\n", lines[i]);
+    printf("%s", lines[i]);
     free(lines[i]);
   }
 
