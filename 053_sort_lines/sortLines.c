@@ -29,7 +29,7 @@ void sort_stdin(void * f) {
   sortData(lines, num_line);
 
   for (int i = 0; i < num_line; i++) {
-    printf("%s", lines[i]);
+    printf("%s\n", lines[i]);
     free(lines[i]);
   }
 
@@ -57,10 +57,7 @@ void sort_lines(int argc, char ** argv) {
 int main(int argc, char ** argv) {
   //WRITE YOUR CODE HERE!
   if (argc == 1) {
-    char * line = NULL;
-    getline(&line, NULL, stdin);
-    sort_stdin(line);
-    free(line);
+    sort_stdin(stdin);
   }
   else if (argc > 1) {
     sort_lines(argc, argv);
