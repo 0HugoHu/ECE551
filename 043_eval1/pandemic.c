@@ -35,10 +35,16 @@ country_t parseLine(char * line) {
   while ((c = line[index++]) != '\0' && c != '\n') {
     if (c >= '0' && c <= '9') {
       population = population * 10 + c - '0';
+      //Overflow
+      if (population > 1500000000) {
+        fprintf(stderr, "Wrong population! Overflow!\n");
+        exit(EXIT_FAILURE);
+      }
     }
     //Number contains other ASCII char
     else {
-      fprintf(stderr, "Population is not a number!\n");
+      fprintf(stderr,
+              "Population is not a number! Or the number cannot be 0 or negative!\n");
       exit(EXIT_FAILURE);
     }
   }
