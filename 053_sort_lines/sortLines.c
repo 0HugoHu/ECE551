@@ -21,7 +21,7 @@ void sort_stdin(void * f) {
   cur_line = malloc(sizeof(char *));
   int num_line = 0;
   size_t sz = 0;
-  while (getline(&cur_line, &sz, f) >= 0 && cur_line[0] != '\n') {
+  while (getline(&cur_line, &sz, f) >= 0) {
     lines = realloc(lines, (num_line + 1) * sizeof(*lines));
     lines[num_line++] = cur_line;
     cur_line = NULL;
