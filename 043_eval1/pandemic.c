@@ -11,7 +11,7 @@ country_t parseLine(char * line) {
   //CODE START HERE
   //Test for empty char
   if (line == NULL) {
-    fprintf(stderr, "Read empty line!\n");
+    fprintf(stderr, "line: Read empty line!\n");
     exit(EXIT_FAILURE);
   }
 
@@ -56,7 +56,11 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   //WRITE ME
   //CODE START HERE
   if (data == NULL) {
-    fprintf(stderr, "No data is found!\n");
+    fprintf(stderr, "data: No data is found!\n");
+    exit(EXIT_FAILURE);
+  }
+  if (n_days < 7) {
+    fprintf(stderr, "ndays: At least 7 data is required!");
     exit(EXIT_FAILURE);
   }
 
@@ -92,6 +96,29 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
 
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
   //WRITE ME
+  //CODE START HERE
+  if (data == NULL) {
+    fprintf(stderr, "data: No data is found!\n");
+    exit(EXIT_FAILURE);
+  }
+  if (n_days < 0) {
+    fprintf(stderr, "n_days: Days should be grater than 0!\n");
+    exit(EXIT_FAILURE);
+  }
+
+  double num_cum = 0.0;
+  for (int i = 0; i < n_days; i++) {
+    if (data[i] >= 0) {
+      num_cum += data[i];
+      cum[i] = num_cum * 100000 / pop;
+    }
+    //Bad data
+    else {
+      fprintf(stderr, "Contains bad data!\n");
+      exit(EXIT_FAILURE);
+    }
+  }
+  //CODE END HERE
 }
 
 void printCountryWithMax(country_t * countries,
