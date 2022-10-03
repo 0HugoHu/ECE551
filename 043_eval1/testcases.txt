@@ -2,7 +2,8 @@
 printCountries invalid.csv
 printDailyMax population.csv
 printRunningAvg population.csv
-printDailymax daily_small.csv population.csv
+printCumulative
+printDailyMax daily_small.csv population.csv
 printRunningAvg population.csv test1.csv
 printRunningAvg population.csv test2.csv
 printRunningAvg population.csv test3.csv
@@ -25,17 +26,17 @@ printCumulative population.csv test8.csv
 printCumulative population.csv test9.csv
 printCumulative population.csv test10
 printCumulative population.csv test11.csv
-printDailymax population.csv test1.csv
-printDailymax population.csv test2.csv
-printDailymax population.csv test3.csv
-printDailymax population.csv test4.csv
-printDailymax population.csv test5.csv
-printDailymax population.csv test6.csv
-printDailymax population.csv test7.csv
-printDailymax population.csv test8.csv
-printDailymax population.csv test9.csv
-printDailymax population.csv test10.txt
-printDailymax population.csv test11.csv
+printDailyMax population.csv test1.csv
+printDailyMax population.csv test2.csv
+printDailyMax population.csv test3.csv
+printDailyMax population.csv test4.csv
+printDailyMax population.csv test5.csv
+printDailyMax population.csv test6.csv
+printDailyMax population.csv test7.csv
+printDailyMax population.csv test8.csv
+printDailyMax population.csv test9.csv
+printDailyMax population.csv test10.txt
+printDailyMax population.csv test11.csv
 
 
 
