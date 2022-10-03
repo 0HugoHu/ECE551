@@ -47,6 +47,7 @@ country_t parseLine(char * line) {
     exit(EXIT_FAILURE);
   }
   ans.population = population;
+
   //CODE END HERE
 
   return ans;
@@ -91,6 +92,7 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
       exit(EXIT_FAILURE);
     }
   }
+
   //CODE END HERE
 }
 
@@ -102,10 +104,11 @@ void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) 
     exit(EXIT_FAILURE);
   }
   if (n_days < 0) {
-    fprintf(stderr, "n_days: Days should be grater than 0!\n");
+    fprintf(stderr, "n_days: Days should be greater than 0!\n");
     exit(EXIT_FAILURE);
   }
 
+  //Calculate cumulative sum per 100,000
   double num_cum = 0.0;
   for (int i = 0; i < n_days; i++) {
     if (data[i] >= 0) {
@@ -118,6 +121,7 @@ void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) 
       exit(EXIT_FAILURE);
     }
   }
+
   //CODE END HERE
 }
 
@@ -126,4 +130,39 @@ void printCountryWithMax(country_t * countries,
                          unsigned ** data,
                          size_t n_days) {
   //WRITE ME
+  //CODE START HERE
+  if (countries == NULL) {
+    fprintf(stderr, "country_t: No data is found!\n");
+    exit(EXIT_FAILURE);
+  }
+  if (data == NULL) {
+    fprintf(stderr, "data: No data is found!\n");
+    exit(EXIT_FAILURE);
+  }
+  if (n_days <= 0) {
+    fprintf(stderr, "n_days: Days should be greater than 0!\n");
+    exit(EXIT_FAILURE);
+  }
+
+  unsigned max = 0;
+  int country_index = 0;
+  //Iterate through countries
+  for (size_t i = 0; i < n_countries; i++) {
+    //Iterate the first n_days
+    for (size_t j = 0; j < n_days; j++) {
+      if (data[i][j] > max) {
+        //Find the temperate maximum number
+        max = data[i][j];
+        country_index = i;
+      }
+      //Bad data
+      else {
+      }
+    }
+  }
+
+  //Print result
+  printf("%s has the most daily cases with %u\n", countries[country_index].name, max);
+
+  //CODE END HERE
 }
