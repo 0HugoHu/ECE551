@@ -85,7 +85,7 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
     exit(EXIT_SUCCESS);
   }
 
-  double num_avg = 0.0;
+  unsigned num_avg = 0;
   size_t index = 0;
   //Read first 6 days data
   for (; index < 6; index++) {
@@ -133,7 +133,7 @@ void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) 
   }
 
   //Calculate cumulative sum per 100,000
-  uint64_t num_cum = 0;
+  unsigned num_cum = 0;
   for (int i = 0; i < n_days; i++) {
     if (data[i] >= 0) {
       num_cum += data[i];
