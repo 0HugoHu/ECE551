@@ -40,13 +40,13 @@ country_t parseLine(char * line) {
   //Remove spaces after comma
   while (line[index++] == ' ');
   index--;
-  
+
   //Get value
   while ((c = line[index++]) != '\0' && c != '\n') {
     if (c >= '0' && c <= '9') {
       population = population * 10 + c - '0';
       //Overflow
-      if (population > 1400000000) {
+      if (population > 2000000000) {
         fprintf(stderr, "Wrong population! Overflow!\n");
         exit(EXIT_FAILURE);
       }
