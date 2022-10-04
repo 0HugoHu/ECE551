@@ -38,18 +38,30 @@ country_t parseLine(char * line) {
   uint64_t population = 0;
   char c = 0;
   //Remove spaces after comma
-  while (line[index++] == ' ');
+  while (line[index++] == ' ' || line[index] == '\t');
   index--;
+
+  //Flag for if whitespaces appear only after number
+  int flag_white_space = 0;
 
   //Get value
   while ((c = line[index++]) != '\0' && c != '\n') {
     if (c >= '0' && c <= '9') {
+      //Check if contains white spaces inside a number
+      if (flag_white_space == 1) {
+        fprintf(stderr, "Wrong population! White spaces inside a number!\n");
+        exit(EXIT_FAILURE);
+      }
       population = population * 10 + c - '0';
       //Overflow
       if (population > 2000000000) {
         fprintf(stderr, "Wrong population! Overflow!\n");
         exit(EXIT_FAILURE);
       }
+    }
+    //Contains white space after number
+    else if (c == '\t' || c == ' ') {
+      flag_white_space = 1;
     }
     //Number contains other ASCII char
     else {
@@ -85,7 +97,7 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
     exit(EXIT_SUCCESS);
   }
 
-  unsigned num_avg = 0;
+  double num_avg = 0.0;
   size_t index = 0;
   //Read first 6 days data
   for (; index < 6; index++) {
@@ -133,7 +145,7 @@ void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) 
   }
 
   //Calculate cumulative sum per 100,000
-  unsigned num_cum = 0;
+  uint64_t num_cum = 0;
   for (int i = 0; i < n_days; i++) {
     if (data[i] >= 0) {
       num_cum += data[i];
