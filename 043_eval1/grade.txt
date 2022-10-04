@@ -1,6 +1,6 @@
-Grading at 10/03/2022:22:45:19.470989
-For commit ID 9d813e985f924e2bbac794243a832bf89f35879c
-Grading at Mon Oct  3 06:45:12 PM EDT 2022
+Grading at 10/04/2022:22:31:01.325650
+For commit ID 266531b6bf74c18d2fe46fd93f5828bd86e21746
+Grading at Tue Oct  4 06:30:56 PM EDT 2022
 
 Compiling 
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
@@ -16,41 +16,29 @@ Your program successfully indicated a failure case
 Test case printDailyMax population.csv
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
-Test case printRunningAvg test20.csv daily_cases.csv
-Our printRunningAvg does not consider this an error case
-+-----------------------------------------------------------------------+
-Test case printRunningAvg test21.csv daily_cases.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printRunningAvg test22.csv daily_cases.csv
-Our printRunningAvg does not consider this an error case
-+-----------------------------------------------------------------------+
-Test case printRunningAvg test23.csv daily_cases.csv
-Our printRunningAvg does not consider this an error case
-+-----------------------------------------------------------------------+
-Test case printRunningAvg test24.csv daily_cases.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printRunningAvg test25.csv daily_cases.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printRunningAvg test26.csv daily_cases.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printRunningAvg test27.csv daily_cases.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printRunningAvg test28.csv daily_cases.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printRunningAvg test29.csv daily_cases.csv
-Our printRunningAvg does not consider this an error case
-+-----------------------------------------------------------------------+
-Test case printRunningAvg test30.csv daily_cases.csv
-Our printRunningAvg does not consider this an error case
-+-----------------------------------------------------------------------+
 Test case printCountries population.csv
-Your file matched the expected output
+Line_1_did_not_match
+Line_2_did_not_match
+Line_3_did_not_match
+Line_4_did_not_match
+Line_5_did_not_match
+Line_6_did_not_match
+Line_7_did_not_match
+Line_8_did_not_match
+Line_9_did_not_match
+Your file did not match the expected ouput
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_small.csv
+Line_2_did_not_match
+Your file did not match the expected ouput
++-----------------------------------------------------------------------+
+Test case printCumulative population.csv daily_small.csv
+Line_2_did_not_match
+Line_4_did_not_match
+Line_6_did_not_match
+Line_14_did_not_match
+Line_18_did_not_match
+Your file did not match the expected ouput
 +-----------------------------------------------------------------------+
 Test case printDailyMax population.csv daily_small.csv
 Your file matched the expected output
