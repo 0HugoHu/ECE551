@@ -39,6 +39,8 @@ country_t parseLine(char * line) {
   char c = 0;
   //Remove spaces after comma
   while (line[index++] == ' ');
+  index--;
+  
   //Get value
   while ((c = line[index++]) != '\0' && c != '\n') {
     if (c >= '0' && c <= '9') {
