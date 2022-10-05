@@ -41,27 +41,15 @@ country_t parseLine(char * line) {
   while (line[index++] == ' ' || line[index] == '\t');
   index--;
 
-  //Flag for if whitespaces appear only after number
-  int flag_white_space = 0;
-
   //Get value
   while ((c = line[index++]) != '\0' && c != '\n') {
     if (c >= '0' && c <= '9') {
-      //Check if contains white spaces inside a number
-      if (flag_white_space == 1) {
-        fprintf(stderr, "Wrong population! White spaces inside a number!\n");
-        exit(EXIT_FAILURE);
-      }
       population = population * 10 + c - '0';
       //Overflow
       if (population > 2000000000) {
         fprintf(stderr, "Wrong population! Overflow!\n");
         exit(EXIT_FAILURE);
       }
-    }
-    //Contains white space after number
-    else if (c == '\t' || c == ' ') {
-      flag_white_space = 1;
     }
     //Number contains other ASCII char
     else {
