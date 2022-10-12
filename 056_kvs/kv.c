@@ -17,9 +17,11 @@ kvarray_t * readKVs(const char * fname) {
   t->length = 0;
 
   char * line = NULL;
+  size_t size = 0;
   int num = 0;
   int divider = 0;
-  while ((num = getline(&line, NULL, f)) != -1) {
+
+  while ((num = getline(&line, &size, f)) != -1) {
     int is_valid = 0;
     for (int i = 0; i < num; i++) {
       if (line[i] == '=') {
@@ -36,22 +38,27 @@ kvarray_t * readKVs(const char * fname) {
       fprintf(stderr, "Illegal line data!");
       exit(EXIT_FAILURE);
     }
+    //printf("%s, %d\n", line, divider);
     kvpair_t * pair = malloc(sizeof(*pair));
-    pair->key = NULL;
-    pair->value = NULL;
+    pair->key = malloc((divider + 1) * sizeof(*pair->key));
+    pair->value = malloc((num - divider) * sizeof(*pair->value));
+
     strncpy(pair->key, line, divider);
     pair->key[divider] = '\0';
     strncpy(pair->value, line + divider + 1, num - divider - 1);
     pair->value[num - divider - 1] = '\0';
 
-    t->data = realloc(t->data, (t->length - 1) * sizeof(*t->data));
+    //printf("key = '%s' value = '%s'\n", pair->key, pair->value);
+    t->data = realloc(t->data, (t->length + 1) * sizeof(*t->data));
     t->data[t->length] = pair;
     t->length++;
-    free(pair);
   }
+
+  free(line);
 
   if (fclose(f) != 0) {
     fprintf(stderr, "Error closing the file!");
+    exit(EXIT_FAILURE);
   }
 
   return t;
