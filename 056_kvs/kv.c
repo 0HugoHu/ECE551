@@ -45,8 +45,9 @@ kvarray_t * readKVs(const char * fname) {
 
     strncpy(pair->key, line, divider);
     pair->key[divider] = '\0';
-    strncpy(pair->value, line + divider + 1, num - divider - 1);
-    pair->value[num - divider - 1] = '\0';
+    //printf("num:%d, divider:%d\n", num, divider);
+    strncpy(pair->value, line + divider + 1, num - divider - 2);
+    pair->value[num - divider - 2] = '\0';
 
     //printf("key = '%s' value = '%s'\n", pair->key, pair->value);
     t->data = realloc(t->data, (t->length + 1) * sizeof(*t->data));
