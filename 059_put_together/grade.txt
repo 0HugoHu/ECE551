@@ -1,0 +1,137 @@
+Grading at 10/13/2022:19:43:48.507307
+For commit ID 0830d6f30c3d0360b7deb0f2cbba6566de086894
+Grading at Thu Oct 13 03:43:43 PM EDT 2022
+Attempting to compile:
+rm -f  counts.o  kv.o  main.o  outname.o count_values *~
+gcc -c -Wall -Werror -std=gnu99 -pedantic -ggdb3 counts.c
+gcc -c -Wall -Werror -std=gnu99 -pedantic -ggdb3 kv.c
+gcc -c -Wall -Werror -std=gnu99 -pedantic -ggdb3 main.c
+gcc -c -Wall -Werror -std=gnu99 -pedantic -ggdb3 outname.c
+gcc -Wall -Werror -std=gnu99 -pedantic -ggdb3 -o count_values  counts.o  kv.o  main.o  outname.o
+#################################################
+testcase1:
+testcase1 passed, your program successfully indicated a failure
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
+#################################################
+testcase2:
+Your file matched the expected output
+Comparing file list1a.txt.counts with answer
+Your output is correct
+Comparing file list1b.txt.counts with answer
+Your file matched the expected output
+Your output is correct
+  - Valgrind reported errors
+valgrind was not clean
+==1290834== Memcheck, a memory error detector
+==1290834== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1290834== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1290834== 
+==1290834== Parent PID: 1290833
+==1290834== 
+==1290834== 
+==1290834== HEAP SUMMARY:
+==1290834==     in use at exit: 851 bytes in 66 blocks
+==1290834==   total heap usage: 135 allocs, 69 frees, 26,339 bytes allocated
+==1290834== 
+==1290834== 40 bytes in 2 blocks are definitely lost in loss record 1 of 5
+==1290834==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1290834==    by 0x109E45: computeOutputFileName (outname.c:11)
+==1290834==    by 0x109D3A: main (main.c:47)
+==1290834== 
+==1290834== 811 (168 direct, 643 indirect) bytes in 1 blocks are definitely lost in loss record 5 of 5
+==1290834==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1290834==    by 0x1098E0: readKVs (kv.c:53)
+==1290834==    by 0x109CE1: main (main.c:40)
+==1290834== 
+==1290834== LEAK SUMMARY:
+==1290834==    definitely lost: 208 bytes in 3 blocks
+==1290834==    indirectly lost: 643 bytes in 63 blocks
+==1290834==      possibly lost: 0 bytes in 0 blocks
+==1290834==    still reachable: 0 bytes in 0 blocks
+==1290834==         suppressed: 0 bytes in 0 blocks
+==1290834== 
+==1290834== For lists of detected and suppressed errors, rerun with: -s
+==1290834== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+#################################################
+testcase3:
+Your file matched the expected output
+Comparing file list2a.txt.counts with answer
+Your output is correct
+Comparing file list2b.txt.counts with answer
+Your file matched the expected output
+Your output is correct
+Comparing file list2c.txt.counts with answer
+Your file matched the expected output
+Your output is correct
+  - Valgrind reported errors
+valgrind was not clean
+==1290868== Memcheck, a memory error detector
+==1290868== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1290868== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1290868== 
+==1290868== Parent PID: 1290867
+==1290868== 
+==1290868== 
+==1290868== HEAP SUMMARY:
+==1290868==     in use at exit: 624 bytes in 40 blocks
+==1290868==   total heap usage: 112 allocs, 72 frees, 34,343 bytes allocated
+==1290868== 
+==1290868== 60 bytes in 3 blocks are definitely lost in loss record 1 of 5
+==1290868==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1290868==    by 0x109E45: computeOutputFileName (outname.c:11)
+==1290868==    by 0x109D3A: main (main.c:47)
+==1290868== 
+==1290868== 564 (96 direct, 468 indirect) bytes in 1 blocks are definitely lost in loss record 5 of 5
+==1290868==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1290868==    by 0x1098E0: readKVs (kv.c:53)
+==1290868==    by 0x109CE1: main (main.c:40)
+==1290868== 
+==1290868== LEAK SUMMARY:
+==1290868==    definitely lost: 156 bytes in 4 blocks
+==1290868==    indirectly lost: 468 bytes in 36 blocks
+==1290868==      possibly lost: 0 bytes in 0 blocks
+==1290868==    still reachable: 0 bytes in 0 blocks
+==1290868==         suppressed: 0 bytes in 0 blocks
+==1290868== 
+==1290868== For lists of detected and suppressed errors, rerun with: -s
+==1290868== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+#################################################
+testcase4:
+Your file matched the expected output
+Comparing file list3a.txt.counts with answer
+Your output is correct
+  - Valgrind reported errors
+valgrind was not clean
+==1290890== Memcheck, a memory error detector
+==1290890== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1290890== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1290890== 
+==1290890== Parent PID: 1290889
+==1290890== 
+==1290890== 
+==1290890== HEAP SUMMARY:
+==1290890==     in use at exit: 20,860 bytes in 26 blocks
+==1290890==   total heap usage: 64 allocs, 38 frees, 92,497 bytes allocated
+==1290890== 
+==1290890== 20 bytes in 1 blocks are definitely lost in loss record 1 of 5
+==1290890==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1290890==    by 0x109E45: computeOutputFileName (outname.c:11)
+==1290890==    by 0x109D3A: main (main.c:47)
+==1290890== 
+==1290890== 20,840 (64 direct, 20,776 indirect) bytes in 1 blocks are definitely lost in loss record 5 of 5
+==1290890==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1290890==    by 0x1098E0: readKVs (kv.c:53)
+==1290890==    by 0x109CE1: main (main.c:40)
+==1290890== 
+==1290890== LEAK SUMMARY:
+==1290890==    definitely lost: 84 bytes in 2 blocks
+==1290890==    indirectly lost: 20,776 bytes in 24 blocks
+==1290890==      possibly lost: 0 bytes in 0 blocks
+==1290890==    still reachable: 0 bytes in 0 blocks
+==1290890==         suppressed: 0 bytes in 0 blocks
+==1290890== 
+==1290890== For lists of detected and suppressed errors, rerun with: -s
+==1290890== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+
+Overall Grade: B
