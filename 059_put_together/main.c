@@ -44,7 +44,7 @@ int main(int argc, char ** argv) {
     counts_t * c = countFile(argv[i], kvPairs);
     //   (call this result c)
     //compute the output file name from argv[i] (call this outName)
-    const char * outName = computeOutputFileName(argv[i]);
+    char * outName = computeOutputFileName(argv[i]);
     //open the file named by outName (call that f)
     FILE * f = fopen(outName, "w");
     //print the counts from c into the FILE f
@@ -59,7 +59,7 @@ int main(int argc, char ** argv) {
       exit(EXIT_FAILURE);
     }
     //free the memory for outName and c
-    //free(outName);
+    free(outName);
     freeCounts(c);
   }
   //free the memory for kv
