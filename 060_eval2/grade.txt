@@ -1,0 +1,65 @@
+Grading at 10/24/2022:00:24:00.671708
+For commit ID c8e1cd95a5c95d4f7a2dd82270504c2c1e23ca52
+Grading at Sun Oct 23 08:23:59 PM EDT 2022
+Doing some basic checking for your submission
+
+Step 1
+Checking that story-step1 compiles
+rm -f *~ story-step1  story-step1.o rand_story.o
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c rand_story.c
+gcc -std=gnu99 -pedantic -Wall -Werror -ggdb3 -c story-step1.c
+gcc -o story-step1 story-step1.o rand_story.o provided.o
+rm story-step1.o
+The code compiled (good)
+Executable story-step1 exists (good)
+Checking with provided test case story.txt
+Your file matched the expected output
+Now running YOUR tests for step 1
+
+1.1: Current test is story-step1 story.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks:
+==1573036== Memcheck, a memory error detector
+==1573036== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1573036== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1573036== Command: ./story-step1 story.txt
+==1573036== Parent PID: 1573035
+==1573036== 
+==1573036== Conditional jump or move depends on uninitialised value(s)
+==1573036==    at 0x484ED88: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1573036==    by 0x48D9DB0: __vfprintf_internal (vfprintf-internal.c:1517)
+==1573036==    by 0x48C381E: printf (printf.c:33)
+==1573036==    by 0x1094BA: replaceUnderscore (story-step1.c:74)
+==1573036==    by 0x10961F: readLines (rand_story.c:33)
+==1573036==    by 0x109346: main (story-step1.c:29)
+==1573036== 
+==1573036== 
+==1573036== HEAP SUMMARY:
+==1573036==     in use at exit: 240 bytes in 2 blocks
+==1573036==   total heap usage: 8 allocs, 6 frees, 9,105 bytes allocated
+==1573036== 
+==1573036== 240 bytes in 2 blocks are definitely lost in loss record 1 of 1
+==1573036==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1573036==    by 0x48E31A2: getdelim (iogetdelim.c:62)
+==1573036==    by 0x10966F: readLines (rand_story.c:31)
+==1573036==    by 0x109346: main (story-step1.c:29)
+==1573036== 
+==1573036== LEAK SUMMARY:
+==1573036==    definitely lost: 240 bytes in 2 blocks
+==1573036==    indirectly lost: 0 bytes in 0 blocks
+==1573036==      possibly lost: 0 bytes in 0 blocks
+==1573036==    still reachable: 0 bytes in 0 blocks
+==1573036==         suppressed: 0 bytes in 0 blocks
+==1573036== 
+==1573036== Use --track-origins=yes to see where uninitialised values come from
+==1573036== For lists of detected and suppressed errors, rerun with: -s
+==1573036== ERROR SUMMARY: 3 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 2
+Checking that story-step2 compiles
+rm -f *~ story-step1  story-step1.o rand_story.o
+The code did not compile!
+
+Overall Grade: NO GRADE YET
