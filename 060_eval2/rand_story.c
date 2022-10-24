@@ -1,5 +1,7 @@
 #include "rand_story.h"
 
+#define UNIQUE_TAG "eHA2WXcRupyKT4dC"
+
 void checkCmdArgs(int argc, int argcReq) {
   if (argc != argcReq) {
     fprintf(stderr,
@@ -38,7 +40,7 @@ Return:
     0: Fail
     1: Success
 */
-int replaceUnderscore(char * line, ssize_t len, char * flag, catarray_t * cats) {
+int replacement(char * line, ssize_t len, char * flag, catarray_t * cats, catarray_t * history) {
   // Check mode: 1 - blank, 0 - random
   int mode = !strcmp(flag, "blank");
 
@@ -76,18 +78,64 @@ int replaceUnderscore(char * line, ssize_t len, char * flag, catarray_t * cats) 
       else {
         // Replace with "cat"
         if (mode) {
-          const char * replacement = chooseWord("blanks", NULL);
+          const char * replacement = chooseWord(flag, NULL);
           for (ssize_t k = 0; k < strlen(replacement); k++) {
             result[j++] = replacement[k];
           }
           i = endIndex;
         }
+        // Replace with random words
         else {
+          // Check if it is in category first
+          char *content = malloc((endIndex - i) * sizeof(* content));
+          strncpy(content, line + i + 1, endIndex - i - 1);
+          content[endIndex - i - 1] = '\0';
+
+          int index = containKey(cats, content);
+          // Try to convert to a number
+          char *endptr;
+          long number = strtol(content, &endptr, 10);
+          // Simple replacement
+          if (index != -1) {
+            const char * replacement = chooseWord(content, cats);
+            for (ssize_t k = 0; k < strlen(replacement); k++) {
+              result[j++] = replacement[k];
+            }
+            i = endIndex;
+            char *tag = "eHA2WXcRupyKT4dC";
+            addCats(history, tag, replacement);
+          } 
+          // Back reference
+          else if (*endptr == '\0' && number > 0) {
+            // If first a reference, rejects
+            if (history->n == 0) {
+              fprintf(stderr, "Back reference should not be the start!\n");
+              exit(EXIT_FAILURE);
+            }
+            // If reference number larger than size, rejects
+            if (number > history->arr[0].n_words) {
+              fprintf(stderr, "Back reference goes beyond boundary!\n");
+              exit(EXIT_FAILURE);
+            }
+            const char * replacement = history->arr[0].words[history->arr[0].n_words - number];
+            for (ssize_t k = 0; k < strlen(replacement); k++) {
+              result[j++] = replacement[k];
+            }
+            i = endIndex;
+            char *tag = "eHA2WXcRupyKT4dC";
+            addCats(history, tag, replacement);
+          } 
+          // Not in category
+          else {
+            fprintf(stderr, "Required key does not exist!\n");
+            exit(EXIT_FAILURE);
+          }
+          free(content);
+
         }
       }
     }
   }
-  // Do not need to add '\0' and '\n' since *line contains them
 
   // Print result
   for (ssize_t i = 0; i < j; i++) {
@@ -97,6 +145,55 @@ int replaceUnderscore(char * line, ssize_t len, char * flag, catarray_t * cats) 
   free(result);
   free(line);
   return 1;
+}
+
+int containKey(catarray_t * cats, char * key) {
+  for (size_t i = 0; i < cats->n; i++) {
+    if (!strcmp(key, cats->arr[i].name)) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+
+void addCats(catarray_t * cats, char * key, const char * value) {
+  int index = containKey(cats, key);
+  // Found category name and add new items
+  if (index != -1) {
+    // Same value exists
+    /*
+    for (size_t i = 0; i < cats->arr[index].n_words; i++) {
+      if (!strcmp(cats->arr[index].words[i], value)) {
+        return 1;
+      }
+    }
+    */
+    cats->arr[index].words = realloc(
+          cats->arr[index].words, (cats->arr[index].n_words + 1) * sizeof(*cats->arr[index].words));
+
+    cats->arr[index].words[cats->arr[index].n_words] = malloc((strlen(value) + 1) * sizeof(*cats->arr[index].words[cats->arr[index].n_words]));
+    strncpy(cats->arr[index].words[cats->arr[index].n_words], value, strlen(value));
+    cats->arr[index].words[cats->arr[index].n_words][strlen(value)] = '\0';
+
+    cats->arr[index].n_words++;
+  }
+  
+  // No category name matches, create new one
+  cats->arr = realloc(cats->arr, (cats->n + 1) * sizeof(*cats->arr));
+
+  cats->arr[cats->n].name = malloc((strlen(key) + 1) * sizeof(*cats->arr[cats->n].name));
+  strncpy(cats->arr[cats->n].name, key, strlen(key));
+  cats->arr[cats->n].name[strlen(key)] = '\0';
+
+  cats->arr[cats->n].words = malloc(sizeof(*cats->arr[cats->n].words));
+
+  cats->arr[cats->n].words[0] = malloc((strlen(value) + 1) * sizeof(*cats->arr[cats->n].words[0]));
+  strncpy(cats->arr[cats->n].words[0], value, strlen(value));
+  cats->arr[cats->n].words[0][strlen(value)] = '\0';
+
+  cats->arr[cats->n].n_words = 1;
+  cats->n++;
 }
 
 /*
@@ -111,7 +208,7 @@ Return:
     0: Fail
     1: Success
 */
-int readCategories(char * line, ssize_t len, char * flag, catarray_t * cats) {
+int readCategories(char * line, ssize_t len, char * flag, catarray_t * cats, catarray_t * history) {
   // Find the colon
   char * valuePtr = strchr(line, ':');
   // If not find colon
@@ -131,38 +228,21 @@ int readCategories(char * line, ssize_t len, char * flag, catarray_t * cats) {
   char * key = strndup(line, lenKey);
   char * value = strndup(valuePtr + 1, len - 1 - (lenKey + 1));
 
-  for (size_t i = 0; i < cats->n; i++) {
-    // Found category name and add new items
-    if (!strcmp(key, cats->arr[i].name)) {
-      cats->arr[i].words = realloc(
-          cats->arr[i].words, (cats->arr[i].n_words + 1) * sizeof(*cats->arr[i].words));
-      cats->arr[i].words[cats->arr[i].n_words] = value;
-      cats->arr[i].n_words++;
-      free(line);
-      free(key);
-      return 1;
-    }
-  }
-
-  // No category name matches, create new one
-  cats->arr = realloc(cats->arr, (cats->n + 1) * sizeof(*cats->arr));
-  cats->arr[cats->n].name = key;
-  cats->arr[cats->n].words = malloc(sizeof(*cats->arr[cats->n].words));
-  cats->arr[cats->n].words[0] = value;
-  cats->arr[cats->n].n_words = 1;
-  cats->n++;
+  // Found category name and add new items
+  addCats(cats, key, value);
+  free(key);
+  free(value);
   free(line);
-
   return 1;
 }
 
-void readLines(FILE * f, parseLineFunc func, char * flag, catarray_t * cats) {
+void readLines(FILE * f, parseLineFunc func, char * flag, catarray_t * cats, catarray_t * history) {
   char * line = NULL;
   size_t sz = 0;
   ssize_t lenRead;
   while ((lenRead = getline(&line, &sz, f)) != -1) {
     //todo...
-    if (sz < 1 || !func(line, lenRead, flag, cats)) {
+    if (sz < 1 || !func(line, lenRead, flag, cats, history)) {
       fprintf(stderr, "Something wrong in parseLineFunc!\n");
       exit(EXIT_FAILURE);
     }

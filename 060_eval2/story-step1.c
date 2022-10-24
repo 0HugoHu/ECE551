@@ -15,7 +15,7 @@ int main(int argc, char ** argv) {
 
     // Read each line in file and execute repleacement
     // replaceUnderscore is the function pointer
-    readLines(f, replaceUnderscore, "blank", NULL);
+    readLines(f, replacement, "blank", NULL, NULL);
 
     // Close file with error check
     closeFile(f);

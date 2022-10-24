@@ -1,0 +1,5 @@
+animal:dragon
+animal:::
+place:cave
+place: 
+adjective:peculiar

@@ -19,7 +19,7 @@ int main(int argc, char ** argv) {
 
     // Read each line in file and store categories
     // readCategories is the function pointer
-    readLines(f, readCategories, "", cats);
+    readLines(f, readCategories, "", cats, NULL);
 
     // Show results
     printWords(cats);

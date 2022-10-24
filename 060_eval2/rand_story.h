@@ -13,15 +13,19 @@ FILE * checkFile(const char * filePath, const char * permission);
 
 void closeFile(FILE * f);
 
-typedef int (* parseLineFunc) (char * line, ssize_t len, char * flag, catarray_t * cats);
+typedef int (* parseLineFunc) (char * line, ssize_t len, char * flag, catarray_t * cats, catarray_t * history);
 
-int replaceUnderscore(char * line, ssize_t len, char * flag, catarray_t * cats);
+int replacement(char * line, ssize_t len, char * flag, catarray_t * cats, catarray_t * history);
 
-int readCategories(char * line, ssize_t len, char * flag, catarray_t * cats);
+int readCategories(char * line, ssize_t len, char * flag, catarray_t * cats, catarray_t * history);
 
-void readLines(FILE * f, parseLineFunc p, char * flag, catarray_t * cats);
+void readLines(FILE * f, parseLineFunc p, char * flag, catarray_t * cats, catarray_t * history);
+
+void addCats(catarray_t * cats, char * key, const char * value);
 
 void freeCats(catarray_t * cats);
+
+int containKey(catarray_t * cats, char * key);
 
 
 
