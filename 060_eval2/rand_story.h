@@ -9,12 +9,18 @@
 
 typedef int (* parseLineFunc) (char * line, ssize_t len, FILE * terminalFile);
 
+int replaceUnderscore(char * line, ssize_t len, FILE * terminalFile);
+
 void checkCmdArgs(int argc, int argcReq);
 
 FILE * checkFile(const char * filePath, const char * permission);
 
 void closeFile(FILE * f);
 
+
+
 void readLines(FILE * f, parseLineFunc p, FILE * terminalFile);
+
+
 
 #endif
