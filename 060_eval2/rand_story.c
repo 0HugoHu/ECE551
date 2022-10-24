@@ -91,8 +91,6 @@ int replaceUnderscore(char * line, ssize_t len, FILE * terminalFile) {
 
     free(result);
     free(line);
-    
-    // Return success
     return 1;
 }
 
