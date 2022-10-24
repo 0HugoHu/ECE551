@@ -178,22 +178,23 @@ void addCats(catarray_t * cats, char * key, const char * value) {
 
     cats->arr[index].n_words++;
   }
-  
   // No category name matches, create new one
-  cats->arr = realloc(cats->arr, (cats->n + 1) * sizeof(*cats->arr));
+  else {
+    cats->arr = realloc(cats->arr, (cats->n + 1) * sizeof(*cats->arr));
 
-  cats->arr[cats->n].name = malloc((strlen(key) + 1) * sizeof(*cats->arr[cats->n].name));
-  strncpy(cats->arr[cats->n].name, key, strlen(key));
-  cats->arr[cats->n].name[strlen(key)] = '\0';
+    cats->arr[cats->n].name = malloc((strlen(key) + 1) * sizeof(*cats->arr[cats->n].name));
+    strncpy(cats->arr[cats->n].name, key, strlen(key));
+    cats->arr[cats->n].name[strlen(key)] = '\0';
 
-  cats->arr[cats->n].words = malloc(sizeof(*cats->arr[cats->n].words));
+    cats->arr[cats->n].words = malloc(sizeof(*cats->arr[cats->n].words));
 
-  cats->arr[cats->n].words[0] = malloc((strlen(value) + 1) * sizeof(*cats->arr[cats->n].words[0]));
-  strncpy(cats->arr[cats->n].words[0], value, strlen(value));
-  cats->arr[cats->n].words[0][strlen(value)] = '\0';
+    cats->arr[cats->n].words[0] = malloc((strlen(value) + 1) * sizeof(*cats->arr[cats->n].words[0]));
+    strncpy(cats->arr[cats->n].words[0], value, strlen(value));
+    cats->arr[cats->n].words[0][strlen(value)] = '\0';
 
-  cats->arr[cats->n].n_words = 1;
-  cats->n++;
+    cats->arr[cats->n].n_words = 1;
+    cats->n++;
+  }
 }
 
 /*
