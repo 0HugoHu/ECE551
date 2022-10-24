@@ -7,19 +7,21 @@
 
 //any functions you want your main to use
 
-typedef int (* parseLineFunc) (char * line, ssize_t len, FILE * terminalFile);
-
-int replaceUnderscore(char * line, ssize_t len, FILE * terminalFile);
-
 void checkCmdArgs(int argc, int argcReq);
 
 FILE * checkFile(const char * filePath, const char * permission);
 
 void closeFile(FILE * f);
 
+typedef int (* parseLineFunc) (char * line, ssize_t len, char * flag, catarray_t * cats);
 
+int replaceUnderscore(char * line, ssize_t len, char * flag, catarray_t * cats);
 
-void readLines(FILE * f, parseLineFunc p, FILE * terminalFile);
+int readCategories(char * line, ssize_t len, char * flag, catarray_t * cats);
+
+void readLines(FILE * f, parseLineFunc p, char * flag, catarray_t * cats);
+
+void freeCats(catarray_t * cats);
 
 
 
