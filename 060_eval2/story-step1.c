@@ -36,6 +36,10 @@ int main(int argc, char ** argv) {
 
 
 int replaceUnderscore(char * line, ssize_t len, FILE * terminalFile) {
+    if (len < 1) {
+        return 0;
+    }
+
     // Result line, dynamic inits space with the length of the line
     char * result = malloc(len * sizeof(* result));
 
@@ -43,6 +47,10 @@ int replaceUnderscore(char * line, ssize_t len, FILE * terminalFile) {
     ssize_t j = 0;
 
     for (ssize_t i = 0; i < len; i++) {
+        // Double realloc space
+        if (j >= len) {
+            result = realloc(result, 2 * j * sizeof(* result));
+        }
         // If not "_", copy it to the result
         if (line[i] != '_') {
             result[j++] = line[i];
@@ -71,9 +79,12 @@ int replaceUnderscore(char * line, ssize_t len, FILE * terminalFile) {
     // Do not need to add '\0' and '\n' since *line contains them
 
     // Print result
-    printf("%s", result);
+    for (ssize_t i = 0; i < j; i++) {
+        printf("%c", result[i]);
+    }
 
     free(result);
+    free(line);
     
     // Return success
     return 1;

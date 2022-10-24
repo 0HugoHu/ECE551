@@ -37,4 +37,5 @@ void readLines(FILE * f, parseLineFunc func, FILE * terminalFile) {
         line = NULL;
     }
     free(line);
+
 }
