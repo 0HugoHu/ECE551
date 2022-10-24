@@ -1,9 +1,11 @@
 #include "rand_story.h"
 
 #define UNIQUE_TAG "eHA2WXcRupyKT4dC"
+#define MAX_LENGTH 1000
 
-void checkCmdArgs(int argc, int argcReq) {
-  if (argc != argcReq) {
+void checkCmdArgs(int argc, char ** argv, int argcReq, int optionalReq) {
+  if (argc == argcReq || (argc == optionalReq && !strcmp(argv[1], "-n"))) {}
+  else {
     fprintf(stderr,
             "Invalid command line arguments!\nFormat: %d arguments are required!",
             argcReq - 1);
@@ -41,8 +43,8 @@ Return:
     1: Success
 */
 int replacement(char * line, ssize_t len, char * flag, catarray_t * cats, catarray_t * history) {
-  // Check mode: 1 - blank, 0 - random
-  int mode = !strcmp(flag, "blank");
+  // Check mode: 1 - blank, 0 - random, -1 - unique
+  int mode = strcmp(flag, "blank") == 0 ? 1 : (strcmp(flag, "random") == 0 ? 0 : -1);
 
   // Result line, dynamic inits space with the length of the line
   char * result = malloc(len * sizeof(*result));
@@ -77,7 +79,7 @@ int replacement(char * line, ssize_t len, char * flag, catarray_t * cats, catarr
       // Find matching
       else {
         // Replace with "cat"
-        if (mode) {
+        if (mode == 1) {
           const char * replacement = chooseWord(flag, NULL);
           for (ssize_t k = 0; k < strlen(replacement); k++) {
             result[j++] = replacement[k];
@@ -97,13 +99,32 @@ int replacement(char * line, ssize_t len, char * flag, catarray_t * cats, catarr
           long number = strtol(content, &endptr, 10);
           // Simple replacement
           if (index != -1) {
-            const char * replacement = chooseWord(content, cats);
-            for (ssize_t k = 0; k < strlen(replacement); k++) {
-              result[j++] = replacement[k];
-            }
-            i = endIndex;
             char *tag = "eHA2WXcRupyKT4dC";
-            addCats(history, tag, replacement);
+            // Must select unique word
+            if (mode == -1) {
+              
+              char replacement[MAX_LENGTH] = {'\0'}; 
+              do {
+                  const char * temp = chooseWord(content, cats);
+                  for (size_t l = 0; l < strlen(temp); l++) {
+                    replacement[l] = temp[l];
+                  }
+              } while (containValue(history, tag, replacement) == NULL);
+              for (ssize_t k = 0; k < strlen(replacement); k++) {
+                result[j++] = replacement[k];
+              }
+              i = endIndex;
+              
+              addCats(history, tag, replacement);
+            } else {
+              const char * replacement = chooseWord(content, cats);
+              for (ssize_t k = 0; k < strlen(replacement); k++) {
+                result[j++] = replacement[k];
+              }
+              i = endIndex;
+              addCats(history, tag, replacement);
+            }
+            
           } 
           // Back reference
           else if (*endptr == '\0' && number > 0) {
@@ -147,6 +168,7 @@ int replacement(char * line, ssize_t len, char * flag, catarray_t * cats, catarr
   return 1;
 }
 
+
 int containKey(catarray_t * cats, char * key) {
   for (size_t i = 0; i < cats->n; i++) {
     if (!strcmp(key, cats->arr[i].name)) {
@@ -156,19 +178,25 @@ int containKey(catarray_t * cats, char * key) {
   return -1;
 }
 
+char * containValue(catarray_t * cats, char * key, const char * value) {
+  int index = containKey(cats, key);
+  if (index == -1) {
+    return " ";
+  }
+  for (size_t i = 0; i < cats->arr[index].n_words; i++) {
+    if (!strcmp(cats->arr[index].words[i], value)) {
+      return NULL;
+    }
+  }
+
+  return " ";
+}
+
 
 void addCats(catarray_t * cats, char * key, const char * value) {
   int index = containKey(cats, key);
   // Found category name and add new items
   if (index != -1) {
-    // Same value exists
-    /*
-    for (size_t i = 0; i < cats->arr[index].n_words; i++) {
-      if (!strcmp(cats->arr[index].words[i], value)) {
-        return 1;
-      }
-    }
-    */
     cats->arr[index].words = realloc(
           cats->arr[index].words, (cats->arr[index].n_words + 1) * sizeof(*cats->arr[index].words));
 

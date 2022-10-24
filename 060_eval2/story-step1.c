@@ -8,7 +8,7 @@ todo...
 */
 int main(int argc, char ** argv) {
     // Check command line arugments legality
-    checkCmdArgs(argc, REQUIRED_ARGC + 1);
+    checkCmdArgs(argc, argv, REQUIRED_ARGC + 1, REQUIRED_ARGC + 1);
 
     // Check file name legality
     FILE *f = checkFile(argv[1], "r");

@@ -7,7 +7,7 @@
 
 //any functions you want your main to use
 
-void checkCmdArgs(int argc, int argcReq);
+void checkCmdArgs(int argc, char ** argv, int argcReq, int optionalReq);
 
 FILE * checkFile(const char * filePath, const char * permission);
 
@@ -26,6 +26,8 @@ void addCats(catarray_t * cats, char * key, const char * value);
 void freeCats(catarray_t * cats);
 
 int containKey(catarray_t * cats, char * key);
+
+char * containValue(catarray_t * cats, char * key, const char * value);
 
 
 

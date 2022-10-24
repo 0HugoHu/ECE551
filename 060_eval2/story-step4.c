@@ -1,17 +1,17 @@
 #include "rand_story.h"
 
-#define REQUIRED_ARGC 2
+#define REQUIRED_ARGC 3
 
 /*
 todo...
 */
 int main(int argc, char ** argv) {
     // Check command line arugments legality
-    checkCmdArgs(argc, argv, REQUIRED_ARGC + 1, REQUIRED_ARGC + 1);
+    checkCmdArgs(argc, argv, REQUIRED_ARGC, REQUIRED_ARGC + 1);
 
     // Check file name legality
-    FILE *dictionary = checkFile(argv[1], "r");
-    FILE *template = checkFile(argv[2], "r");
+    FILE *dictionary = checkFile(argv[argc - 2], "r");
+    FILE *template = checkFile(argv[argc - 1], "r");
 
     // Data structure to store the categories
     catarray_t * cats = malloc(sizeof(* cats));
@@ -29,8 +29,13 @@ int main(int argc, char ** argv) {
 
     // Read each line in file and execute repleacement
     // replaceUnderscore is the function pointer
-    readLines(template, replacement, "random", cats, history);
-
+    if (argc == REQUIRED_ARGC + 1) {
+        readLines(template, replacement, "unique", cats, history);
+    }
+    else {
+        readLines(template, replacement, "random", cats, history);
+    }
+    
     // Close file with error check
     closeFile(dictionary);
     closeFile(template);
