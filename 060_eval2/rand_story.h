@@ -149,6 +149,18 @@ Return:
 void freeCats(catarray_t * cats);
 
 /*
+removeCats:
+  Remove one element from the category.
+Arguments:
+  cats: catarray_t *
+  key: char *
+  value: const char *
+Return:
+  void
+*/
+void removeCats(catarray_t * cats, char * key, const char * value);
+
+/*
 containKey:
   Check if the given key is in word list.
 Arguments:
@@ -168,10 +180,10 @@ Arguments:
   key: char *
   value: const char *
 Return:
-  NULL: contains
-  non NULL: not contains, return the value
+  -1: not contains
+  non -1: index of the key in cats
 */
-char * containValue(catarray_t * cats, char * key, const char * value);
+int containValue(catarray_t * cats, char * key, const char * value);
 
 /*
 replaceMode1:

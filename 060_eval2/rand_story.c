@@ -4,8 +4,6 @@
 #define UNIQUE_TAG "eHA2WXcRupyKT4dC"
 // Maximum of const char * key read
 #define MAX_LENGTH 1000
-// Maximum times call to chooseword()
-#define RANDOM_THRESHOLD 100
 
 // All function comments are in rand_story.h
 void errorMessage(int errorCode, size_t extra) {
@@ -39,9 +37,6 @@ void errorMessage(int errorCode, size_t extra) {
       break;
     case 9:
       fprintf(stderr, "ERR: Something wrong in parseLineFunc!\n");
-      break;
-    case 10:
-      fprintf(stderr, "ERR: Cannot find unique words!\n");
       break;
     default:
       fprintf(stderr, "ERR: Unknown mistake!\n");
@@ -175,23 +170,24 @@ int replaceMode2(char * result,
                  catarray_t * history) {
   char replacement[MAX_LENGTH] = {'\0'};
   char * tag = "eHA2WXcRupyKT4dC";
-  
-  // Count the iteration steps
-  int count = 0;
   size_t l = 0;
 
   // Find until unique words
-  do {
+  while (1) {
     const char * temp = chooseWord(content, cats);
-    //printf("%s\n", temp);
-    count++;
-    if (count > RANDOM_THRESHOLD) {
-      errorMessage(10, 0);
-    }
+    printf("%s\n", temp);
     for (l = 0; l < strlen(temp); l++) {
       replacement[l] = temp[l];
     }
-  } while (containValue(history, tag, replacement) == NULL);
+    replacement[l] = '\0';
+    
+    if (containValue(history, tag, replacement) != -1) {
+      removeCats(cats, content, replacement);
+    } 
+    else {
+      break;
+    }
+  }
 
   // Replace with the unique word
   for (ssize_t k = 0; k < l; k++) {
@@ -250,18 +246,17 @@ int containKey(catarray_t * cats, char * key) {
   return -1;
 }
 
-char * containValue(catarray_t * cats, char * key, const char * value) {
+int containValue(catarray_t * cats, char * key, const char * value) {
   int index = containKey(cats, key);
   if (index == -1) {
-    return " ";
+    return -1;
   }
   for (size_t i = 0; i < cats->arr[index].n_words; i++) {
     if (!strcmp(cats->arr[index].words[i], value)) {
-      return NULL;
+      return i;
     }
   }
-
-  return " ";
+  return -1;
 }
 
 int readCategories(char * line,
@@ -341,6 +336,43 @@ void addCats(catarray_t * cats, char * key, const char * value) {
     cats->arr[cats->n].words[0][strlen(value)] = '\0';
     cats->arr[cats->n].n_words = 1;
     cats->n++;
+  }
+}
+
+void removeCats(catarray_t * cats, char * key, const char * value) {
+  if (cats == NULL) {
+    return;
+  }
+  // Redirect the last element to current index
+  int index = containKey(cats, key);
+  int wordIndex = containValue(cats, key, value);
+  if (index == -1 || wordIndex == -1 || cats->arr[index].n_words < 1) {
+    errorMessage(99, 0);
+  }
+  int number = cats->arr[index].n_words;
+  // Only one arr and one word left
+  if (number == 1 && cats->n == 1) {
+    freeCats(cats);
+  }
+  // Only one word left, but >1 arrs
+  else if (number == 1) {
+    free(cats->arr[index].name);
+    free(cats->arr[index].words[0]);
+    free(cats->arr[index].words);
+    cats->arr[index] = cats->arr[cats->n - 1];
+    cats->n--;
+  }
+  // >1 words left
+  else {
+    free(cats->arr[index].words[wordIndex]);
+    
+    for (int i = wordIndex; i < cats->arr[index].n_words - 1; i++) {
+      cats->arr[index].words[i] = cats->arr[index].words[i + 1];
+    }
+    
+    //cats->arr[index].words[wordIndex] = cats->arr[index].words[cats->arr[index].n_words - 1];
+    
+    cats->arr[index].n_words--;
   }
 }
 
