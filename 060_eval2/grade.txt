@@ -1,6 +1,6 @@
-Grading at 10/25/2022:17:26:08.420900
-For commit ID a14a5ea87c5f5d95014633f205a97a3028f63017
-Grading at Tue Oct 25 01:25:45 PM EDT 2022
+Grading at 10/25/2022:18:20:00.255484
+For commit ID 9a311a9ba18f642a58501b551b543bad9255a698
+Grading at Tue Oct 25 02:19:45 PM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -178,7 +178,9 @@ Valgrind was clean
 
 4.6: Current test is story-step4 -n my_words5.txt my_story1-4.txt
 -----------------------------
-You exited with a failure status (good) but did not print to stderr (bad)
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 4.7: Current test is story-step4 my_words5.txt my_story2-3.txt
 -----------------------------
@@ -188,7 +190,9 @@ Valgrind was clean
 
 4.8: Current test is story-step4 -n my_words5.txt my_story2-3.txt
 -----------------------------
-You exited with a failure status (good) but did not print to stderr (bad)
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
 
 You have NOT passed your test cases!
 You should go and figure out/understand where thing went wrong
