@@ -1,6 +1,6 @@
-Grading at 10/25/2022:19:14:41.214495
-For commit ID a7a9c143836165bdf174356d344bf65282d25303
-Grading at Tue Oct 25 03:14:25 PM EDT 2022
+Grading at 10/25/2022:19:46:18.620560
+For commit ID 1aa7f08b42efb04d0b0e8992fb9c56c308d4af39
+Grading at Tue Oct 25 03:46:04 PM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -167,19 +167,19 @@ peculiar cave. One day, it left its peculiar cave and met a d								peculiar c
 But the story is not end. Another day, this walrus meet the d								But the story is not end. Another day, this walrus meet the d								
 Not in the peculiar cave, but a now a peaceful cave. Such a s							      |	Not in the peculiar cave, but a now a scary cave. Such a peac								
 place!!								place!!								
- 								 Your file did not match the expected ouput
+Your file did not match the expected ouput
 
 
 4.5: Current test is story-step4 my_words5.txt my_story1-4.txt
 -----------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
+Great: we both considered this an error
+Lets check if it valgrinds:
 Valgrind was clean
 
 4.6: Current test is story-step4 -n my_words5.txt my_story1-4.txt
 -----------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
+Great: we both considered this an error
+Lets check if it valgrinds:
 Valgrind was clean
 
 4.7: Current test is story-step4 my_words5.txt my_story2-3.txt
@@ -190,8 +190,8 @@ Valgrind was clean
 
 4.8: Current test is story-step4 -n my_words5.txt my_story2-3.txt
 -----------------------------
-Great: we both considered this an error
-Lets check if it valgrinds:
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
 You have NOT passed your test cases!
