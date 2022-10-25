@@ -1,6 +1,6 @@
-Grading at 10/25/2022:16:54:37.334821
-For commit ID 2c90b6cbda97bf1d4986bbafbbe0a687a526a912
-Grading at Tue Oct 25 12:54:25 PM EDT 2022
+Grading at 10/25/2022:17:26:08.420900
+For commit ID a14a5ea87c5f5d95014633f205a97a3028f63017
+Grading at Tue Oct 25 01:25:45 PM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -169,6 +169,26 @@ Not in the peculiar cave, but a now a peaceful cave. Such a s							      |	Not
 place!!								place!!								
  								 Your file did not match the expected ouput
 
+
+4.5: Current test is story-step4 my_words5.txt my_story1-4.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+4.6: Current test is story-step4 -n my_words5.txt my_story1-4.txt
+-----------------------------
+You exited with a failure status (good) but did not print to stderr (bad)
+
+4.7: Current test is story-step4 my_words5.txt my_story2-3.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+4.8: Current test is story-step4 -n my_words5.txt my_story2-3.txt
+-----------------------------
+You exited with a failure status (good) but did not print to stderr (bad)
 
 You have NOT passed your test cases!
 You should go and figure out/understand where thing went wrong
