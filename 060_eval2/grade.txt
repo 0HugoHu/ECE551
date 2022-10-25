@@ -1,6 +1,6 @@
-Grading at 10/25/2022:15:13:43.393560
-For commit ID a590eff5e111deabf818949949018abe21fe2956
-Grading at Tue Oct 25 11:13:33 AM EDT 2022
+Grading at 10/25/2022:16:54:37.334821
+For commit ID 2c90b6cbda97bf1d4986bbafbbe0a687a526a912
+Grading at Tue Oct 25 12:54:25 PM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -46,11 +46,11 @@ Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-1.6: Current test is story-step1 story-step1
+1.6: Current test is story-step1 story-step1.txt
 -----------------------------
-You considered this a failure case:
-No matching "_" at the index of 1717!
-But we did not.
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
 
 Step 2
 Checking that story-step2 compiles
@@ -122,6 +122,12 @@ Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
+3.2: Current test is story-step3 words.txt my_story2-1.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
 Step 4
 Checking that story-step4 compiles
 rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
@@ -144,6 +150,25 @@ Valgrind was clean
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
+
+4.3: Current test is story-step4 words.txt my_story2-1.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+4.4: Current test is story-step4 -n words.txt my_story2-1.txt
+-----------------------------
+It looks like you got different output from us on that case.
+Here is the diff (yours on left, ours on right):
+
+Once upon a time, there was a walrus. This walrus lived in a 								Once upon a time, there was a walrus. This walrus lived in a 								
+peculiar cave. One day, it left its peculiar cave and met a d								peculiar cave. One day, it left its peculiar cave and met a d								
+But the story is not end. Another day, this walrus meet the d								But the story is not end. Another day, this walrus meet the d								
+Not in the peculiar cave, but a now a peaceful cave. Such a s							      |	Not in the peculiar cave, but a now a scary cave. Such a peac								
+place!!								place!!								
+ 								 Your file did not match the expected ouput
+
 
 You have NOT passed your test cases!
 You should go and figure out/understand where thing went wrong
