@@ -2,8 +2,21 @@ story-step1 story.txt
 story-step1 my_story1-1.txt
 story-step1 my_story1-2.txt
 story-step1 my_story1-3.txt
+story-step1
+story-step1 story-step1
+
 
 story-step2 words.txt
+story-step2 my_words1.txt
+story-step2 my_words2.txt
+story-step2 my_words3.txt
+story-step2 my_words4.txt
+story-step2 my_words99.txt
+story-step2
+
+
 story-step3 words.txt story2.txt
+
+
 story-step4 words.txt story2.txt
 story-step4 -n words.txt story2.txt
