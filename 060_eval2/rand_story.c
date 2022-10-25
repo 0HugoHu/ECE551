@@ -4,6 +4,8 @@
 #define UNIQUE_TAG "eHA2WXcRupyKT4dC"
 // Maximum of const char * key read
 #define MAX_LENGTH 1000
+// Maximum times call to chooseword()
+#define RANDOM_THRESHOLD 100
 
 // All function comments are in rand_story.h
 void errorMessage(int errorCode, size_t extra) {
@@ -37,6 +39,9 @@ void errorMessage(int errorCode, size_t extra) {
       break;
     case 9:
       fprintf(stderr, "ERR: Something wrong in parseLineFunc!\n");
+      break;
+    case 10:
+      fprintf(stderr, "ERR: Cannot find unique words!\n");
       break;
     default:
       fprintf(stderr, "ERR: Unknown mistake!\n");
@@ -170,10 +175,17 @@ int replaceMode2(char * result,
                  catarray_t * history) {
   char replacement[MAX_LENGTH] = {'\0'};
   char * tag = "eHA2WXcRupyKT4dC";
+  
+  // Count the iteration steps
+  int count = 0;
 
   // Find until unique words
   do {
     const char * temp = chooseWord(content, cats);
+    count++;
+    if (count > RANDOM_THRESHOLD) {
+      errorMessage(10, 0);
+    }
     for (size_t l = 0; l < strlen(temp); l++) {
       replacement[l] = temp[l];
     }
