@@ -178,21 +178,23 @@ int replaceMode2(char * result,
   
   // Count the iteration steps
   int count = 0;
+  size_t l = 0;
 
   // Find until unique words
   do {
     const char * temp = chooseWord(content, cats);
+    printf("%s\n", temp);
     count++;
     if (count > RANDOM_THRESHOLD) {
       errorMessage(10, 0);
     }
-    for (size_t l = 0; l < strlen(temp); l++) {
+    for (l = 0; l < strlen(temp); l++) {
       replacement[l] = temp[l];
     }
   } while (containValue(history, tag, replacement) == NULL);
 
   // Replace with the unique word
-  for (ssize_t k = 0; k < strlen(replacement); k++) {
+  for (ssize_t k = 0; k < l; k++) {
     result[index++] = replacement[k];
   }
 
@@ -304,7 +306,7 @@ void readLines(FILE * f,
   ssize_t lenRead;
   while ((lenRead = getline(&line, &sz, f)) != -1) {
     // Pass in the function pointer
-    if (sz < 1 || !func(line, lenRead, flag, cats, history)) {
+    if (sz < 2 || !func(line, lenRead, flag, cats, history)) {
       errorMessage(9, 0);
     }
     line = NULL;
