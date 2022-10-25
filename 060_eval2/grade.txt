@@ -1,6 +1,6 @@
-Grading at 10/25/2022:20:46:01.288126
-For commit ID 7c172a4489fe011149a641ec61b092da432e7335
-Grading at Tue Oct 25 04:45:46 PM EDT 2022
+Grading at 10/25/2022:22:11:38.399385
+For commit ID 8a9059d4f1fb25ca647a5f21da8ca6a6fba2ddfd
+Grading at Tue Oct 25 06:11:23 PM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -159,16 +159,9 @@ Valgrind was clean
 
 4.4: Current test is story-step4 -n words.txt my_story2-1.txt
 -----------------------------
-It looks like you got different output from us on that case.
-Here is the diff (yours on left, ours on right):
-
-Once upon a time, there was a walrus. This walrus lived in a 								Once upon a time, there was a walrus. This walrus lived in a 								
-peculiar cave. One day, it left its peculiar cave and met a d								peculiar cave. One day, it left its peculiar cave and met a d								
-But the story is not end. Another day, this walrus meet the d								But the story is not end. Another day, this walrus meet the d								
-Not in the peculiar cave, but a now a peaceful cave. Such a s							      |	Not in the peculiar cave, but a now a scary cave. Such a peac								
-place!!								place!!								
-Your file did not match the expected ouput
-
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 4.5: Current test is story-step4 my_words5.txt my_story1-4.txt
 -----------------------------
@@ -194,8 +187,8 @@ Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
-You have NOT passed your test cases!
-You should go and figure out/understand where thing went wrong
-And fix the problem(s) before the deadline
+You have passed the test cases YOU provided
+If your tests are good, this is great. 
+If your tests are insufficient, you should do much more testing
 
 Overall Grade: NO GRADE YET
