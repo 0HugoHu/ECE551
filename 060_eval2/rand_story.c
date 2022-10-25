@@ -1,11 +1,15 @@
 #include "rand_story.h"
 
+// ******************************************************
+// All detailed function descriptions are in rand_story.h
+// ******************************************************
+
 // Random string used as the key of history category
 #define UNIQUE_TAG "eHA2WXcRupyKT4dC"
 // Maximum of const char * key read
 #define MAX_LENGTH 1000
 
-// All function comments are in rand_story.h
+// Print Error Message
 void errorMessage(int errorCode, size_t extra) {
   switch (errorCode) {
     case 0:
@@ -45,27 +49,30 @@ void errorMessage(int errorCode, size_t extra) {
   exit(EXIT_FAILURE);
 }
 
+// Check Command Line Aruguments
 void checkCmdArgs(int argc, char ** argv, int argcReq, int optionalReq) {
   if (!(argc == argcReq || (argc == optionalReq && !strcmp(argv[1], "-n")))) {
     errorMessage(0, argcReq - 1);
   }
 }
 
+// Check File Open Status
 FILE * checkFile(const char * filePath, const char * permission) {
   FILE * f = fopen(filePath, permission);
   if (f == NULL) {
     errorMessage(1, 0);
   }
-
   return f;
 }
 
+// Check File Close Status
 void closeFile(FILE * f) {
   if (fclose(f) != 0) {
     errorMessage(2, 0);
   }
 }
 
+// Do Replacement for Each Line
 int replacement(char * line,
                 ssize_t len,
                 char * flag,
@@ -73,7 +80,6 @@ int replacement(char * line,
                 catarray_t * history) {
   // Check mode: 1 - blank, 0 - random, -1 - unique
   int mode = strcmp(flag, "blank") == 0 ? 1 : (strcmp(flag, "random") == 0 ? 0 : -1);
-
   char * result = malloc(len * sizeof(*result));
 
   // Length for result
@@ -142,8 +148,6 @@ int replacement(char * line,
     }
   }
   // Print result
-  // Should not use %s because the newly-reallocated space
-  // may not have been initialized
   for (ssize_t i = 0; i < j; i++) {
     printf("%c", result[i]);
   }
@@ -153,69 +157,49 @@ int replacement(char * line,
   return 1;
 }
 
+// Mode 1: Replace with "cat"
 int replaceMode1(char * result, ssize_t index) {
   const char * replacement = chooseWord("blank", NULL);
-
-  // Replace with "cat"
   for (ssize_t k = 0; k < strlen(replacement); k++) {
     result[index++] = replacement[k];
   }
   return index;
 }
 
+// Mode 2: Replace with Unique Words
 int replaceMode2(char * result,
                  ssize_t index,
                  catarray_t * cats,
                  char * content,
                  catarray_t * history) {
-  char replacement[MAX_LENGTH] = {'\0'};
-  char * tag = "eHA2WXcRupyKT4dC";
-  size_t l = 0;
-
-  // Find until unique words
-  while (1) {
-    const char * temp = chooseWord(content, cats);
-    //printf("%s\n", temp);
-    for (l = 0; l < strlen(temp); l++) {
-      replacement[l] = temp[l];
-    }
-    replacement[l] = '\0';
-    
-    if (containValue(history, tag, replacement) != -1) {
-      removeCats(cats, content, replacement);
-    } 
-    else {
-      break;
-    }
-  }
-
-  // Replace with the unique word
-  for (ssize_t k = 0; k < l; k++) {
+  const char * replacement = chooseWord(content, cats);
+  for (ssize_t k = 0; k < strlen(replacement); k++) {
     result[index++] = replacement[k];
   }
-
   // Add it to history
+  char * tag = "eHA2WXcRupyKT4dC";
   addCats(history, tag, replacement);
+  // Delete it from cats
+  removeCats(cats, content, replacement);
   return index;
 }
 
+// Mode 3: Replace with Random Words
 int replaceMode3(char * result,
                  ssize_t index,
                  catarray_t * cats,
                  char * content,
                  catarray_t * history) {
   const char * replacement = chooseWord(content, cats);
-
-  // Replace with random words
   for (ssize_t k = 0; k < strlen(replacement); k++) {
     result[index++] = replacement[k];
   }
-
   char * tag = "eHA2WXcRupyKT4dC";
   addCats(history, tag, replacement);
   return index;
 }
 
+// Mode 4: Replace with Back Reference
 int replaceMode4(char * result, ssize_t index, catarray_t * history, long number) {
   // If at the first a reference, rejects
   if (history->n == 0) {
@@ -225,18 +209,17 @@ int replaceMode4(char * result, ssize_t index, catarray_t * history, long number
   if (number > history->arr[0].n_words) {
     errorMessage(5, 0);
   }
-
   // Replace with previous words
   const char * replacement = history->arr[0].words[history->arr[0].n_words - number];
   for (ssize_t k = 0; k < strlen(replacement); k++) {
     result[index++] = replacement[k];
   }
-
   char * tag = "eHA2WXcRupyKT4dC";
   addCats(history, tag, replacement);
   return index;
 }
 
+// Check If Contains a Key
 int containKey(catarray_t * cats, char * key) {
   for (size_t i = 0; i < cats->n; i++) {
     if (!strcmp(key, cats->arr[i].name)) {
@@ -246,6 +229,7 @@ int containKey(catarray_t * cats, char * key) {
   return -1;
 }
 
+// Check If Contains a Value
 int containValue(catarray_t * cats, char * key, const char * value) {
   int index = containKey(cats, key);
   if (index == -1) {
@@ -259,6 +243,7 @@ int containValue(catarray_t * cats, char * key, const char * value) {
   return -1;
 }
 
+// Read Categories from Each Line
 int readCategories(char * line,
                    ssize_t len,
                    char * flag,
@@ -272,13 +257,11 @@ int readCategories(char * line,
   }
 
   int lenKey = valuePtr - line;
-
   // If key of 0 length
   if (lenKey <= 0) {
     errorMessage(8, 0);
   }
 
-  // Seperate key and value
   char * key = strndup(line, lenKey);
   char * value = strndup(valuePtr + 1, len - 1 - (lenKey + 1));
 
@@ -291,6 +274,7 @@ int readCategories(char * line,
   return 1;
 }
 
+// Read Each Line From File
 void readLines(FILE * f,
                parseLineFunc func,
                char * flag,
@@ -309,6 +293,7 @@ void readLines(FILE * f,
   free(line);
 }
 
+// Add a Value to List
 void addCats(catarray_t * cats, char * key, const char * value) {
   int index = containKey(cats, key);
   // Found category name and add new items
@@ -339,20 +324,21 @@ void addCats(catarray_t * cats, char * key, const char * value) {
   }
 }
 
+// Remove a Value from List
 void removeCats(catarray_t * cats, char * key, const char * value) {
   if (cats == NULL) {
     return;
   }
-  // Redirect the last element to current index
   int index = containKey(cats, key);
   int wordIndex = containValue(cats, key, value);
   if (index == -1 || wordIndex == -1 || cats->arr[index].n_words < 1) {
     errorMessage(99, 0);
   }
   int number = cats->arr[index].n_words;
-  // Only one arr and one word left
+  // DO NOT free it, or double free in main()
   if (number == 1 && cats->n == 1) {
-    freeCats(cats);
+    free(cats->arr[0].name);
+    cats->arr[0].name = NULL;
   }
   // Only one word left, but >1 arrs
   else if (number == 1) {
@@ -365,17 +351,14 @@ void removeCats(catarray_t * cats, char * key, const char * value) {
   // >1 words left
   else {
     free(cats->arr[index].words[wordIndex]);
-    
     for (int i = wordIndex; i < cats->arr[index].n_words - 1; i++) {
       cats->arr[index].words[i] = cats->arr[index].words[i + 1];
     }
-    
-    //cats->arr[index].words[wordIndex] = cats->arr[index].words[cats->arr[index].n_words - 1];
-    
     cats->arr[index].n_words--;
   }
 }
 
+// Free Category
 void freeCats(catarray_t * cats) {
   if (cats == NULL) {
     return;
