@@ -9,8 +9,7 @@
 void errorMessage(int errorCode, size_t extra) {
   switch (errorCode) {
     case 0:
-      fprintf(stderr,
-            "Invalid arguments!\nFormat: %lu arguments are required!", extra);
+      fprintf(stderr, "Invalid arguments!\nFormat: %lu arguments are required!", extra);
       break;
     case 1:
       fprintf(stderr, "Cannot open the file!\n");
@@ -46,30 +45,26 @@ void errorMessage(int errorCode, size_t extra) {
   exit(EXIT_FAILURE);
 }
 
-
 void checkCmdArgs(int argc, char ** argv, int argcReq, int optionalReq) {
   if (!(argc == argcReq || (argc == optionalReq && !strcmp(argv[1], "-n")))) {
     errorMessage(0, argcReq - 1);
   }
 }
 
-
 FILE * checkFile(const char * filePath, const char * permission) {
   FILE * f = fopen(filePath, permission);
   if (f == NULL) {
-    errorMessage(1,0);
+    errorMessage(1, 0);
   }
 
   return f;
 }
 
-
 void closeFile(FILE * f) {
   if (fclose(f) != 0) {
-    errorMessage(2,0);
+    errorMessage(2, 0);
   }
 }
-
 
 int replacement(char * line,
                 ssize_t len,
@@ -89,7 +84,6 @@ int replacement(char * line,
   for (ssize_t i = 0; i < len; i++) {
     // Check if realloc is needed
     if (j >= jMax - 1) {
-      // Double realloc space
       result = realloc(result, 2 * (j + 1) * sizeof(*result));
       jMax = 2 * (j + 1);
     }
@@ -97,96 +91,58 @@ int replacement(char * line,
     if (line[i] != '_') {
       result[j++] = line[i];
     }
-    // Find "_", read until the next "_"
     else {
       ssize_t endIndex = i + 1;
+      // Find "_", read until the next "_"
       while (endIndex < len && line[endIndex] != '_') {
         endIndex++;
       }
       // No matching
       if (endIndex == len) {
-        errorMessage(3,i);
+        errorMessage(3, i);
       }
       // Find matching
       else {
-        // Replace with "cat"
+        // MODE 1: Replace with "cat"
         if (mode == 1) {
-          const char * replacement = chooseWord(flag, NULL);
-          for (ssize_t k = 0; k < strlen(replacement); k++) {
-            result[j++] = replacement[k];
-          }
-          i = endIndex;
+          j = replaceMode1(result, j);
         }
         // Replace with random words
         else {
-          // Check if it is in category first
           char * content = malloc((endIndex - i) * sizeof(*content));
           strncpy(content, line + i + 1, endIndex - i - 1);
           content[endIndex - i - 1] = '\0';
 
           int index = containKey(cats, content);
-          // Try to convert to a number
           char * endptr;
           long number = strtol(content, &endptr, 10);
-          // Simple replacement
-          if (index != -1) {
-            char * tag = "eHA2WXcRupyKT4dC";
-            // Must select unique word
-            if (mode == -1) {
-              char replacement[MAX_LENGTH] = {'\0'};
-              do {
-                const char * temp = chooseWord(content, cats);
-                for (size_t l = 0; l < strlen(temp); l++) {
-                  replacement[l] = temp[l];
-                }
-              } while (containValue(history, tag, replacement) == NULL);
-              for (ssize_t k = 0; k < strlen(replacement); k++) {
-                result[j++] = replacement[k];
-              }
-              i = endIndex;
 
-              addCats(history, tag, replacement);
+          if (index != -1) {
+            // MODE 2: Unique selection
+            if (mode == -1) {
+              j = replaceMode2(result, j, cats, content, history);
             }
+            // MODE 3: Random selection
             else {
-              const char * replacement = chooseWord(content, cats);
-              for (ssize_t k = 0; k < strlen(replacement); k++) {
-                result[j++] = replacement[k];
-              }
-              i = endIndex;
-              addCats(history, tag, replacement);
+              j = replaceMode3(result, j, cats, content, history);
             }
           }
-          // Back reference
+          // MODE 4: Back reference
           else if (*endptr == '\0' && number > 0) {
-            // If first a reference, rejects
-            if (history->n == 0) {
-              errorMessage(4,0);
-            }
-            // If reference number larger than size, rejects
-            if (number > history->arr[0].n_words) {
-              errorMessage(5,0);
-            }
-            const char * replacement =
-                history->arr[0].words[history->arr[0].n_words - number];
-            for (ssize_t k = 0; k < strlen(replacement); k++) {
-              result[j++] = replacement[k];
-            }
-            i = endIndex;
-            char * tag = "eHA2WXcRupyKT4dC";
-            addCats(history, tag, replacement);
+            j = replaceMode4(result, j, history, number);
           }
           // Not in category
           else {
-            errorMessage(6,0);
+            errorMessage(6, 0);
           }
           free(content);
         }
+        i = endIndex;
       }
     }
   }
-
   // Print result
-  // Should not use %s because the newly-reallocated space 
+  // Should not use %s because the newly-reallocated space
   // may not have been initialized
   for (ssize_t i = 0; i < j; i++) {
     printf("%c", result[i]);
@@ -195,6 +151,80 @@ int replacement(char * line,
   free(result);
   free(line);
   return 1;
+}
+
+int replaceMode1(char * result, ssize_t index) {
+  const char * replacement = chooseWord("blank", NULL);
+
+  // Replace with "cat"
+  for (ssize_t k = 0; k < strlen(replacement); k++) {
+    result[index++] = replacement[k];
+  }
+  return index;
+}
+
+int replaceMode2(char * result,
+                 ssize_t index,
+                 catarray_t * cats,
+                 char * content,
+                 catarray_t * history) {
+  char replacement[MAX_LENGTH] = {'\0'};
+  char * tag = "eHA2WXcRupyKT4dC";
+
+  // Find until unique words
+  do {
+    const char * temp = chooseWord(content, cats);
+    for (size_t l = 0; l < strlen(temp); l++) {
+      replacement[l] = temp[l];
+    }
+  } while (containValue(history, tag, replacement) == NULL);
+
+  // Replace with the unique word
+  for (ssize_t k = 0; k < strlen(replacement); k++) {
+    result[index++] = replacement[k];
+  }
+
+  // Add it to history
+  addCats(history, tag, replacement);
+  return index;
+}
+
+int replaceMode3(char * result,
+                 ssize_t index,
+                 catarray_t * cats,
+                 char * content,
+                 catarray_t * history) {
+  const char * replacement = chooseWord(content, cats);
+
+  // Replace with random words
+  for (ssize_t k = 0; k < strlen(replacement); k++) {
+    result[index++] = replacement[k];
+  }
+
+  char * tag = "eHA2WXcRupyKT4dC";
+  addCats(history, tag, replacement);
+  return index;
+}
+
+int replaceMode4(char * result, ssize_t index, catarray_t * history, long number) {
+  // If at the first a reference, rejects
+  if (history->n == 0) {
+    errorMessage(4, 0);
+  }
+  // If reference number larger than size, rejects
+  if (number > history->arr[0].n_words) {
+    errorMessage(5, 0);
+  }
+
+  // Replace with previous words
+  const char * replacement = history->arr[0].words[history->arr[0].n_words - number];
+  for (ssize_t k = 0; k < strlen(replacement); k++) {
+    result[index++] = replacement[k];
+  }
+
+  char * tag = "eHA2WXcRupyKT4dC";
+  addCats(history, tag, replacement);
+  return index;
 }
 
 int containKey(catarray_t * cats, char * key) {
@@ -220,6 +250,55 @@ char * containValue(catarray_t * cats, char * key, const char * value) {
   return " ";
 }
 
+int readCategories(char * line,
+                   ssize_t len,
+                   char * flag,
+                   catarray_t * cats,
+                   catarray_t * history) {
+  char * valuePtr = strchr(line, ':');
+
+  // If not find colon
+  if (valuePtr == NULL) {
+    errorMessage(7, 0);
+  }
+
+  int lenKey = valuePtr - line;
+
+  // If key of 0 length
+  if (lenKey <= 0) {
+    errorMessage(8, 0);
+  }
+
+  // Seperate key and value
+  char * key = strndup(line, lenKey);
+  char * value = strndup(valuePtr + 1, len - 1 - (lenKey + 1));
+
+  // Add key-value to words list
+  addCats(cats, key, value);
+
+  free(key);
+  free(value);
+  free(line);
+  return 1;
+}
+
+void readLines(FILE * f,
+               parseLineFunc func,
+               char * flag,
+               catarray_t * cats,
+               catarray_t * history) {
+  char * line = NULL;
+  size_t sz = 0;
+  ssize_t lenRead;
+  while ((lenRead = getline(&line, &sz, f)) != -1) {
+    // Pass in the function pointer
+    if (sz < 1 || !func(line, lenRead, flag, cats, history)) {
+      errorMessage(9, 0);
+    }
+    line = NULL;
+  }
+  free(line);
+}
 
 void addCats(catarray_t * cats, char * key, const char * value) {
   int index = containKey(cats, key);
@@ -250,59 +329,6 @@ void addCats(catarray_t * cats, char * key, const char * value) {
     cats->n++;
   }
 }
-
-
-int readCategories(char * line,
-                   ssize_t len,
-                   char * flag,
-                   catarray_t * cats,
-                   catarray_t * history) {
-  char * valuePtr = strchr(line, ':');
-
-  // If not find colon
-  if (valuePtr == NULL) {
-    errorMessage(7,0);
-  }
-
-  int lenKey = valuePtr - line;
-
-  // If key of 0 length
-  if (lenKey <= 0) {
-    errorMessage(8,0);
-  }
-
-  // Seperate key and value
-  char * key = strndup(line, lenKey);
-  char * value = strndup(valuePtr + 1, len - 1 - (lenKey + 1));
-
-  // Add key-value to words list
-  addCats(cats, key, value);
-
-  free(key);
-  free(value);
-  free(line);
-  return 1;
-}
-
-
-void readLines(FILE * f,
-               parseLineFunc func,
-               char * flag,
-               catarray_t * cats,
-               catarray_t * history) {
-  char * line = NULL;
-  size_t sz = 0;
-  ssize_t lenRead;
-  while ((lenRead = getline(&line, &sz, f)) != -1) {
-    // Pass in the function pointer
-    if (sz < 1 || !func(line, lenRead, flag, cats, history)) {
-      errorMessage(9,0);
-    }
-    line = NULL;
-  }
-  free(line);
-}
-
 
 void freeCats(catarray_t * cats) {
   if (cats == NULL) {

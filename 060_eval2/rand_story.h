@@ -173,4 +173,64 @@ Return:
 */
 char * containValue(catarray_t * cats, char * key, const char * value);
 
+/*
+replaceMode1:
+  Simple replacement with "cat".
+Arguments:
+  result: char *
+  index: ssize_t, index of result array
+Return:
+  index: ssize_t, updated index of result array
+*/
+int replaceMode1(char * result, ssize_t index);
+
+/*
+replaceMode2:
+  Random replacement with unique words.
+Arguments:
+  result: char *
+  index: ssize_t, index of result array
+  cats: catarray_t *
+  content: char *, category of requirement
+  history: catarray_t *
+Return:
+  index: ssize_t, updated index of result array
+*/
+int replaceMode2(char * result,
+                 ssize_t index,
+                 catarray_t * cats,
+                 char * content,
+                 catarray_t * history);
+
+/*
+replaceMode3:
+  Random replacement with not limits.
+Arguments:
+  result: char *
+  index: ssize_t, index of result array
+  cats: catarray_t *
+  content: char *, category of requirement
+  history: catarray_t *
+Return:
+  index: ssize_t, updated index of result array
+*/
+int replaceMode3(char * result,
+                 ssize_t index,
+                 catarray_t * cats,
+                 char * content,
+                 catarray_t * history);
+
+/*
+replaceMode4:
+  Back reference replacement.
+Arguments:
+  result: char *
+  index: ssize_t, index of result array
+  history: catarray_t *
+  content: char *, category of requirement
+Return:
+  index: ssize_t, updated index of result array
+*/
+int replaceMode4(char * result, ssize_t index, catarray_t * history, long content);
+
 #endif

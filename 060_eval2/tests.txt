@@ -3,7 +3,7 @@ story-step1 my_story1-1.txt
 story-step1 my_story1-2.txt
 story-step1 my_story1-3.txt
 story-step1
-story-step1 story-step1
+story-step1 story-step1.txt
 
 
 story-step2 words.txt
@@ -16,7 +16,10 @@ story-step2
 
 
 story-step3 words.txt story2.txt
-
+story-step3 words.txt my_story2-1.txt
 
 story-step4 words.txt story2.txt
 story-step4 -n words.txt story2.txt
+
+story-step4 words.txt my_story2-1.txt
+story-step4 -n words.txt my_story2-1.txt
