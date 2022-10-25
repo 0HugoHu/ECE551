@@ -16,7 +16,7 @@ Arguments:
 Return:
   void
 */
-void errorMessage(int errorCode, int extraArg);
+void errorMessage(int errorCode, size_t extraArg);
 
 /*
 checkCmdArgs:

@@ -50,6 +50,7 @@ void errorMessage(int errorCode, size_t extra) {
 void checkCmdArgs(int argc, char ** argv, int argcReq, int optionalReq) {
   if (!(argc == argcReq || (argc == optionalReq && !strcmp(argv[1], "-n")))) {
     errorMessage(0, argcReq - 1);
+  }
 }
 
 
