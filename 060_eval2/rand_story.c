@@ -175,7 +175,7 @@ int replaceMode2(char * result,
   // Find until unique words
   while (1) {
     const char * temp = chooseWord(content, cats);
-    printf("%s\n", temp);
+    //printf("%s\n", temp);
     for (l = 0; l < strlen(temp); l++) {
       replacement[l] = temp[l];
     }
