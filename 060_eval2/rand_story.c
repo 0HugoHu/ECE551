@@ -183,7 +183,7 @@ int replaceMode2(char * result,
   // Find until unique words
   do {
     const char * temp = chooseWord(content, cats);
-    printf("%s\n", temp);
+    //printf("%s\n", temp);
     count++;
     if (count > RANDOM_THRESHOLD) {
       errorMessage(10, 0);
