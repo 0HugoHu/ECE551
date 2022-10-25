@@ -1,6 +1,6 @@
-Grading at 10/25/2022:18:51:31.270337
-For commit ID ed0fcdec8c95f2c7ce399d9bb9b8b3b2728796f0
-Grading at Tue Oct 25 02:51:17 PM EDT 2022
+Grading at 10/25/2022:18:52:16.493637
+For commit ID de822cae5b37bcb322590902b4b2caf73f293f3d
+Grading at Tue Oct 25 02:52:01 PM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -147,20 +147,9 @@ Valgrind was clean
 
 4.2: Current test is story-step4 -n words.txt story2.txt
 -----------------------------
-It looks like you got different output from us on that case.
-Here is the diff (yours on left, ours on right):
-
-walrus							      <
-Once upon a time, there was a walrus. This walrus lived in a 	Once upon a time, there was a walrus. This walrus lived in a 
-peculiar						      <
-cave							      <
-walrus							      <
-walrus							      <
-walrus							      <
-dragon							      <
-peculiar cave. One day, it left its peculiar cave and met a d	peculiar cave. One day, it left its peculiar cave and met a d
-Your file did not match the expected ouput
-
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 4.3: Current test is story-step4 words.txt my_story2-1.txt
 -----------------------------
@@ -173,21 +162,10 @@ Valgrind was clean
 It looks like you got different output from us on that case.
 Here is the diff (yours on left, ours on right):
 
-walrus							      <
 Once upon a time, there was a walrus. This walrus lived in a 								Once upon a time, there was a walrus. This walrus lived in a 								
-peculiar						      <
-cave							      <
-walrus							      <
-walrus							      <
-walrus							      <
-dragon							      <
 peculiar cave. One day, it left its peculiar cave and met a d								peculiar cave. One day, it left its peculiar cave and met a d								
 But the story is not end. Another day, this walrus meet the d								But the story is not end. Another day, this walrus meet the d								
-peaceful						      |	Not in the peculiar cave, but a now a scary cave. Such a peac								
-peaceful						      <
-peculiar						      <
-scary							      <
-Not in the peculiar cave, but a now a peaceful cave. Such a s							      <
+Not in the peculiar cave, but a now a peaceful cave. Such a s							      |	Not in the peculiar cave, but a now a scary cave. Such a peac								
 place!!								place!!								
  								 Your file did not match the expected ouput
 
@@ -200,16 +178,9 @@ Valgrind was clean
 
 4.6: Current test is story-step4 -n my_words5.txt my_story1-4.txt
 -----------------------------
-It looks like you got different output from us on that case.
-Here is the diff (yours on left, ours on right):
-
-This is the test with valid input!								This is the test with valid input!								
-cat							      <
-cat is valid, also								cat								 is valid, also								
-cow							      <
-cow is valid!								cow								 is valid!								
-Your file did not match the expected ouput
-
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 4.7: Current test is story-step4 my_words5.txt my_story2-3.txt
 -----------------------------
