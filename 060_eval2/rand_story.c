@@ -9,37 +9,37 @@
 void errorMessage(int errorCode, size_t extra) {
   switch (errorCode) {
     case 0:
-      fprintf(stderr, "Invalid arguments!\nFormat: %lu arguments are required!", extra);
+      fprintf(stderr, "ERR: Invalid args!\nFormat: %lu args are required!", extra);
       break;
     case 1:
-      fprintf(stderr, "Cannot open the file!\n");
+      fprintf(stderr, "ERR: Cannot open the file!\n");
       break;
     case 2:
-      fprintf(stderr, "Cannot close the file!\n");
+      fprintf(stderr, "ERR: Cannot close the file!\n");
       break;
     case 3:
-      fprintf(stderr, "No matching \"_\" at the index of %lu!\n", extra);
+      fprintf(stderr, "ERR: No matching \"_\" at the index of %lu!\n", extra);
       break;
     case 4:
-      fprintf(stderr, "Back reference should not be the start!\n");
+      fprintf(stderr, "ERR: Back reference should not be the start!\n");
       break;
     case 5:
-      fprintf(stderr, "Back reference goes beyond boundary!\n");
+      fprintf(stderr, "ERR: Back reference goes beyond boundary!\n");
       break;
     case 6:
-      fprintf(stderr, "Required key does not exist!\n");
+      fprintf(stderr, "ERR: Required key does not exist!\n");
       break;
     case 7:
-      fprintf(stderr, "Invalid line read! Must be in key:value format!\n");
+      fprintf(stderr, "ERR: Invalid line read! Must be in key:value format!\n");
       break;
     case 8:
-      fprintf(stderr, "Key name must be at least one character long!\n");
+      fprintf(stderr, "ERR: Key name must be at least one character long!\n");
       break;
     case 9:
-      fprintf(stderr, "Something wrong in parseLineFunc!\n");
+      fprintf(stderr, "ERR: Something wrong in parseLineFunc!\n");
       break;
     default:
-      fprintf(stderr, "Unknown mistake!\n");
+      fprintf(stderr, "ERR: Unknown mistake!\n");
       break;
   }
   exit(EXIT_FAILURE);
