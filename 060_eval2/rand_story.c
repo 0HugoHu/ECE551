@@ -6,8 +6,6 @@
 
 // Random string used as the key of history category
 #define UNIQUE_TAG "eHA2WXcRupyKT4dC"
-// Maximum of const char * key read
-#define MAX_LENGTH 1000
 
 // Print Error Message
 void errorMessage(int errorCode, size_t extra) {
@@ -37,7 +35,7 @@ void errorMessage(int errorCode, size_t extra) {
       fprintf(stderr, "ERR: Invalid line read! Must be in key:value format!\n");
       break;
     case 8:
-      fprintf(stderr, "ERR: Key name must be at least one character long!\n");
+      fprintf(stderr, "ERR: Key name must be at least zero character long!\n");
       break;
     case 9:
       fprintf(stderr, "ERR: Something wrong in parseLineFunc!\n");
@@ -80,19 +78,12 @@ int replacement(char * line,
                 catarray_t * history) {
   // Check mode: 1 - blank, 0 - random, -1 - unique
   int mode = strcmp(flag, "blank") == 0 ? 1 : (strcmp(flag, "random") == 0 ? 0 : -1);
-  char * result = malloc(len * sizeof(*result));
+  char * result = malloc(10 * len * sizeof(*result));
 
   // Length for result
   ssize_t j = 0;
-  // Max size for result
-  ssize_t jMax = len;
 
   for (ssize_t i = 0; i < len; i++) {
-    // Check if realloc is needed
-    if (j >= jMax - 1) {
-      result = realloc(result, 2 * (j + 1) * sizeof(*result));
-      jMax = 2 * (j + 1);
-    }
     // If not "_", copy it to the result
     if (line[i] != '_') {
       result[j++] = line[i];
@@ -258,7 +249,7 @@ int readCategories(char * line,
 
   int lenKey = valuePtr - line;
   // If key of 0 length
-  if (lenKey <= 0) {
+  if (lenKey < 0) {
     errorMessage(8, 0);
   }
 

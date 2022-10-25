@@ -1,1 +1,19 @@
-noun:
+noun:Professor
+noun:Student
+noun:Tutor
+verb:mak
+noun:Computer Science
+noun:Children Growth
+noun:ECE 551D
+adj:stupid
+adj:professional
+adj:funny
+verb:learn
+verb:tell
+noun:Physical Education
+verb:read
+verb:destroy
+:specializations
+2 :
+0:H
+-9119198198188:.
