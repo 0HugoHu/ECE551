@@ -1,3 +1,2 @@
- a:cat
-a :cow
-1 :dog
+ad:cat
+ad:cow
