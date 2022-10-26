@@ -26,9 +26,9 @@ IntArray & IntArray::operator=(const IntArray & rhs) {
   for (int i = 0; i < numElements; i++) {
     tmp[i] = rhs.data[i];
   }
+  delete[] data;
   data = tmp;
   numElements = rhs.numElements;
-  delete[] data;
   return *this;
 }
 
