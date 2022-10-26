@@ -5,9 +5,11 @@ verb:mak
 noun:Computer Science
 noun:Children Growth
 noun:ECE 551D
+2 1:Professor
 adj:stupid
 adj:professional
 adj:funny
+     :.
 verb:learn
 verb:tell
 noun:Physical Education
