@@ -1,0 +1,19 @@
+Grading at 10/26/2022:19:21:17.841448
+For commit ID 7b0917fad817ab7f28b21e498d9c59fab986e7bc
+Grading at Wed Oct 26 03:21:14 PM EDT 2022
+Attempting to compile:
+rm -f *.o  *~ intArrayTest
+#################################################
+testcase1:
+valgrind reported memory errors
+#################################################
+testcase2:
+valgrind reported memory errors
+#################################################
+testcase3:
+valgrind reported memory errors
+#################################################
+testcase4:
+valgrind reported memory errors
+
+Overall Grade: F
