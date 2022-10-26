@@ -330,6 +330,8 @@ void removeCats(catarray_t * cats, char * key, const char * value) {
   if (number == 1 && cats->n == 1) {
     free(cats->arr[0].name);
     cats->arr[0].name = NULL;
+    free(cats->arr[0].words[0]); 
+    free(cats->arr[0].words);
     cats->n = 0;
   }
   // Only one word left, but >1 arrs
