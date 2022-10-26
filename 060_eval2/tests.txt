@@ -10,7 +10,6 @@ story-step1 my_story2-3.txt
 story-step1 my_story1-4.txt
 story-step1 my_story_complex.txt
 story-step1 my_words_complex.txt
-story-step1 story-step1
 story-step1 story.txt story.txt
 
 
@@ -21,7 +20,6 @@ story-step2 my_words3.txt
 story-step2 my_words4.txt
 story-step2 my_words99.txt
 story-step2
-story-step2 story-step2
 story-step2 words.txt words.txt
 story-step2 my_story1-4.txt
 story-step2 my_story_complex.txt
@@ -51,6 +49,14 @@ story-step4 -n my_words5.txt my_story_complex.txt
 
 story-step4 my_words_complex.txt my_story_complex.txt
 story-step4 -n my_words_complex.txt my_story_complex.txt
+
+story-step4 words.txt my_story2-4.txt
+
+story-step4 words.txt my_story2-5.txt
+
+story-step4 my_words6.txt my_story2-6.txt
+story-step4 -n my_words6.txt my_story2-6.txt
+
 
 story-step4 my_words_complex.txt
 story-step4 -n my_story_complex.txt
