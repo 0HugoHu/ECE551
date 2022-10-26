@@ -1,6 +1,6 @@
-Grading at 10/26/2022:01:52:09.688393
-For commit ID b1414ada18b0c6f29dfe314cbb52d21f6656668e
-Grading at Tue Oct 25 09:51:50 PM EDT 2022
+Grading at 10/26/2022:02:03:35.178359
+For commit ID 2bb1637cdaad32bbee92f29f18de79b30ad74fb1
+Grading at Tue Oct 25 10:03:03 PM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -47,6 +47,54 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 1.6: Current test is story-step1 story-step1.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+1.7: Current test is story-step1 my_story2-1.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+1.8: Current test is story-step1 my_story2-2.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+1.9: Current test is story-step1 my_story2-3.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+1.10: Current test is story-step1 my_story1-4.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+1.11: Current test is story-step1 my_story_complex.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+1.12: Current test is story-step1 my_words_complex.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+1.13: Current test is story-step1 story-step1
+-----------------------------
+You considered this a failure case:
+ERR: No matching "_" at the index of 1717!
+But we did not.
+
+1.14: Current test is story-step1 story.txt story.txt
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
@@ -105,6 +153,30 @@ Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
+2.8: Current test is story-step2 story-step2
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+2.9: Current test is story-step2 words.txt words.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+2.10: Current test is story-step2 my_story1-4.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+2.11: Current test is story-step2 my_story_complex.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
 Step 3
 Checking that story-step3 compiles
 rm -f *~ story-step1 story-step2 story-step3 story-step4 story-step1.o story-step2.o story-step3.o story-step4.o rand_story.o
@@ -139,92 +211,122 @@ The code compiled (good)
 Executable story-step4 exists (good)
 Now running YOUR tests for step 4
 
-4.1: Current test is story-step4 words.txt story2.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-4.2: Current test is story-step4 -n words.txt story2.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-4.3: Current test is story-step4 words.txt my_story2-1.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-4.4: Current test is story-step4 -n words.txt my_story2-1.txt
------------------------------
-Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
-
-4.5: Current test is story-step4 my_words5.txt my_story1-4.txt
+4.1: Current test is story-step4 words.txt story2.txt story2.txt
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-4.6: Current test is story-step4 -n my_words5.txt my_story1-4.txt
+4.2: Current test is story-step4 words.txt -n my_story2-1.txt
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-4.7: Current test is story-step4 my_words5.txt my_story2-3.txt
+4.3: Current test is story-step4 -n words.txt story-step4
+-----------------------------
+You considered this a failure case:
+ERR: Required key does not exist!
+But we did not.
+
+4.4: Current test is story-step4 words.txt story2.txt
 -----------------------------
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
-4.8: Current test is story-step4 -n my_words5.txt my_story2-3.txt
+4.5: Current test is story-step4 -n words.txt story2.txt
 -----------------------------
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
-4.9: Current test is story-step4 my_words_complex.txt my_story_complex.txt
+4.6: Current test is story-step4 words.txt my_story2-1.txt
 -----------------------------
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
-4.10: Current test is story-step4 -n my_words_complex.txt my_story_complex.txt
+4.7: Current test is story-step4 -n words.txt my_story2-1.txt
 -----------------------------
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
-4.11: Current test is story-step4 my_words_complex.txt
+4.8: Current test is story-step4 my_words5.txt my_story1-4.txt
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-4.12: Current test is story-step4 -n my_story_complex.txt
+4.9: Current test is story-step4 -n my_words5.txt my_story1-4.txt
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-4.13: Current test is story-step4 .txt my_story_complex.txt
------------------------------
-Great: we both considered this an error
-Lets check if it valgrinds:
-Valgrind was clean
-
-4.14: Current test is story-step4 -n my_words_complex.txt     my_story_complex.txt
+4.10: Current test is story-step4 my_words5.txt my_story2-3.txt
 -----------------------------
 Your output looks good. Lets check valgrind
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean
 
-You have passed the test cases YOU provided
-If your tests are good, this is great. 
-If your tests are insufficient, you should do much more testing
+4.11: Current test is story-step4 -n my_words5.txt my_story2-3.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+4.12: Current test is story-step4 my_words5.txt my_story_complex.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+4.13: Current test is story-step4 -n my_words5.txt my_story_complex.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+4.14: Current test is story-step4 my_words_complex.txt my_story_complex.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+4.15: Current test is story-step4 -n my_words_complex.txt my_story_complex.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+4.16: Current test is story-step4 my_words_complex.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+4.17: Current test is story-step4 -n my_story_complex.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+4.18: Current test is story-step4 .txt my_story_complex.txt
+-----------------------------
+Great: we both considered this an error
+Lets check if it valgrinds:
+Valgrind was clean
+
+4.19: Current test is story-step4 -n my_words_complex.txt     my_story_complex.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
+
+You have NOT passed your test cases!
+You should go and figure out/understand where thing went wrong
+And fix the problem(s) before the deadline
 
 Overall Grade: NO GRADE YET
