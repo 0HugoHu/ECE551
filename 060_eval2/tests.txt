@@ -31,7 +31,7 @@ story-step3 words.txt my_story2-1.txt
 
 story-step4 words.txt story2.txt story2.txt
 story-step4 words.txt -n my_story2-1.txt
-story-step4 -n words.txt story-step4
+story-step4 -n words.txt story-step¡£
 story-step4 words.txt story2.txt
 story-step4 -n words.txt story2.txt
 
