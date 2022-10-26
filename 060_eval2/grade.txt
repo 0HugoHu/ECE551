@@ -1,6 +1,6 @@
-Grading at 10/26/2022:20:06:35.769915
-For commit ID 9a93314fed2f6c1122f09bbb69b526e27ffc64c0
-Grading at Wed Oct 26 04:06:01 PM EDT 2022
+Grading at 10/26/2022:20:36:39.769792
+For commit ID ebab6aa9788c9e92c4594a32cf842723e6707bcc
+Grading at Wed Oct 26 04:35:54 PM EDT 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -232,8 +232,35 @@ Valgrind was clean
 4.6: Current test is story-step4 -n words.txt my_story2-1.txt
 -----------------------------
 Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks:
+==3803869== Memcheck, a memory error detector
+==3803869== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==3803869== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==3803869== Command: ./story-step4 -n words.txt my_story2-1.txt
+==3803869== Parent PID: 3803867
+==3803869== 
+==3803869== 
+==3803869== HEAP SUMMARY:
+==3803869==     in use at exit: 33 bytes in 2 blocks
+==3803869==   total heap usage: 105 allocs, 103 frees, 19,171 bytes allocated
+==3803869== 
+==3803869== 33 (24 direct, 9 indirect) bytes in 1 blocks are definitely lost in loss record 2 of 2
+==3803869==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3803869==    by 0x10A1AD: addCats (rand_story.c:293)
+==3803869==    by 0x10A006: readCategories (rand_story.c:260)
+==3803869==    by 0x10A09D: readLines (rand_story.c:279)
+==3803869==    by 0x1094BE: main (story-step4.c:35)
+==3803869== 
+==3803869== LEAK SUMMARY:
+==3803869==    definitely lost: 24 bytes in 1 blocks
+==3803869==    indirectly lost: 9 bytes in 1 blocks
+==3803869==      possibly lost: 0 bytes in 0 blocks
+==3803869==    still reachable: 0 bytes in 0 blocks
+==3803869==         suppressed: 0 bytes in 0 blocks
+==3803869== 
+==3803869== For lists of detected and suppressed errors, rerun with: -s
+==3803869== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 
 4.7: Current test is story-step4 my_words5.txt my_story1-4.txt
 -----------------------------
@@ -256,8 +283,35 @@ Valgrind was clean
 4.10: Current test is story-step4 -n my_words5.txt my_story2-3.txt
 -----------------------------
 Your output looks good. Lets check valgrind
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks:
+==3804283== Memcheck, a memory error detector
+==3804283== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==3804283== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==3804283== Command: ./story-step4 -n my_words5.txt my_story2-3.txt
+==3804283== Parent PID: 3804282
+==3804283== 
+==3804283== 
+==3804283== HEAP SUMMARY:
+==3804283==     in use at exit: 21 bytes in 2 blocks
+==3804283==   total heap usage: 40 allocs, 38 frees, 15,267 bytes allocated
+==3804283== 
+==3804283== 21 (16 direct, 5 indirect) bytes in 1 blocks are definitely lost in loss record 2 of 2
+==3804283==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3804283==    by 0x10A1AD: addCats (rand_story.c:293)
+==3804283==    by 0x10A006: readCategories (rand_story.c:260)
+==3804283==    by 0x10A09D: readLines (rand_story.c:279)
+==3804283==    by 0x1094BE: main (story-step4.c:35)
+==3804283== 
+==3804283== LEAK SUMMARY:
+==3804283==    definitely lost: 16 bytes in 1 blocks
+==3804283==    indirectly lost: 5 bytes in 1 blocks
+==3804283==      possibly lost: 0 bytes in 0 blocks
+==3804283==    still reachable: 0 bytes in 0 blocks
+==3804283==         suppressed: 0 bytes in 0 blocks
+==3804283== 
+==3804283== For lists of detected and suppressed errors, rerun with: -s
+==3804283== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 
 4.11: Current test is story-step4 my_words5.txt my_story_complex.txt
 -----------------------------
@@ -305,43 +359,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
-Valgrind reported errors:
-==3659866== Memcheck, a memory error detector
-==3659866== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==3659866== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==3659866== Command: ./story-step4 -n my_words6.txt my_story2-6.txt
-==3659866== Parent PID: 3659865
-==3659866== 
-==3659866== Invalid read of size 1
-==3659866==    at 0x484FBD7: strcmp (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==3659866==    by 0x109E53: containKey (rand_story.c:216)
-==3659866==    by 0x1099E2: replacement (rand_story.c:113)
-==3659866==    by 0x10A09D: readLines (rand_story.c:279)
-==3659866==    by 0x1094EC: main (story-step4.c:39)
-==3659866==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==3659866== 
-==3659866== 
-==3659866== Process terminating with default action of signal 11 (SIGSEGV)
-==3659866==  Access not within mapped region at address 0x0
-==3659866==    at 0x484FBD7: strcmp (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==3659866==    by 0x109E53: containKey (rand_story.c:216)
-==3659866==    by 0x1099E2: replacement (rand_story.c:113)
-==3659866==    by 0x10A09D: readLines (rand_story.c:279)
-==3659866==    by 0x1094EC: main (story-step4.c:39)
-==3659866==  If you believe this happened as a result of a stack
-==3659866==  overflow in your program's main thread (unlikely but
-==3659866==  possible), you can try to increase the size of the
-==3659866==  main thread stack using the --main-stacksize= flag.
-==3659866==  The main thread stack size used in this run was 8388608.
-==3659866== 
-==3659866== HEAP SUMMARY:
-==3659866==     in use at exit: 13,644 bytes in 20 blocks
-==3659866==   total heap usage: 55 allocs, 35 frees, 15,173 bytes allocated
-==3659866== 
-==3659866== For a detailed leak analysis, rerun with: --leak-check=full
-==3659866== 
-==3659866== For lists of detected and suppressed errors, rerun with: -s
-==3659866== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+Valgrind was clean
 
 4.19: Current test is story-step4 my_words_complex.txt
 -----------------------------
