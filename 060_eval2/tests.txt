@@ -32,3 +32,9 @@ story-step4 -n my_words5.txt my_story2-3.txt
 
 story-step4 my_words_complex.txt my_story_complex.txt
 story-step4 -n my_words_complex.txt my_story_complex.txt
+
+story-step4 my_words_complex.txt
+story-step4 -n my_story_complex.txt
+
+story-step4 .txt my_story_complex.txt
+story-step4 -n my_words_complex.txt     my_story_complex.txt
