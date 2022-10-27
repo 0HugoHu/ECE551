@@ -1,6 +1,6 @@
-Grading at 10/27/2022:22:41:15.387848
-For commit ID 09b63cc322b393011f18a251d28a0809b94ce3f6
-Grading at Thu Oct 27 06:41:15 PM EDT 2022
+Grading at 10/27/2022:22:42:51.810844
+For commit ID 1d133a091591918ce52934b02cb5e8c7b5ff2612
+Grading at Thu Oct 27 06:42:45 PM EDT 2022
 Looking for malloc in your files
 No uses found (good).
 Looking for free in your files
@@ -14,7 +14,26 @@ No uses found (good).
 Looking for printf in your files
 No uses found (good).
 Attempting to compile with make
-make: 'code' is up to date.
-I couldnt find an executable!
+g++ -o sortLines -std=gnu++98 -pedantic -Wall -Werror sortLines.cpp
+Using sortLines..
+#################################################
+testcase1:
+testcase1 passed, your program successfully indicated a failure
+valgrind was clean
+#################################################
+testcase2:
+Your output is correct
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
+#################################################
+testcase3:
+Your output is correct
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
+#################################################
+testcase4:
+Your output is correct
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 
-Overall Grade: F
+Overall Grade: A
