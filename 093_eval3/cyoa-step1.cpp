@@ -84,9 +84,9 @@ int main(int argc, char **argv)
 
     for (size_t i = 0; i < pages.size(); i++)
     {
-        // std::cout << "Page " << i << std::endl;
-        // std::cout << "==========" << std::endl;
-        // pages[i]->printPage(directory + "/");
+        std::cout << "Page " << i << std::endl;
+        std::cout << "==========" << std::endl;
+        pages[i]->printPage(directory + "/");
         delete pages[i];
     }
     pages.clear();
