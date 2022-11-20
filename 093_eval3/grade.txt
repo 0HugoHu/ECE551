@@ -1,13 +1,22 @@
-Grading at 11/20/2022:04:09:29.844816
-For commit ID 13c4bf1e5e9aed5af1283ea95d72be487b444f71
-Grading at Sat Nov 19 11:09:29 PM EST 2022
+Grading at 11/20/2022:04:18:15.560066
+For commit ID 886c8a552fcf18444e3912ea826da3d2764aca75
+Grading at Sat Nov 19 11:18:15 PM EST 2022
 Doing some basic checking for your submission
 
 Step 1
 Checking that cyoa-step1 compiles
-rm -f cyoa-step1.o Tool.o Page.o cyoa-step1
-g++ -g -c -pedantic -Wall -Werror -ggdb3 cyoa-step1.cpp -std=gnu++98
-g++   cyoa-step1.o   -o cyoa-step1
+rm -f  
+make: 'cyoa-step1' is up to date.
+The code compiled (good)
+Executable cyoa-step1 exists (good)
+------------------------------------
+Now running YOUR tests for step 1
+------------------------------------
+No request to check for intermediate deadline completion on step 1
+
+Step 2
+Checking that cyoa-step2 compiles
+rm -f  
 The code did not compile!
 
 Overall Grade: NO GRADE YET
