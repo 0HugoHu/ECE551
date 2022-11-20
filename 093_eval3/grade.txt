@@ -1,0 +1,11 @@
+Grading at 11/20/2022:02:03:04.932222
+For commit ID a9ef9c505bc1fdb40b6090dcbe87c9024faf773b
+Grading at Sat Nov 19 09:03:04 PM EST 2022
+Doing some basic checking for your submission
+
+Step 1
+Checking that cyoa-step1 compiles
+rm -f step1.o Tool.o Page.o cyoa-step1
+The code did not compile!
+
+Overall Grade: NO GRADE YET
