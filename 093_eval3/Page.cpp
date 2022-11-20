@@ -1,30 +1,70 @@
 #include "Page.hpp"
+#include "Tool.hpp"
 
-static const NormalPage::fixedString = "What would you like to do?\n";
-static const WinPage::fixedString = "Congratulations! You have won. Hooray!\n";
-static const LosePage::fixedString = "Sorry, you have lost. Better luck next time!\n";
-
+std::size_t Page::pageNums = 0;
+std::size_t Page::maxPageIndex = 0;
+const std::string NormalPage::fixedString = "What would you like to do?\n";
+const std::string WinPage::fixedString = "Congratulations! You have won. Hooray!";
+const std::string LosePage::fixedString = "Sorry, you have lost. Better luck next time!";
 
 Page &Page::operator=(const Page &it)
 {
     this->index = it.index;
     this->pageName = it.pageName;
+    return *this;
 }
 
-size_t Page : getIndex()
+std::string Page::getType()
 {
-    return index;
+    return "Page";
+}
+
+std::size_t Page ::getIndex()
+{
+    return this->index;
 }
 
 std::string Page::getPageName()
 {
-    return pageName;
+    return this->pageName;
+}
+
+std::size_t Page::getPageNums()
+{
+    return this->pageNums;
+}
+
+std::size_t Page::getMaxPageIndex()
+{
+    return this->maxPageIndex;
+}
+
+void Page::incPageNums()
+{
+    this->pageNums++;
+    this->updateMaxPageIndex(index);
+}
+
+void Page::updateMaxPageIndex(std::size_t index)
+{
+    this->maxPageIndex = index;
+}
+
+void Page::setIndex(std::size_t index)
+{
+    this->index = index;
+}
+
+void Page::setPageName(std::string name)
+{
+    this->pageName = name;
 }
 
 NormalPage &NormalPage::operator=(const NormalPage &it)
 {
     this->choice = it.choice;
-    this->choiceGoto = it.choiceGoto;
+    this->choiceContent = it.choiceContent;
+    return *this;
 }
 
 std::string NormalPage::getType()
@@ -32,8 +72,26 @@ std::string NormalPage::getType()
     return "Normal";
 }
 
-void NormalPage::addChoice(std::string & line) {
-    
+void NormalPage::printPage(std::string prefix)
+{
+    ReadLine r;
+    r.printLine(prefix + this->getPageName());
+    std::cout << std::endl;
+    std::cout << this->fixedString << std::endl;
+    for (size_t i = 0; i < this->choiceContent.size(); i++)
+    {
+        std::cout << " " << i << ". " << choiceContent[i] << std::endl;
+    }
+}
+
+void NormalPage::addChoice(std::size_t choice)
+{
+    this->choice.push_back(choice);
+}
+
+void NormalPage::addChoiceContent(std::string choiceContent)
+{
+    this->choiceContent.push_back(choiceContent);
 }
 
 std::string WinPage::getType()
@@ -41,7 +99,39 @@ std::string WinPage::getType()
     return "Win";
 }
 
+void WinPage::printPage(std::string prefix)
+{
+    ReadLine r;
+    r.printLine(prefix + this->getPageName());
+    std::cout << std::endl;
+    std::cout << this->fixedString << std::endl;
+}
+
+void WinPage::addChoice(std::size_t choice)
+{
+}
+
+void WinPage::addChoiceContent(std::string choiceContent)
+{
+}
+
 std::string LosePage::getType()
 {
     return "Lose";
+}
+
+void LosePage::printPage(std::string prefix)
+{
+    ReadLine r;
+    r.printLine(prefix + this->getPageName());
+    std::cout << std::endl;
+    std::cout << this->fixedString << std::endl;
+}
+
+void LosePage::addChoice(std::size_t choice)
+{
+}
+
+void LosePage::addChoiceContent(std::string choiceContent)
+{
 }
