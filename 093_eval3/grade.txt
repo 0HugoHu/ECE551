@@ -1,11 +1,13 @@
-Grading at 11/20/2022:02:03:04.932222
-For commit ID a9ef9c505bc1fdb40b6090dcbe87c9024faf773b
-Grading at Sat Nov 19 09:03:04 PM EST 2022
+Grading at 11/20/2022:04:02:36.489557
+For commit ID 6e5ba1a68d70b316243d11cb3dce24afa4f463ae
+Grading at Sat Nov 19 11:02:35 PM EST 2022
 Doing some basic checking for your submission
 
 Step 1
 Checking that cyoa-step1 compiles
-rm -f step1.o Tool.o Page.o cyoa-step1
+rm -f cyoa-step1.o Tool.o Page.o cyoa-step1
+g++ -g -c -pedantic -Wall -Werror -ggdb3 cyoa-step1.cpp -std=c++98
+g++   cyoa-step1.o   -o cyoa-step1
 The code did not compile!
 
 Overall Grade: NO GRADE YET
