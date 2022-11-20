@@ -29,7 +29,7 @@ public:
     virtual void printPage(std::string prefix) = 0;
     virtual void addChoice(std::size_t choice) = 0;
     virtual void addChoiceContent(std::string choiceContent) = 0;
-    ~Page() {}
+    virtual ~Page() {}
 };
 
 class NormalPage : public Page
@@ -47,7 +47,7 @@ public:
     virtual void addChoiceContent(std::string choiceContent);
     virtual std::string getType();
     virtual void printPage(std::string prefix);
-    ~NormalPage() {}
+    virtual ~NormalPage() {}
 };
 
 class WinPage : public Page

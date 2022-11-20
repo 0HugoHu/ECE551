@@ -60,6 +60,7 @@ int ReadLine::parseLineType(std::string line)
         {
             return INVALID;
         }
+        
     }
 
     // Choice Type

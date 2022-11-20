@@ -31,12 +31,15 @@ int main(int argc, char **argv)
         switch (type)
         {
         case NORMAL:
+            delete page;
             page = new NormalPage();
             break;
         case WIN:
+            delete page;
             page = new WinPage();
             break;
         case LOSE:
+            delete page;
             page = new LosePage();
             break;
         
@@ -74,15 +77,19 @@ int main(int argc, char **argv)
             page->setIndex(r.getIndex());
             page->setPageName(r.getPageName());
             pages.push_back(page);
+        } else {
+            delete page;
         }
     }
 
     for (size_t i = 0; i < pages.size(); i++)
     {
-        std::cout << "Page " << i << std::endl;
-        std::cout << "==========" << std::endl;
-        pages[i]->printPage(directory + "/");
+        // std::cout << "Page " << i << std::endl;
+        // std::cout << "==========" << std::endl;
+        // pages[i]->printPage(directory + "/");
+        delete pages[i];
     }
+    pages.clear();
 
     return 0;
 }
