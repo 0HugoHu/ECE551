@@ -2,6 +2,7 @@
 
 int ReadLine::parseLineType(std::string line)
 {
+    
     std::size_t index = 0;
     int type = 0;
 
@@ -19,13 +20,13 @@ int ReadLine::parseLineType(std::string line)
             return INVALID;
         }
         this->index = index;
-        
-        
+
         // Type
         std::size_t foundCol = line.find(":");
         if (foundCol != std::string::npos)
         {
             std::string segmentType = line.substr(foundAt + 1, foundCol - foundAt - 1);
+            
             if (segmentType == "N")
             {
                 type = NORMAL;
@@ -47,10 +48,11 @@ int ReadLine::parseLineType(std::string line)
             std::string segmentFileName = line.substr(foundCol + 1);
             std::size_t foundFile = segmentFileName.find(".txt");
             // Not contain ".txt"
-            if (foundFile == std::string::npos || foundFile - foundCol == 0)
+            if (foundFile == std::string::npos || foundFile == 0)
             {
                 return INVALID;
             }
+            //std::cout << segmentFileName << std::endl;
             this->pageName = segmentFileName;
             return type;
         }
@@ -81,7 +83,7 @@ int ReadLine::parseLineType(std::string line)
         if (foundSecondCol != std::string::npos)
         {
             std::string segmentChoice = lineAfter.substr(0, foundSecondCol);
-            
+
             char *endptr2;
             index = strtoul(segmentChoice.c_str(), &endptr2, 10);
             if (endptr2 == segmentChoice.c_str() || *endptr2 != '\0' || index < 0)

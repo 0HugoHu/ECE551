@@ -80,7 +80,7 @@ void NormalPage::printPage(std::string prefix)
     std::cout << this->fixedString << std::endl;
     for (size_t i = 0; i < this->choiceContent.size(); i++)
     {
-        std::cout << " " << i << ". " << choiceContent[i] << std::endl;
+        std::cout << i << ". " << choiceContent[i] << std::endl;
     }
 }
 
