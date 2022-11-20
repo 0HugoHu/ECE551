@@ -1,5 +1,5 @@
-OBJS	= step1.o Tool.o Page.o
-SOURCE	= step1.cpp Page.cpp Tool.cpp
+OBJS	= cyoa-step1.o Tool.o Page.o
+SOURCE	= cyoa-step1.cpp Page.cpp Tool.cpp
 HEADER	= Page.hpp Tool.hpp
 OUT	= cyoa-step1
 CC	 = g++
@@ -9,8 +9,8 @@ LFLAGS	 =
 all: $(OBJS)
 	$(CC) -g $(OBJS) -o $(OUT) $(LFLAGS)
 
-step1.o: step1.cpp
-	$(CC) $(FLAGS) step1.cpp -std=c++98
+cyoa-step1.o: cyoa-step1.cpp
+	$(CC) $(FLAGS) cyoa-step1.cpp -std=c++98
 
 Tool.o: Tool.cpp
 	$(CC) $(FLAGS) Tool.cpp -std=c++98
