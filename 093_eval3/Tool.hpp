@@ -38,4 +38,9 @@ public:
     ~ReadLine() {}
 };
 
+class CheckPages {
+    private:
+    std::vector<std::size_t> pages;
+}
+
 #endif
