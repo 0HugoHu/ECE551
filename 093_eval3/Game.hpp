@@ -9,7 +9,7 @@ class GamePlay
 private:
     std::size_t curr;
     std::string directory;
-    int readInput();
+    int readInput(size_t size);
 
 public:
     GamePlay(std::string dir) : curr(0), directory(dir) {}
