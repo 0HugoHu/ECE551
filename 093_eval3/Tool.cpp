@@ -1,5 +1,6 @@
 #include "Tool.hpp"
-#include <algorithm>
+#include <string.h>
+#include <errno.h>
 
 int ReadLine::parseLineType(std::string line)
 {
@@ -92,6 +93,7 @@ int ReadLine::parseLineType(std::string line)
                 return INVALID;
             }
             //std::cout<<segmentFileName<<std::endl;
+            segmentFileName[segmentFileName.size() - 1] = '\0';
             this->pageName = segmentFileName;
             return type;
         }
@@ -187,11 +189,12 @@ void ReadLine::initPage(std::string inputFile, std::vector<Page *> &pages)
 
 std::vector<std::string> ReadLine::readLine(std::string filename)
 {
-    std::ifstream f;
-    f.open(filename.c_str());
+    std::ifstream f(filename.c_str());
+
     if (!f.is_open())
     {
         std::cerr << "Cannot open the file!" << std::endl;
+        abort();
     }
     std::vector<std::string> res;
     std::string line;
@@ -209,11 +212,11 @@ std::vector<std::string> ReadLine::readLine(std::string filename)
 
 void ReadLine::printLine(std::string filename)
 {
-    std::ifstream f;
-    f.open(filename.c_str());
+    std::ifstream f(filename.c_str());
     if (!f.is_open())
     {
         std::cerr << "Cannot open the file!" << std::endl;
+        abort();
     }
     std::string line;
     while (getline(f, line))
