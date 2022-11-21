@@ -1,6 +1,6 @@
-Grading at 11/21/2022:18:15:32.618369
-For commit ID a664b8811c2eebd5d10af13a4be27e6e857693c2
-Grading at Mon Nov 21 01:15:29 PM EST 2022
+Grading at 11/21/2022:18:18:47.487436
+For commit ID 429cd0791fd1cc1345e8f3f2430b22329d1588e4
+Grading at Mon Nov 21 01:18:42 PM EST 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -16,18 +16,16 @@ Now running YOUR tests for step 1
 
 1.1: Current test is ./cyoa-step1 /usr/local/ece551/cyoa/story1/ < /dev/null
 -----------------------------
-You considered this a failure case:
-Cannot open the file!
-timeout: the monitored command dumped core
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 1.2: Current test is ./cyoa-step1 /usr/local/ece551/cyoa/story2/ < /dev/null
 -----------------------------
-You considered this a failure case:
-Cannot open the file!
-timeout: the monitored command dumped core
-But we did not.
+Your output looks good. Lets check valgrind
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean
 
 
 1.3: Current test is ./cyoa-step1 /home/yh342/ece551/093_eval3/story1/test5 < /dev/null
