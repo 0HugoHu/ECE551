@@ -91,8 +91,6 @@ int ReadLine::parseLineType(std::string line)
             {
                 return INVALID;
             }
-            segmentFileName = "'" + segmentFileName;
-            segmentFileName[segmentFileName.size() - 1] = '\'';
             std::cout<<segmentFileName<<std::endl;
             this->pageName = segmentFileName;
             return type;
