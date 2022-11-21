@@ -91,7 +91,7 @@ int ReadLine::parseLineType(std::string line)
             {
                 return INVALID;
             }
-            std::cout<<segmentFileName<<std::endl;
+            //std::cout<<segmentFileName<<std::endl;
             this->pageName = segmentFileName;
             return type;
         }
