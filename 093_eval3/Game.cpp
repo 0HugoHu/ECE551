@@ -12,7 +12,6 @@ int GamePlay::play(std::vector<Page *> &pages)
         do
         {
             jumpTo = this->readInput();
-            std::cout<<jumpTo<<std::endl;
         } while (jumpTo <= 0 || jumpTo > pages[curr]->getChoice().size());
 
         // Jump to another page
