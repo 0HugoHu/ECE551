@@ -2,7 +2,7 @@
 
 int ReadLine::parseLineType(std::string line)
 {
-    
+
     std::size_t index = 0;
     int type = 0;
 
@@ -26,7 +26,7 @@ int ReadLine::parseLineType(std::string line)
         if (foundCol != std::string::npos)
         {
             std::string segmentType = line.substr(foundAt + 1, foundCol - foundAt - 1);
-            
+
             if (segmentType == "N")
             {
                 type = NORMAL;
@@ -52,7 +52,7 @@ int ReadLine::parseLineType(std::string line)
             {
                 return INVALID;
             }
-            //std::cout << segmentFileName << std::endl;
+            // std::cout << segmentFileName << std::endl;
             this->pageName = segmentFileName;
             return type;
         }
@@ -60,7 +60,6 @@ int ReadLine::parseLineType(std::string line)
         {
             return INVALID;
         }
-        
     }
 
     // Choice Type
@@ -113,6 +112,77 @@ int ReadLine::parseLineType(std::string line)
     }
 
     return INVALID;
+}
+
+void ReadLine::initPage(std::string inputFile, std::vector<Page *> &pages)
+{
+    std::vector<std::string> lines = readLine(inputFile);
+    for (size_t i = 0; i < lines.size(); i++)
+    {
+        Page *page = new NormalPage();
+        int type = parseLineType(lines[i]);
+        // Page number must increasely declared
+
+        if (page->getMaxPageIndex() != 0 && page->getMaxPageIndex() >= getIndex())
+        {
+            std::cerr << "Errors in story.txt!" << std::endl;
+        }
+
+        switch (type)
+        {
+        case NORMAL:
+            delete page;
+            page = new NormalPage();
+            break;
+        case WIN:
+            delete page;
+            page = new WinPage();
+            break;
+        case LOSE:
+            delete page;
+            page = new LosePage();
+            break;
+
+        case CHOICE:
+        {
+            size_t j = 0;
+            for (; j < page->getPageNums(); j++)
+            {
+                if (getIndex() == j && pages[j]->getType() == "Normal")
+                {
+                    pages[j]->addChoice(getChoice());
+                    pages[j]->addChoiceContent(getChoiceContent());
+                    break;
+                }
+            }
+            // Must declare a page before jump
+            if (j == pages[0]->getPageNums())
+            {
+                std::cerr << "Errors in story.txt!" << std::endl;
+                abort();
+            }
+            break;
+        }
+
+        case INVALID:
+        default:
+            // Invalid format in story.txt
+            std::cerr << "Errors in story.txt!" << std::endl;
+            abort();
+            break;
+        }
+        if (type != CHOICE)
+        {
+            page->incPageNums();
+            page->setIndex(getIndex());
+            page->setPageName(getPageName());
+            pages.push_back(page);
+        }
+        else
+        {
+            delete page;
+        }
+    }
 }
 
 std::vector<std::string> ReadLine::readLine(std::string filename)

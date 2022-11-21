@@ -1,6 +1,8 @@
 #ifndef TOOL_HPP
 #define TOOL_HPP
 
+#include "Page.hpp"
+
 #include <vector>
 #include <string>
 #include <sstream>
@@ -24,6 +26,7 @@ private:
 
 public:
     ReadLine() : index(0), choice(0) {}
+    void initPage(std::string inputFile, std::vector<Page *> &pages);
     std::vector<std::string> readLine(std::string filename);
     void printLine(std::string filename);
     int parseLineType(std::string line);
