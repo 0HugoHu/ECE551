@@ -92,8 +92,11 @@ int ReadLine::parseLineType(std::string line)
             {
                 return INVALID;
             }
-            //std::cout<<segmentFileName<<std::endl;
-            segmentFileName[segmentFileName.size() - 1] = '\0';
+            // std::cout<<segmentFileName<<std::endl;
+            if (segmentFileName[segmentFileName.size() - 1] != 't')
+            {
+                segmentFileName[segmentFileName.size() - 1] = '\0';
+            }
             this->pageName = segmentFileName;
             return type;
         }
@@ -115,7 +118,7 @@ void ReadLine::initPage(std::string inputFile, std::vector<Page *> &pages)
     std::vector<std::string> lines = readLine(inputFile);
     for (size_t i = 0; i < lines.size(); i++)
     {
-        //std::cout << lines[i] << std::endl;
+        // std::cout << lines[i] << std::endl;
         Page *page = new NormalPage();
         int type = parseLineType(lines[i]);
         // Page number must increasely declared
