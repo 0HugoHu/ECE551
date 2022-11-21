@@ -7,7 +7,8 @@ int main(int argc, char **argv)
 {
     if (argc != 2)
     {
-        std::cerr << "Input format: directory name contains the story1.txt!" << std::endl;
+        std::cerr << "Input format: directory name contains the story.txt!" << std::endl;
+        abort();
     }
     std::string directory(argv[1]);
     std::string inputFile = directory + "/story.txt";
@@ -28,5 +29,5 @@ int main(int argc, char **argv)
     }
     pages.clear();
 
-    return 0;
+    return EXIT_SUCCESS;
 }

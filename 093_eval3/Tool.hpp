@@ -16,6 +16,11 @@
 #define CHOICE 9005
 #define INVALID 9009
 
+#define RANDOM_NUM1 92295225
+#define RANDOM_NUM2 24118035
+
+#define EXIT_SUCCESS 0
+
 // ReadLine Class provides input and output abstact functions
 class ReadLine
 {
@@ -38,9 +43,20 @@ public:
     ~ReadLine() {}
 };
 
-class CheckPages {
-    private:
+class CheckPages
+{
+private:
     std::vector<std::size_t> pages;
-}
+    std::vector<std::vector<std::size_t> > choices;
+    bool checkedWinAndLose;
+    bool checkWin(std::string &type);
+    bool checkLose(std::string &type);
+
+public:
+    CheckPages(std::vector<Page *> &pages);
+    bool checkPages();
+    bool checkChoices();
+    bool getWinAndLoseStatus();
+};
 
 #endif

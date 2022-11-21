@@ -30,6 +30,8 @@ public:
     virtual void printPage(std::string prefix) = 0;
     virtual void addChoice(std::size_t choice) = 0;
     virtual void addChoiceContent(std::string choiceContent) = 0;
+    virtual std::vector<std::size_t> getChoice() = 0;
+    virtual std::vector<std::string> getChoiceContent() = 0;
     virtual ~Page() {}
 };
 
@@ -47,6 +49,8 @@ public:
     NormalPage &operator=(const NormalPage &it);
     virtual void addChoice(std::size_t choice);
     virtual void addChoiceContent(std::string choiceContent);
+    virtual std::vector<std::size_t> getChoice();
+    virtual std::vector<std::string> getChoiceContent();
     virtual std::string getType();
     virtual void printPage(std::string prefix);
     virtual ~NormalPage() {}
@@ -63,6 +67,8 @@ public:
     virtual void printPage(std::string prefix);
     virtual void addChoice(std::size_t choice);
     virtual void addChoiceContent(std::string choiceContent);
+    virtual std::vector<std::size_t> getChoice();
+    virtual std::vector<std::string> getChoiceContent();
 };
 
 // Lose Page (L)
@@ -76,6 +82,8 @@ public:
     virtual void printPage(std::string prefix);
     virtual void addChoice(std::size_t choice);
     virtual void addChoiceContent(std::string choiceContent);
+    virtual std::vector<std::size_t> getChoice();
+    virtual std::vector<std::string> getChoiceContent();
 };
 
 #endif

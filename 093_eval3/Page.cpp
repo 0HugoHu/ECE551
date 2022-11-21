@@ -95,6 +95,16 @@ void NormalPage::addChoiceContent(std::string choiceContent)
     this->choiceContent.push_back(choiceContent);
 }
 
+std::vector<std::size_t> NormalPage::getChoice()
+{
+    return this->choice;
+}
+
+std::vector<std::string> NormalPage::getChoiceContent()
+{
+    return this->choiceContent;
+}
+
 std::string WinPage::getType()
 {
     return "Win";
@@ -117,6 +127,18 @@ void WinPage::addChoiceContent(std::string choiceContent)
 {
 }
 
+std::vector<std::size_t> WinPage::getChoice()
+{
+    std::vector<std::size_t> res;
+    return res;
+}
+
+std::vector<std::string> WinPage::getChoiceContent()
+{
+    std::vector<std::string> res;
+    return res;
+}
+
 std::string LosePage::getType()
 {
     return "Lose";
@@ -137,4 +159,16 @@ void LosePage::addChoice(std::size_t choice)
 
 void LosePage::addChoiceContent(std::string choiceContent)
 {
+}
+
+std::vector<std::size_t> LosePage::getChoice()
+{
+    std::vector<std::size_t> res;
+    return res;
+}
+
+std::vector<std::string> LosePage::getChoiceContent()
+{
+    std::vector<std::string> res;
+    return res;
 }

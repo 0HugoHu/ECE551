@@ -126,6 +126,7 @@ void ReadLine::initPage(std::string inputFile, std::vector<Page *> &pages)
         if (page->getMaxPageIndex() != 0 && page->getMaxPageIndex() >= getIndex())
         {
             std::cerr << "Errors in story.txt!" << std::endl;
+            abort();
         }
 
         switch (type)
@@ -247,4 +248,126 @@ std::string ReadLine::getPageName()
 std::string ReadLine::getChoiceContent()
 {
     return this->choiceContent;
+}
+
+CheckPages::CheckPages(std::vector<Page *> &pages) : checkedWinAndLose(false)
+{
+    bool win = false;
+    bool lose = false;
+    size_t maxChoiceSize = 0;
+    for (size_t i = 0; i < pages.size(); i++)
+    {
+        size_t num = pages[i]->getChoice().size();
+        if (num > maxChoiceSize)
+        {
+            maxChoiceSize = num;
+        }
+    }
+
+    maxChoiceSize += 2;
+
+    for (size_t i = 0; i < pages.size(); i++)
+    {
+        this->pages.push_back(pages[i]->getIndex());
+        std::string type = pages[i]->getType();
+        if (!win)
+        {
+            win = this->checkWin(type);
+        }
+        if (!lose)
+        {
+            lose = this->checkLose(type);
+        }
+        if (type == "Normal")
+        {
+            std::vector<std::size_t> choice = pages[i]->getChoice();
+            choice.push_back(RANDOM_NUM1);
+            choice.push_back(RANDOM_NUM2);
+            while (choice.size() < maxChoiceSize)
+            {
+                choice.push_back(0);
+            }
+            this->choices.push_back(choice);
+        }
+    }
+
+    if (win && lose)
+    {
+        this->checkedWinAndLose = true;
+    }
+}
+
+bool CheckPages::checkPages()
+{
+    if (pages.size() == 0)
+    {
+        return false;
+    }
+    for (size_t i = 1; i < pages.size(); i++)
+    {
+        // std::cout<<i<<std::endl;
+        size_t page = pages[i];
+        size_t j = 0;
+        size_t k = 0;
+        for (; j < choices.size(); j++)
+        {
+            for (; choices[j][k] == RANDOM_NUM1 && choices[j][k + 1] == RANDOM_NUM2; k++)
+            {
+                if (choices[j][k] == page)
+                    break;
+            }
+            if (choices[j][k] == page)
+                break;
+        }
+        if (j == choices.size() && choices[j - 1][k] == RANDOM_NUM1 && choices[j - 1][k + 1] == RANDOM_NUM2)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool CheckPages::checkChoices()
+{
+    if (choices.size() == 0)
+    {
+        return false;
+    }
+    for (size_t i = 0; i < choices.size(); i++)
+    {
+        if (choices[i][0] == RANDOM_NUM1 && choices[i][2] == RANDOM_NUM2)
+        {
+            return false;
+        }
+        for (size_t j = 0; choices[i][j] != RANDOM_NUM1 && choices[i][j + 1] != RANDOM_NUM2; j++)
+        {
+            size_t page = choices[i][j];
+            size_t k = 0;
+            for (; k < pages.size(); k++)
+            {
+                if (page == pages[k])
+                    break;
+            }
+            if (k == pages.size())
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+bool CheckPages::checkWin(std::string &type)
+{
+    return type == "Win";
+}
+
+bool CheckPages::checkLose(std::string &type)
+{
+    return type == "Lose";
+}
+
+bool CheckPages::getWinAndLoseStatus()
+{
+    return this->checkedWinAndLose;
 }
