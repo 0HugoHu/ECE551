@@ -1,7 +1,6 @@
 #include "Tool.hpp"
 #include "Page.hpp"
 
-
 #define DIRECTORY "/usr/local/ece551/cyoa/story1"
 
 int main(int argc, char **argv)
@@ -13,10 +12,13 @@ int main(int argc, char **argv)
     std::string directory(argv[1]);
     std::string inputFile = directory + "/story.txt";
 
+    // Class ReadLine provides function to read content
     ReadLine r;
     std::vector<Page *> pages;
+    // Load content and stored in vector
     r.initPage(inputFile, pages);
 
+    // Print pages
     for (size_t i = 0; i < pages.size(); i++)
     {
         std::cout << "Page " << i << std::endl;

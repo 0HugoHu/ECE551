@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 
+// Abstract Class for different kinds of pages
 class Page
 {
 private:
@@ -32,6 +33,7 @@ public:
     virtual ~Page() {}
 };
 
+// Normal Page (N)
 class NormalPage : public Page
 {
 private:
@@ -50,6 +52,7 @@ public:
     virtual ~NormalPage() {}
 };
 
+// Win Page (W)
 class WinPage : public Page
 {
 private:
@@ -62,6 +65,7 @@ public:
     virtual void addChoiceContent(std::string choiceContent);
 };
 
+// Lose Page (L)
 class LosePage : public Page
 {
 private:

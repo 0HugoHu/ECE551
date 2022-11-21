@@ -16,6 +16,7 @@
 #define CHOICE 9005
 #define INVALID 9009
 
+// ReadLine Class provides input and output abstact functions
 class ReadLine
 {
 private:
