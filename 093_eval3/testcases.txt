@@ -2,4 +2,16 @@ cyoa-step1 /usr/local/ece551/cyoa/story1/
 
 cyoa-step1 /usr/local/ece551/cyoa/story2/
 
+cyoa-step1 /home/yh342/ece551/093_eval3/story1/test5
+
+cyoa-step1 /home/yh342/ece551/093_eval3/story1/test4
+
+cyoa-step1 /home/yh342/ece551/093_eval3/story1/test3
+
+cyoa-step1 /home/yh342/ece551/093_eval3/story1/test2
+
+cyoa-step1 /home/yh342/ece551/093_eval3/story1/test1
+
+cyoa-step1 /home/yh342/ece551/093_eval3/
+
 

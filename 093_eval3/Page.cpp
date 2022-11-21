@@ -75,6 +75,7 @@ std::string NormalPage::getType()
 void NormalPage::printPage(std::string prefix)
 {
     ReadLine r;
+    std::cout<<prefix + this->getPageName() <<std::endl;
     r.printLine(prefix + this->getPageName());
     std::cout << std::endl;
     std::cout << this->fixedString << std::endl;
@@ -102,6 +103,7 @@ std::string WinPage::getType()
 void WinPage::printPage(std::string prefix)
 {
     ReadLine r;
+    std::cout<<prefix + this->getPageName()<<std::endl;
     r.printLine(prefix + this->getPageName());
     std::cout << std::endl;
     std::cout << this->fixedString << std::endl;
@@ -123,6 +125,7 @@ std::string LosePage::getType()
 void LosePage::printPage(std::string prefix)
 {
     ReadLine r;
+    std::cout<<prefix + this->getPageName()<<std::endl;
     r.printLine(prefix + this->getPageName());
     std::cout << std::endl;
     std::cout << this->fixedString << std::endl;

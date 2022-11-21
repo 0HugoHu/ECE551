@@ -1,14 +1,53 @@
 #include "Tool.hpp"
+#include <algorithm>
 
 int ReadLine::parseLineType(std::string line)
 {
+    std::size_t foundCol = line.find(":");
+    std::size_t foundAt = line.find("@");
 
     std::size_t index = 0;
     int type = 0;
 
+    // Choice Type
+    // 2:1:Something
+    if (foundCol != std::string::npos)
+    {
+        std::string segmentIndex = line.substr(0, foundCol);
+        char *endptr;
+        index = strtoul(segmentIndex.c_str(), &endptr, 10);
+        if (!(endptr == segmentIndex.c_str() || *endptr != '\0' || index < 0))
+        {
+            this->index = index;
+
+            std::string lineAfter = line.substr(foundCol + 1);
+            std::size_t foundSecondCol = lineAfter.find(":");
+            // choice (goto)
+            if (foundSecondCol != std::string::npos)
+            {
+                std::string segmentChoice = lineAfter.substr(0, foundSecondCol);
+
+                char *endptr2;
+                index = strtoul(segmentChoice.c_str(), &endptr2, 10);
+                if (!(endptr2 == segmentChoice.c_str() || *endptr2 != '\0' || index < 0))
+                {
+                    this->choice = index;
+
+                    // Choice Content
+                    std::string segmentChoiceContent = lineAfter.substr(foundSecondCol + 1);
+                    if (segmentChoiceContent.size() != 0)
+                    {
+                        this->choiceContent = segmentChoiceContent;
+                        return CHOICE;
+                    }
+                }
+            }
+        }
+    }
+
     // Page Type
     // 0@N:page0.txt
-    std::size_t foundAt = line.find("@");
+
     // Index
     if (foundAt != std::string::npos)
     {
@@ -52,54 +91,11 @@ int ReadLine::parseLineType(std::string line)
             {
                 return INVALID;
             }
-            // std::cout << segmentFileName << std::endl;
+            segmentFileName = "'" + segmentFileName;
+            segmentFileName[segmentFileName.size() - 1] = '\'';
+            std::cout<<segmentFileName<<std::endl;
             this->pageName = segmentFileName;
             return type;
-        }
-        else
-        {
-            return INVALID;
-        }
-    }
-
-    // Choice Type
-    // 2:1:Something
-    std::size_t foundCol = line.find(":");
-    // index
-    if (foundCol != std::string::npos)
-    {
-        std::string segmentIndex = line.substr(0, foundCol);
-        char *endptr;
-        index = strtoul(segmentIndex.c_str(), &endptr, 10);
-        if (endptr == segmentIndex.c_str() || *endptr != '\0' || index < 0)
-        {
-            return INVALID;
-        }
-        this->index = index;
-
-        std::string lineAfter = line.substr(foundCol + 1);
-        std::size_t foundSecondCol = lineAfter.find(":");
-        // choice (goto)
-        if (foundSecondCol != std::string::npos)
-        {
-            std::string segmentChoice = lineAfter.substr(0, foundSecondCol);
-
-            char *endptr2;
-            index = strtoul(segmentChoice.c_str(), &endptr2, 10);
-            if (endptr2 == segmentChoice.c_str() || *endptr2 != '\0' || index < 0)
-            {
-                return INVALID;
-            }
-            this->choice = index;
-
-            // Choice Content
-            std::string segmentChoiceContent = lineAfter.substr(foundSecondCol + 1);
-            if (segmentChoiceContent.size() == 0)
-            {
-                return INVALID;
-            }
-            this->choiceContent = segmentChoiceContent;
-            return CHOICE;
         }
         else
         {
@@ -119,6 +115,7 @@ void ReadLine::initPage(std::string inputFile, std::vector<Page *> &pages)
     std::vector<std::string> lines = readLine(inputFile);
     for (size_t i = 0; i < lines.size(); i++)
     {
+        //std::cout << lines[i] << std::endl;
         Page *page = new NormalPage();
         int type = parseLineType(lines[i]);
         // Page number must increasely declared
@@ -145,10 +142,15 @@ void ReadLine::initPage(std::string inputFile, std::vector<Page *> &pages)
 
         case CHOICE:
         {
+            if (0 == page->getPageNums())
+            {
+                std::cerr << "Errors in story.txt!" << std::endl;
+                abort();
+            }
             size_t j = 0;
             for (; j < page->getPageNums(); j++)
             {
-                if (getIndex() == j && pages[j]->getType() == "Normal")
+                if (getIndex() == pages[j]->getIndex() && pages[j]->getType() == "Normal")
                 {
                     pages[j]->addChoice(getChoice());
                     pages[j]->addChoiceContent(getChoiceContent());
