@@ -33,7 +33,7 @@ int GamePlay::readInput()
     read = strtoul(line.c_str(), &endptr, 10);
     if (endptr == line.c_str() || *endptr != '\0' || read < 0)
     {
-        std::cerr << "That is not a valid choice, please try again" << std::endl;
+        std::cout << "That is not a valid choice, please try again" << std::endl;
         read = 0;
     } 
 
