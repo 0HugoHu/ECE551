@@ -1,6 +1,6 @@
-Grading at 11/21/2022:18:26:17.385609
-For commit ID e0e9f7f97461a1b09c60d75ad9bd5b21d31371f7
-Grading at Mon Nov 21 01:26:12 PM EST 2022
+Grading at 11/21/2022:22:19:01.781166
+For commit ID 395d2c4b69827c91bd5fbc577ecc5ff047208850
+Grading at Mon Nov 21 05:18:57 PM EST 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -52,6 +52,17 @@ No request to check for intermediate deadline completion on step 1
 
 Step 2
 Checking that cyoa-step2 compiles
+rm -f  
+make: 'cyoa-step2' is up to date.
+The code compiled (good)
+Executable cyoa-step2 exists (good)
+------------------------------------
+Now running YOUR tests for step 2
+------------------------------------
+No request to check for intermediate deadline completion on step 2
+
+Step 3
+Checking that cyoa-step3 compiles
 rm -f  
 The code did not compile!
 
