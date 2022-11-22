@@ -1,6 +1,6 @@
-Grading at 11/22/2022:21:41:38.105362
-For commit ID 2b81594817db04d457521eb158b25bc9dee9dd19
-Grading at Tue Nov 22 04:41:35 PM EST 2022
+Grading at 11/22/2022:21:49:56.588703
+For commit ID 259868da006e0f9544e41f3bddaa5109aeb58605
+Grading at Tue Nov 22 04:49:08 PM EST 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -29,12 +29,1541 @@ Step 1 EC intermediate deadline test 2
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean for this testcase
 You have passed this test case
-Intermediate deadline requirements for Step 1 passed at Tue Nov 22 04:41:37 PM EST 2022
+Intermediate deadline requirements for Step 1 passed at Tue Nov 22 04:49:10 PM EST 2022
 
 Step 2
 Checking that cyoa-step2 compiles
 rm -f  
-g++     cyoa-step2.cpp   -o cyoa-step2
-The code did not compile!
+make: 'cyoa-step2' is up to date.
+The code compiled (good)
+Executable cyoa-step2 exists (good)
+------------------------------------
+Now running YOUR tests for step 2
+------------------------------------
+------------------------------------
+You have requested that we check for intermediate deadline completion on step 2
+------------------------------------
+
+Step 2 EC intermediate deadline test 1
+===========================================================
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input0.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==988586== Memcheck, a memory error detector
+==988586== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==988586== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==988586== Command: ./cyoa-step2 /usr/local/ece551/cyoa/story1
+==988586== Parent PID: 988585
+==988586== 
+==988586== Conditional jump or move depends on uninitialised value(s)
+==988586==    at 0x119362: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:29)
+==988586==    by 0x10B956: main (cyoa-step2.cpp:37)
+==988586== 
+==988586== Conditional jump or move depends on uninitialised value(s)
+==988586==    at 0x1194F8: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:43)
+==988586==    by 0x10B956: main (cyoa-step2.cpp:37)
+==988586== 
+==988586== 
+==988586== HEAP SUMMARY:
+==988586==     in use at exit: 0 bytes in 0 blocks
+==988586==   total heap usage: 316 allocs, 316 frees, 153,528 bytes allocated
+==988586== 
+==988586== All heap blocks were freed -- no leaks are possible
+==988586== 
+==988586== Use --track-origins=yes to see where uninitialised values come from
+==988586== For lists of detected and suppressed errors, rerun with: -s
+==988586== ERROR SUMMARY: 8 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 2 EC intermediate deadline test 2
+===========================================================
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input10.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==988614== Memcheck, a memory error detector
+==988614== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==988614== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==988614== Command: ./cyoa-step2 /usr/local/ece551/cyoa/story1
+==988614== Parent PID: 988613
+==988614== 
+==988614== Conditional jump or move depends on uninitialised value(s)
+==988614==    at 0x119362: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:29)
+==988614==    by 0x10B956: main (cyoa-step2.cpp:37)
+==988614== 
+==988614== Conditional jump or move depends on uninitialised value(s)
+==988614==    at 0x1194F8: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:43)
+==988614==    by 0x10B956: main (cyoa-step2.cpp:37)
+==988614== 
+==988614== 
+==988614== HEAP SUMMARY:
+==988614==     in use at exit: 0 bytes in 0 blocks
+==988614==   total heap usage: 307 allocs, 307 frees, 144,532 bytes allocated
+==988614== 
+==988614== All heap blocks were freed -- no leaks are possible
+==988614== 
+==988614== Use --track-origins=yes to see where uninitialised values come from
+==988614== For lists of detected and suppressed errors, rerun with: -s
+==988614== ERROR SUMMARY: 6 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 2 EC intermediate deadline test 3
+===========================================================
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input11.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==988653== Memcheck, a memory error detector
+==988653== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==988653== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==988653== Command: ./cyoa-step2 /usr/local/ece551/cyoa/story1
+==988653== Parent PID: 988652
+==988653== 
+==988653== Conditional jump or move depends on uninitialised value(s)
+==988653==    at 0x119362: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:29)
+==988653==    by 0x10B956: main (cyoa-step2.cpp:37)
+==988653== 
+==988653== Conditional jump or move depends on uninitialised value(s)
+==988653==    at 0x1194F8: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:43)
+==988653==    by 0x10B956: main (cyoa-step2.cpp:37)
+==988653== 
+==988653== 
+==988653== HEAP SUMMARY:
+==988653==     in use at exit: 0 bytes in 0 blocks
+==988653==   total heap usage: 317 allocs, 317 frees, 153,552 bytes allocated
+==988653== 
+==988653== All heap blocks were freed -- no leaks are possible
+==988653== 
+==988653== Use --track-origins=yes to see where uninitialised values come from
+==988653== For lists of detected and suppressed errors, rerun with: -s
+==988653== ERROR SUMMARY: 9 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 2 EC intermediate deadline test 4
+===========================================================
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input12.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==988730== Memcheck, a memory error detector
+==988730== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==988730== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==988730== Command: ./cyoa-step2 /usr/local/ece551/cyoa/story1
+==988730== Parent PID: 988729
+==988730== 
+==988730== Conditional jump or move depends on uninitialised value(s)
+==988730==    at 0x119362: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:29)
+==988730==    by 0x10B956: main (cyoa-step2.cpp:37)
+==988730== 
+==988730== Conditional jump or move depends on uninitialised value(s)
+==988730==    at 0x1194F8: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:43)
+==988730==    by 0x10B956: main (cyoa-step2.cpp:37)
+==988730== 
+==988730== 
+==988730== HEAP SUMMARY:
+==988730==     in use at exit: 0 bytes in 0 blocks
+==988730==   total heap usage: 308 allocs, 308 frees, 144,565 bytes allocated
+==988730== 
+==988730== All heap blocks were freed -- no leaks are possible
+==988730== 
+==988730== Use --track-origins=yes to see where uninitialised values come from
+==988730== For lists of detected and suppressed errors, rerun with: -s
+==988730== ERROR SUMMARY: 7 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 2 EC intermediate deadline test 5
+===========================================================
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input1.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==988783== Memcheck, a memory error detector
+==988783== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==988783== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==988783== Command: ./cyoa-step2 /usr/local/ece551/cyoa/story1
+==988783== Parent PID: 988781
+==988783== 
+==988783== Conditional jump or move depends on uninitialised value(s)
+==988783==    at 0x119362: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:29)
+==988783==    by 0x10B956: main (cyoa-step2.cpp:37)
+==988783== 
+==988783== Conditional jump or move depends on uninitialised value(s)
+==988783==    at 0x1194F8: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:43)
+==988783==    by 0x10B956: main (cyoa-step2.cpp:37)
+==988783== 
+==988783== 
+==988783== HEAP SUMMARY:
+==988783==     in use at exit: 0 bytes in 0 blocks
+==988783==   total heap usage: 317 allocs, 317 frees, 153,577 bytes allocated
+==988783== 
+==988783== All heap blocks were freed -- no leaks are possible
+==988783== 
+==988783== Use --track-origins=yes to see where uninitialised values come from
+==988783== For lists of detected and suppressed errors, rerun with: -s
+==988783== ERROR SUMMARY: 8 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 2 EC intermediate deadline test 6
+===========================================================
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input2.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==988857== Memcheck, a memory error detector
+==988857== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==988857== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==988857== Command: ./cyoa-step2 /usr/local/ece551/cyoa/story1
+==988857== Parent PID: 988856
+==988857== 
+==988857== Conditional jump or move depends on uninitialised value(s)
+==988857==    at 0x119362: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:29)
+==988857==    by 0x10B956: main (cyoa-step2.cpp:37)
+==988857== 
+==988857== Conditional jump or move depends on uninitialised value(s)
+==988857==    at 0x1194F8: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:43)
+==988857==    by 0x10B956: main (cyoa-step2.cpp:37)
+==988857== 
+==988857== 
+==988857== HEAP SUMMARY:
+==988857==     in use at exit: 0 bytes in 0 blocks
+==988857==   total heap usage: 316 allocs, 316 frees, 153,528 bytes allocated
+==988857== 
+==988857== All heap blocks were freed -- no leaks are possible
+==988857== 
+==988857== Use --track-origins=yes to see where uninitialised values come from
+==988857== For lists of detected and suppressed errors, rerun with: -s
+==988857== ERROR SUMMARY: 8 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 2 EC intermediate deadline test 7
+===========================================================
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input3.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==988906== Memcheck, a memory error detector
+==988906== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==988906== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==988906== Command: ./cyoa-step2 /usr/local/ece551/cyoa/story1
+==988906== Parent PID: 988905
+==988906== 
+==988906== Conditional jump or move depends on uninitialised value(s)
+==988906==    at 0x119362: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:29)
+==988906==    by 0x10B956: main (cyoa-step2.cpp:37)
+==988906== 
+==988906== Conditional jump or move depends on uninitialised value(s)
+==988906==    at 0x1194F8: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:43)
+==988906==    by 0x10B956: main (cyoa-step2.cpp:37)
+==988906== 
+==988906== 
+==988906== HEAP SUMMARY:
+==988906==     in use at exit: 0 bytes in 0 blocks
+==988906==   total heap usage: 307 allocs, 307 frees, 144,520 bytes allocated
+==988906== 
+==988906== All heap blocks were freed -- no leaks are possible
+==988906== 
+==988906== Use --track-origins=yes to see where uninitialised values come from
+==988906== For lists of detected and suppressed errors, rerun with: -s
+==988906== ERROR SUMMARY: 6 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 2 EC intermediate deadline test 8
+===========================================================
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input4.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==988956== Memcheck, a memory error detector
+==988956== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==988956== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==988956== Command: ./cyoa-step2 /usr/local/ece551/cyoa/story1
+==988956== Parent PID: 988955
+==988956== 
+==988956== Conditional jump or move depends on uninitialised value(s)
+==988956==    at 0x119362: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:29)
+==988956==    by 0x10B956: main (cyoa-step2.cpp:37)
+==988956== 
+==988956== Conditional jump or move depends on uninitialised value(s)
+==988956==    at 0x1194F8: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:43)
+==988956==    by 0x10B956: main (cyoa-step2.cpp:37)
+==988956== 
+==988956== 
+==988956== HEAP SUMMARY:
+==988956==     in use at exit: 0 bytes in 0 blocks
+==988956==   total heap usage: 307 allocs, 307 frees, 144,532 bytes allocated
+==988956== 
+==988956== All heap blocks were freed -- no leaks are possible
+==988956== 
+==988956== Use --track-origins=yes to see where uninitialised values come from
+==988956== For lists of detected and suppressed errors, rerun with: -s
+==988956== ERROR SUMMARY: 6 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 2 EC intermediate deadline test 9
+===========================================================
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input5.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==989015== Memcheck, a memory error detector
+==989015== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==989015== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==989015== Command: ./cyoa-step2 /usr/local/ece551/cyoa/story1
+==989015== Parent PID: 989014
+==989015== 
+==989015== Conditional jump or move depends on uninitialised value(s)
+==989015==    at 0x119362: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:29)
+==989015==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989015== 
+==989015== Conditional jump or move depends on uninitialised value(s)
+==989015==    at 0x1194F8: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:43)
+==989015==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989015== 
+==989015== 
+==989015== HEAP SUMMARY:
+==989015==     in use at exit: 0 bytes in 0 blocks
+==989015==   total heap usage: 306 allocs, 306 frees, 144,378 bytes allocated
+==989015== 
+==989015== All heap blocks were freed -- no leaks are possible
+==989015== 
+==989015== Use --track-origins=yes to see where uninitialised values come from
+==989015== For lists of detected and suppressed errors, rerun with: -s
+==989015== ERROR SUMMARY: 6 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 2 EC intermediate deadline test 10
+===========================================================
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input6.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==989078== Memcheck, a memory error detector
+==989078== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==989078== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==989078== Command: ./cyoa-step2 /usr/local/ece551/cyoa/story1
+==989078== Parent PID: 989077
+==989078== 
+==989078== Conditional jump or move depends on uninitialised value(s)
+==989078==    at 0x119362: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:29)
+==989078==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989078== 
+==989078== Conditional jump or move depends on uninitialised value(s)
+==989078==    at 0x1194F8: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:43)
+==989078==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989078== 
+==989078== 
+==989078== HEAP SUMMARY:
+==989078==     in use at exit: 0 bytes in 0 blocks
+==989078==   total heap usage: 306 allocs, 306 frees, 144,399 bytes allocated
+==989078== 
+==989078== All heap blocks were freed -- no leaks are possible
+==989078== 
+==989078== Use --track-origins=yes to see where uninitialised values come from
+==989078== For lists of detected and suppressed errors, rerun with: -s
+==989078== ERROR SUMMARY: 6 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 2 EC intermediate deadline test 11
+===========================================================
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input7.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==989111== Memcheck, a memory error detector
+==989111== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==989111== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==989111== Command: ./cyoa-step2 /usr/local/ece551/cyoa/story1
+==989111== Parent PID: 989110
+==989111== 
+==989111== Conditional jump or move depends on uninitialised value(s)
+==989111==    at 0x119362: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:29)
+==989111==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989111== 
+==989111== Conditional jump or move depends on uninitialised value(s)
+==989111==    at 0x1194F8: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:43)
+==989111==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989111== 
+==989111== 
+==989111== HEAP SUMMARY:
+==989111==     in use at exit: 0 bytes in 0 blocks
+==989111==   total heap usage: 306 allocs, 306 frees, 144,390 bytes allocated
+==989111== 
+==989111== All heap blocks were freed -- no leaks are possible
+==989111== 
+==989111== Use --track-origins=yes to see where uninitialised values come from
+==989111== For lists of detected and suppressed errors, rerun with: -s
+==989111== ERROR SUMMARY: 6 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 2 EC intermediate deadline test 12
+===========================================================
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input8.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==989140== Memcheck, a memory error detector
+==989140== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==989140== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==989140== Command: ./cyoa-step2 /usr/local/ece551/cyoa/story1
+==989140== Parent PID: 989139
+==989140== 
+==989140== Conditional jump or move depends on uninitialised value(s)
+==989140==    at 0x119362: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:29)
+==989140==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989140== 
+==989140== Conditional jump or move depends on uninitialised value(s)
+==989140==    at 0x1194F8: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:43)
+==989140==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989140== 
+==989140== 
+==989140== HEAP SUMMARY:
+==989140==     in use at exit: 0 bytes in 0 blocks
+==989140==   total heap usage: 307 allocs, 307 frees, 144,541 bytes allocated
+==989140== 
+==989140== All heap blocks were freed -- no leaks are possible
+==989140== 
+==989140== Use --track-origins=yes to see where uninitialised values come from
+==989140== For lists of detected and suppressed errors, rerun with: -s
+==989140== ERROR SUMMARY: 6 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 2 EC intermediate deadline test 13
+===========================================================
+./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input9.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==989155== Memcheck, a memory error detector
+==989155== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==989155== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==989155== Command: ./cyoa-step2 /usr/local/ece551/cyoa/story1
+==989155== Parent PID: 989154
+==989155== 
+==989155== Conditional jump or move depends on uninitialised value(s)
+==989155==    at 0x119362: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:29)
+==989155==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989155== 
+==989155== Conditional jump or move depends on uninitialised value(s)
+==989155==    at 0x1194F8: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:43)
+==989155==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989155== 
+==989155== 
+==989155== HEAP SUMMARY:
+==989155==     in use at exit: 0 bytes in 0 blocks
+==989155==   total heap usage: 307 allocs, 307 frees, 144,541 bytes allocated
+==989155== 
+==989155== All heap blocks were freed -- no leaks are possible
+==989155== 
+==989155== Use --track-origins=yes to see where uninitialised values come from
+==989155== For lists of detected and suppressed errors, rerun with: -s
+==989155== ERROR SUMMARY: 6 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 2 EC intermediate deadline test 14
+===========================================================
+./cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input0.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==989178== Memcheck, a memory error detector
+==989178== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==989178== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==989178== Command: ./cyoa-step2 /usr/local/ece551/cyoa/story2
+==989178== Parent PID: 989177
+==989178== 
+==989178== Conditional jump or move depends on uninitialised value(s)
+==989178==    at 0x119362: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:29)
+==989178==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989178== 
+==989178== Conditional jump or move depends on uninitialised value(s)
+==989178==    at 0x1194F8: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:43)
+==989178==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989178== 
+==989178== 
+==989178== HEAP SUMMARY:
+==989178==     in use at exit: 0 bytes in 0 blocks
+==989178==   total heap usage: 263 allocs, 263 frees, 132,061 bytes allocated
+==989178== 
+==989178== All heap blocks were freed -- no leaks are possible
+==989178== 
+==989178== Use --track-origins=yes to see where uninitialised values come from
+==989178== For lists of detected and suppressed errors, rerun with: -s
+==989178== ERROR SUMMARY: 4 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 2 EC intermediate deadline test 15
+===========================================================
+./cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input1.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==989191== Memcheck, a memory error detector
+==989191== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==989191== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==989191== Command: ./cyoa-step2 /usr/local/ece551/cyoa/story2
+==989191== Parent PID: 989190
+==989191== 
+==989191== Conditional jump or move depends on uninitialised value(s)
+==989191==    at 0x119362: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:29)
+==989191==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989191== 
+==989191== Conditional jump or move depends on uninitialised value(s)
+==989191==    at 0x1194F8: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:43)
+==989191==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989191== 
+==989191== 
+==989191== HEAP SUMMARY:
+==989191==     in use at exit: 0 bytes in 0 blocks
+==989191==   total heap usage: 291 allocs, 291 frees, 159,096 bytes allocated
+==989191== 
+==989191== All heap blocks were freed -- no leaks are possible
+==989191== 
+==989191== Use --track-origins=yes to see where uninitialised values come from
+==989191== For lists of detected and suppressed errors, rerun with: -s
+==989191== ERROR SUMMARY: 10 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 2 EC intermediate deadline test 16
+===========================================================
+./cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input2.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==989220== Memcheck, a memory error detector
+==989220== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==989220== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==989220== Command: ./cyoa-step2 /usr/local/ece551/cyoa/story2
+==989220== Parent PID: 989219
+==989220== 
+==989220== Conditional jump or move depends on uninitialised value(s)
+==989220==    at 0x119362: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:29)
+==989220==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989220== 
+==989220== Conditional jump or move depends on uninitialised value(s)
+==989220==    at 0x1194F8: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:43)
+==989220==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989220== 
+==989220== 
+==989220== HEAP SUMMARY:
+==989220==     in use at exit: 0 bytes in 0 blocks
+==989220==   total heap usage: 290 allocs, 290 frees, 158,962 bytes allocated
+==989220== 
+==989220== All heap blocks were freed -- no leaks are possible
+==989220== 
+==989220== Use --track-origins=yes to see where uninitialised values come from
+==989220== For lists of detected and suppressed errors, rerun with: -s
+==989220== ERROR SUMMARY: 10 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 2 EC intermediate deadline test 17
+===========================================================
+./cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input3.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==989244== Memcheck, a memory error detector
+==989244== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==989244== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==989244== Command: ./cyoa-step2 /usr/local/ece551/cyoa/story2
+==989244== Parent PID: 989243
+==989244== 
+==989244== Conditional jump or move depends on uninitialised value(s)
+==989244==    at 0x119362: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:29)
+==989244==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989244== 
+==989244== Conditional jump or move depends on uninitialised value(s)
+==989244==    at 0x1194F8: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:43)
+==989244==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989244== 
+==989244== 
+==989244== HEAP SUMMARY:
+==989244==     in use at exit: 0 bytes in 0 blocks
+==989244==   total heap usage: 282 allocs, 282 frees, 150,125 bytes allocated
+==989244== 
+==989244== All heap blocks were freed -- no leaks are possible
+==989244== 
+==989244== Use --track-origins=yes to see where uninitialised values come from
+==989244== For lists of detected and suppressed errors, rerun with: -s
+==989244== ERROR SUMMARY: 8 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 2 EC intermediate deadline test 18
+===========================================================
+./cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input4.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==989274== Memcheck, a memory error detector
+==989274== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==989274== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==989274== Command: ./cyoa-step2 /usr/local/ece551/cyoa/story2
+==989274== Parent PID: 989273
+==989274== 
+==989274== Conditional jump or move depends on uninitialised value(s)
+==989274==    at 0x119362: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:29)
+==989274==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989274== 
+==989274== Conditional jump or move depends on uninitialised value(s)
+==989274==    at 0x1194F8: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:43)
+==989274==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989274== 
+==989274== 
+==989274== HEAP SUMMARY:
+==989274==     in use at exit: 0 bytes in 0 blocks
+==989274==   total heap usage: 281 allocs, 281 frees, 149,997 bytes allocated
+==989274== 
+==989274== All heap blocks were freed -- no leaks are possible
+==989274== 
+==989274== Use --track-origins=yes to see where uninitialised values come from
+==989274== For lists of detected and suppressed errors, rerun with: -s
+==989274== ERROR SUMMARY: 8 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 2 EC intermediate deadline test 19
+===========================================================
+./cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input5.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==989289== Memcheck, a memory error detector
+==989289== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==989289== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==989289== Command: ./cyoa-step2 /usr/local/ece551/cyoa/story2
+==989289== Parent PID: 989288
+==989289== 
+==989289== Conditional jump or move depends on uninitialised value(s)
+==989289==    at 0x119362: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:29)
+==989289==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989289== 
+==989289== Conditional jump or move depends on uninitialised value(s)
+==989289==    at 0x1194F8: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:43)
+==989289==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989289== 
+==989289== 
+==989289== HEAP SUMMARY:
+==989289==     in use at exit: 0 bytes in 0 blocks
+==989289==   total heap usage: 281 allocs, 281 frees, 149,998 bytes allocated
+==989289== 
+==989289== All heap blocks were freed -- no leaks are possible
+==989289== 
+==989289== Use --track-origins=yes to see where uninitialised values come from
+==989289== For lists of detected and suppressed errors, rerun with: -s
+==989289== ERROR SUMMARY: 8 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 2 EC intermediate deadline test 20
+===========================================================
+./cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input6.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==989303== Memcheck, a memory error detector
+==989303== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==989303== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==989303== Command: ./cyoa-step2 /usr/local/ece551/cyoa/story2
+==989303== Parent PID: 989302
+==989303== 
+==989303== Conditional jump or move depends on uninitialised value(s)
+==989303==    at 0x119362: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:29)
+==989303==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989303== 
+==989303== Conditional jump or move depends on uninitialised value(s)
+==989303==    at 0x1194F8: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:43)
+==989303==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989303== 
+==989303== 
+==989303== HEAP SUMMARY:
+==989303==     in use at exit: 0 bytes in 0 blocks
+==989303==   total heap usage: 254 allocs, 254 frees, 123,151 bytes allocated
+==989303== 
+==989303== All heap blocks were freed -- no leaks are possible
+==989303== 
+==989303== Use --track-origins=yes to see where uninitialised values come from
+==989303== For lists of detected and suppressed errors, rerun with: -s
+==989303== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 2 EC intermediate deadline test 21
+===========================================================
+./cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input7.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==989316== Memcheck, a memory error detector
+==989316== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==989316== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==989316== Command: ./cyoa-step2 /usr/local/ece551/cyoa/story2
+==989316== Parent PID: 989315
+==989316== 
+==989316== Conditional jump or move depends on uninitialised value(s)
+==989316==    at 0x119362: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:29)
+==989316==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989316== 
+==989316== Conditional jump or move depends on uninitialised value(s)
+==989316==    at 0x1194F8: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:43)
+==989316==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989316== 
+==989316== 
+==989316== HEAP SUMMARY:
+==989316==     in use at exit: 0 bytes in 0 blocks
+==989316==   total heap usage: 254 allocs, 254 frees, 123,152 bytes allocated
+==989316== 
+==989316== All heap blocks were freed -- no leaks are possible
+==989316== 
+==989316== Use --track-origins=yes to see where uninitialised values come from
+==989316== For lists of detected and suppressed errors, rerun with: -s
+==989316== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 2 EC intermediate deadline test 22
+===========================================================
+./cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input8.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==989329== Memcheck, a memory error detector
+==989329== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==989329== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==989329== Command: ./cyoa-step2 /usr/local/ece551/cyoa/story2
+==989329== Parent PID: 989328
+==989329== 
+==989329== Conditional jump or move depends on uninitialised value(s)
+==989329==    at 0x119362: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:29)
+==989329==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989329== 
+==989329== Conditional jump or move depends on uninitialised value(s)
+==989329==    at 0x1194F8: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:43)
+==989329==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989329== 
+==989329== 
+==989329== HEAP SUMMARY:
+==989329==     in use at exit: 0 bytes in 0 blocks
+==989329==   total heap usage: 291 allocs, 291 frees, 158,986 bytes allocated
+==989329== 
+==989329== All heap blocks were freed -- no leaks are possible
+==989329== 
+==989329== Use --track-origins=yes to see where uninitialised values come from
+==989329== For lists of detected and suppressed errors, rerun with: -s
+==989329== ERROR SUMMARY: 11 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 2 EC intermediate deadline test 23
+===========================================================
+./cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input9.txt
+  - Valgrind reported errors
+Valgrind reported errors or memory leaks
+==989337== Memcheck, a memory error detector
+==989337== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==989337== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==989337== Command: ./cyoa-step2 /usr/local/ece551/cyoa/story2
+==989337== Parent PID: 989336
+==989337== 
+==989337== Conditional jump or move depends on uninitialised value(s)
+==989337==    at 0x119362: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:29)
+==989337==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989337== 
+==989337== Conditional jump or move depends on uninitialised value(s)
+==989337==    at 0x1194F8: GamePlay::play(std::vector<Page*, std::allocator<Page*> >&) (Game.cpp:43)
+==989337==    by 0x10B956: main (cyoa-step2.cpp:37)
+==989337== 
+==989337== 
+==989337== HEAP SUMMARY:
+==989337==     in use at exit: 0 bytes in 0 blocks
+==989337==   total heap usage: 291 allocs, 291 frees, 158,986 bytes allocated
+==989337== 
+==989337== All heap blocks were freed -- no leaks are possible
+==989337== 
+==989337== Use --track-origins=yes to see where uninitialised values come from
+==989337== For lists of detected and suppressed errors, rerun with: -s
+==989337== ERROR SUMMARY: 11 errors from 2 contexts (suppressed: 0 from 0)
+
+Step 3
+Checking that cyoa-step3 compiles
+rm -f  
+make: 'cyoa-step3' is up to date.
+The code compiled (good)
+Executable cyoa-step3 exists (good)
+------------------------------------
+Now running YOUR tests for step 3
+------------------------------------
+------------------------------------
+You have requested that we check for intermediate deadline completion on step 3
+------------------------------------
+
+Step 3 EC intermediate deadline test 1
+===========================================================
+./cyoa-step3 /usr/local/ece551/cyoa/story1
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean for this testcase
+You have passed this test case
+
+Step 3 EC intermediate deadline test 2
+===========================================================
+./cyoa-step3 /usr/local/ece551/cyoa/story2
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean for this testcase
+You have passed this test case
+Intermediate deadline requirements for Step 3 passed at Tue Nov 22 04:49:32 PM EST 2022
+
+Step 4
+Checking that cyoa-step4 compiles
+rm -f  
+make: 'cyoa-step4' is up to date.
+The code compiled (good)
+Executable cyoa-step4 exists (good)
+------------------------------------
+Now running YOUR tests for step 4
+------------------------------------
+------------------------------------
+You have requested that we check for intermediate deadline completion on step 4
+------------------------------------
+
+Step 4 EC intermediate deadline test 1
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input0.txt
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean for this testcase
+You have passed this test case
+
+Step 4 EC intermediate deadline test 2
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input10.txt
+Your output differs from ours.
+Below is the diff (yours left/ours right)
+As you bask in the morning light pouring through the bakery w	As you bask in the morning light pouring through the bakery w
+your breath is taken away by the stunning display of pastries	your breath is taken away by the stunning display of pastries
+
+"What would you like?" The shop keeper ask cheerily.  Realizi	"What would you like?" The shop keeper ask cheerily.  Realizi
+have a long journey ahead of you, you decide it is best to or	have a long journey ahead of you, you decide it is best to or
+one, but choosing is so hard.					one, but choosing is so hard.
+
+What would you like to do?					What would you like to do?
+
+ 1. Purchase a chocolate croissant.				1.Purchase a chocolate croissant.
+ 2. Purchase an eclair.						2.Purchase an eclair.
+ 3. Purchase a muffin.						3.Purchase a muffin.
+You pay the baker, who carefully packs your eclair into a box	You pay the baker, who carefully packs your eclair into a box
+and hands it to you.  He wishes you a good day.			and hands it to you.  He wishes you a good day.
+
+
+What would you like to do?					What would you like to do?
+
+ 1. Leave the store						1.Leave the store
+As you leave the store, something feels...strange about the m	As you leave the store, something feels...strange about the m
+You aren't quite sure what, but you sense that something unus	You aren't quite sure what, but you sense that something unus
+and strange is about to happen.  The street in front of you r	and strange is about to happen.  The street in front of you r
+east, out of town, or west deeper into town.  			east, out of town, or west deeper into town.  
+
+What would you like to do?					What would you like to do?
+
+ 1. Go east, out of town					1.Go east, out of town
+ 2. Go west, into town						2.Go west, into town
+As you wander through town, you notice the blacksmith working	As you wander through town, you notice the blacksmith working
+shiny, glowing sword.  He looks up from his work and says	shiny, glowing sword.  He looks up from his work and says
+"You look like the sort of hero who might need a sword?		"You look like the sort of hero who might need a sword?
+Strange things in the air, can't go wrong with a sword.."	Strange things in the air, can't go wrong with a sword.."
+Checking your pockets, you find a few coins left after		Checking your pockets, you find a few coins left after
+your pastry purchase, but you would be broke if your		your pastry purchase, but you would be broke if your
+spent your money on the sword.					spent your money on the sword.
+
+What would you like to do?					What would you like to do?
+
+ 1. Buy the sword						1.Buy the sword
+ 2. Decline and head out of town				2.Decline and head out of town
+You purchase a gleaming shiny sword, and head out of town.	You purchase a gleaming shiny sword, and head out of town.
+Surely this will keep you safe, no matter what you run into..	Surely this will keep you safe, no matter what you run into..
+
+What would you like to do?					What would you like to do?
+
+ 1. Now that you have a sword, head out of town			1.Now that you have a sword, head out of town
+As you head out of town, you notice a shadow pass over you as	As you head out of town, you notice a shadow pass over you as
+something large flies over your head.				something large flies over your head.
+
+What would you like to do?					What would you like to do?
+
+ 1. Jump off the road and hide behind a large rock		1.Jump off the road and hide behind a large rock
+ 2. Keep walking						2.Keep walking
+Good thing you jumped behind a rock!  A large dragon swooped	Good thing you jumped behind a rock!  A large dragon swooped
+down and landed on the road right where you just were.		down and landed on the road right where you just were.
+The dragon looks hungry and ferocious...			The dragon looks hungry and ferocious...
+
+What would you like to do?					What would you like to do?
+
+ 1. Offer the dragon your last coins.			      |	1.<UNAVAILABLE>
+ 2. Charge the dragon with your sword.				2.Charge the dragon with your sword.
+ 3. <UNAVAILABLE>						3.<UNAVAILABLE>
+ 4. Squirt the eclair filling in the dragon's eye.		4.Squirt the eclair filling in the dragon's eye.
+ 5. <UNAVAILABLE>						5.<UNAVAILABLE>
+ 6. Ask the dragon if he has heard any good jokes lately.	6.Ask the dragon if he has heard any good jokes lately.
+That choice is not available at this time, please try again	That choice is not available at this time, please try again
+You offer the last of your money to the dragon, who seems a b |	That choice is not available at this time, please try again
+"Oh thank you!" he says.  Now, I can just go buy some breafka |	As you charge the dragon with your sword, you realize
+at the bakery rather than eating travelers who wander on the  |	that you don't really have training in sword fighting.
+							      |	The dragon happily eats you for breakfast.
+And everyone lived happily ever after.			      <
+
+Congratulations! You have won. Hooray!			      |	Sorry, you have lost. Better luck next time!
+Your file did not match the expected ouput
+
+Step 4 EC intermediate deadline test 3
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input11.txt
+Your output differs from ours.
+Below is the diff (yours left/ours right)
+As you bask in the morning light pouring through the bakery w	As you bask in the morning light pouring through the bakery w
+your breath is taken away by the stunning display of pastries	your breath is taken away by the stunning display of pastries
+
+"What would you like?" The shop keeper ask cheerily.  Realizi	"What would you like?" The shop keeper ask cheerily.  Realizi
+have a long journey ahead of you, you decide it is best to or	have a long journey ahead of you, you decide it is best to or
+one, but choosing is so hard.					one, but choosing is so hard.
+
+What would you like to do?					What would you like to do?
+
+ 1. Purchase a chocolate croissant.				1.Purchase a chocolate croissant.
+ 2. Purchase an eclair.						2.Purchase an eclair.
+ 3. Purchase a muffin.						3.Purchase a muffin.
+You pay the baker, who carefully packs your eclair into a box	You pay the baker, who carefully packs your eclair into a box
+and hands it to you.  He wishes you a good day.			and hands it to you.  He wishes you a good day.
+
+
+What would you like to do?					What would you like to do?
+
+ 1. Leave the store						1.Leave the store
+As you leave the store, something feels...strange about the m	As you leave the store, something feels...strange about the m
+You aren't quite sure what, but you sense that something unus	You aren't quite sure what, but you sense that something unus
+and strange is about to happen.  The street in front of you r	and strange is about to happen.  The street in front of you r
+east, out of town, or west deeper into town.  			east, out of town, or west deeper into town.  
+
+What would you like to do?					What would you like to do?
+
+ 1. Go east, out of town					1.Go east, out of town
+ 2. Go west, into town						2.Go west, into town
+As you wander through town, you notice the blacksmith working	As you wander through town, you notice the blacksmith working
+shiny, glowing sword.  He looks up from his work and says	shiny, glowing sword.  He looks up from his work and says
+"You look like the sort of hero who might need a sword?		"You look like the sort of hero who might need a sword?
+Strange things in the air, can't go wrong with a sword.."	Strange things in the air, can't go wrong with a sword.."
+Checking your pockets, you find a few coins left after		Checking your pockets, you find a few coins left after
+your pastry purchase, but you would be broke if your		your pastry purchase, but you would be broke if your
+spent your money on the sword.					spent your money on the sword.
+
+What would you like to do?					What would you like to do?
+
+ 1. Buy the sword						1.Buy the sword
+ 2. Decline and head out of town				2.Decline and head out of town
+You purchase a gleaming shiny sword, and head out of town.	You purchase a gleaming shiny sword, and head out of town.
+Surely this will keep you safe, no matter what you run into..	Surely this will keep you safe, no matter what you run into..
+
+What would you like to do?					What would you like to do?
+
+ 1. Now that you have a sword, head out of town			1.Now that you have a sword, head out of town
+As you head out of town, you notice a shadow pass over you as	As you head out of town, you notice a shadow pass over you as
+something large flies over your head.				something large flies over your head.
+
+What would you like to do?					What would you like to do?
+
+ 1. Jump off the road and hide behind a large rock		1.Jump off the road and hide behind a large rock
+ 2. Keep walking						2.Keep walking
+Good thing you jumped behind a rock!  A large dragon swooped	Good thing you jumped behind a rock!  A large dragon swooped
+down and landed on the road right where you just were.		down and landed on the road right where you just were.
+The dragon looks hungry and ferocious...			The dragon looks hungry and ferocious...
+
+What would you like to do?					What would you like to do?
+
+ 1. Offer the dragon your last coins.			      |	1.<UNAVAILABLE>
+ 2. Charge the dragon with your sword.				2.Charge the dragon with your sword.
+ 3. <UNAVAILABLE>						3.<UNAVAILABLE>
+ 4. Squirt the eclair filling in the dragon's eye.		4.Squirt the eclair filling in the dragon's eye.
+ 5. <UNAVAILABLE>						5.<UNAVAILABLE>
+ 6. Ask the dragon if he has heard any good jokes lately.	6.Ask the dragon if he has heard any good jokes lately.
+You squirt the eclair filling right in the dragon's eyes!	You squirt the eclair filling right in the dragon's eyes!
+The dragon can't see anything, but now you need			The dragon can't see anything, but now you need
+to quickly decide how to best take advantage of this situatio	to quickly decide how to best take advantage of this situatio
+
+What would you like to do?					What would you like to do?
+
+ 1. Fling your last coins at the dragon			      |	1.<UNAVAILABLE>
+ 2. Attack the dragon with your sword				2.Attack the dragon with your sword
+ 3. Run for it!						      |	3.<UNAVAILABLE>
+ 4. Run for it!							4.Run for it!
+Even though you don't really know how to use a sword,		Even though you don't really know how to use a sword,
+the dragon is blinded by your eclair filling.  You		the dragon is blinded by your eclair filling.  You
+defeat the dragon.						defeat the dragon.
+
+Congratulations! You have won. Hooray!				Congratulations! You have won. Hooray!
+Your file did not match the expected ouput
+
+Step 4 EC intermediate deadline test 4
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input12.txt
+Your output differs from ours.
+Below is the diff (yours left/ours right)
+As you bask in the morning light pouring through the bakery w	As you bask in the morning light pouring through the bakery w
+your breath is taken away by the stunning display of pastries	your breath is taken away by the stunning display of pastries
+
+"What would you like?" The shop keeper ask cheerily.  Realizi	"What would you like?" The shop keeper ask cheerily.  Realizi
+have a long journey ahead of you, you decide it is best to or	have a long journey ahead of you, you decide it is best to or
+one, but choosing is so hard.					one, but choosing is so hard.
+
+What would you like to do?					What would you like to do?
+
+ 1. Purchase a chocolate croissant.				1.Purchase a chocolate croissant.
+ 2. Purchase an eclair.						2.Purchase an eclair.
+ 3. Purchase a muffin.						3.Purchase a muffin.
+You pay the baker, who carefully packs your eclair into a box	You pay the baker, who carefully packs your eclair into a box
+and hands it to you.  He wishes you a good day.			and hands it to you.  He wishes you a good day.
+
+
+What would you like to do?					What would you like to do?
+
+ 1. Leave the store						1.Leave the store
+As you leave the store, something feels...strange about the m	As you leave the store, something feels...strange about the m
+You aren't quite sure what, but you sense that something unus	You aren't quite sure what, but you sense that something unus
+and strange is about to happen.  The street in front of you r	and strange is about to happen.  The street in front of you r
+east, out of town, or west deeper into town.  			east, out of town, or west deeper into town.  
+
+What would you like to do?					What would you like to do?
+
+ 1. Go east, out of town					1.Go east, out of town
+ 2. Go west, into town						2.Go west, into town
+As you wander through town, you notice the blacksmith working	As you wander through town, you notice the blacksmith working
+shiny, glowing sword.  He looks up from his work and says	shiny, glowing sword.  He looks up from his work and says
+"You look like the sort of hero who might need a sword?		"You look like the sort of hero who might need a sword?
+Strange things in the air, can't go wrong with a sword.."	Strange things in the air, can't go wrong with a sword.."
+Checking your pockets, you find a few coins left after		Checking your pockets, you find a few coins left after
+your pastry purchase, but you would be broke if your		your pastry purchase, but you would be broke if your
+spent your money on the sword.					spent your money on the sword.
+
+What would you like to do?					What would you like to do?
+
+ 1. Buy the sword						1.Buy the sword
+ 2. Decline and head out of town				2.Decline and head out of town
+You purchase a gleaming shiny sword, and head out of town.	You purchase a gleaming shiny sword, and head out of town.
+Surely this will keep you safe, no matter what you run into..	Surely this will keep you safe, no matter what you run into..
+
+What would you like to do?					What would you like to do?
+
+ 1. Now that you have a sword, head out of town			1.Now that you have a sword, head out of town
+As you head out of town, you notice a shadow pass over you as	As you head out of town, you notice a shadow pass over you as
+something large flies over your head.				something large flies over your head.
+
+What would you like to do?					What would you like to do?
+
+ 1. Jump off the road and hide behind a large rock		1.Jump off the road and hide behind a large rock
+ 2. Keep walking						2.Keep walking
+Good thing you jumped behind a rock!  A large dragon swooped	Good thing you jumped behind a rock!  A large dragon swooped
+down and landed on the road right where you just were.		down and landed on the road right where you just were.
+The dragon looks hungry and ferocious...			The dragon looks hungry and ferocious...
+
+What would you like to do?					What would you like to do?
+
+ 1. Offer the dragon your last coins.			      |	1.<UNAVAILABLE>
+ 2. Charge the dragon with your sword.				2.Charge the dragon with your sword.
+ 3. <UNAVAILABLE>						3.<UNAVAILABLE>
+ 4. Squirt the eclair filling in the dragon's eye.		4.Squirt the eclair filling in the dragon's eye.
+ 5. <UNAVAILABLE>						5.<UNAVAILABLE>
+ 6. Ask the dragon if he has heard any good jokes lately.	6.Ask the dragon if he has heard any good jokes lately.
+You squirt the eclair filling right in the dragon's eyes!	You squirt the eclair filling right in the dragon's eyes!
+The dragon can't see anything, but now you need			The dragon can't see anything, but now you need
+to quickly decide how to best take advantage of this situatio	to quickly decide how to best take advantage of this situatio
+
+What would you like to do?					What would you like to do?
+
+ 1. Fling your last coins at the dragon			      |	1.<UNAVAILABLE>
+ 2. Attack the dragon with your sword				2.Attack the dragon with your sword
+ 3. Run for it!						      |	3.<UNAVAILABLE>
+ 4. Run for it!							4.Run for it!
+You start to run, but the remaining coins in your pocket      |	That choice is not available at this time, please try again
+jangle loudly.  The dragon hears you and breathes fire	      |	That choice is not available at this time, please try again
+at you.							      |	You run away.  Not the most heroic victory,
+							      >	but we'll call it a win.
+
+Sorry, you have lost. Better luck next time!		      |	Congratulations! You have won. Hooray!
+Your file did not match the expected ouput
+
+Step 4 EC intermediate deadline test 5
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input13.txt
+Your output differs from ours.
+Below is the diff (yours left/ours right)
+As you bask in the morning light pouring through the bakery w	As you bask in the morning light pouring through the bakery w
+your breath is taken away by the stunning display of pastries	your breath is taken away by the stunning display of pastries
+
+"What would you like?" The shop keeper ask cheerily.  Realizi	"What would you like?" The shop keeper ask cheerily.  Realizi
+have a long journey ahead of you, you decide it is best to or	have a long journey ahead of you, you decide it is best to or
+one, but choosing is so hard.					one, but choosing is so hard.
+
+What would you like to do?					What would you like to do?
+
+ 1. Purchase a chocolate croissant.				1.Purchase a chocolate croissant.
+ 2. Purchase an eclair.						2.Purchase an eclair.
+ 3. Purchase a muffin.						3.Purchase a muffin.
+You pay the baker, who carefully packs your eclair into a box	You pay the baker, who carefully packs your eclair into a box
+and hands it to you.  He wishes you a good day.			and hands it to you.  He wishes you a good day.
+
+
+What would you like to do?					What would you like to do?
+
+ 1. Leave the store						1.Leave the store
+As you leave the store, something feels...strange about the m	As you leave the store, something feels...strange about the m
+You aren't quite sure what, but you sense that something unus	You aren't quite sure what, but you sense that something unus
+and strange is about to happen.  The street in front of you r	and strange is about to happen.  The street in front of you r
+east, out of town, or west deeper into town.  			east, out of town, or west deeper into town.  
+
+What would you like to do?					What would you like to do?
+
+ 1. Go east, out of town					1.Go east, out of town
+ 2. Go west, into town						2.Go west, into town
+As you wander through town, you notice the blacksmith working	As you wander through town, you notice the blacksmith working
+shiny, glowing sword.  He looks up from his work and says	shiny, glowing sword.  He looks up from his work and says
+"You look like the sort of hero who might need a sword?		"You look like the sort of hero who might need a sword?
+Strange things in the air, can't go wrong with a sword.."	Strange things in the air, can't go wrong with a sword.."
+Checking your pockets, you find a few coins left after		Checking your pockets, you find a few coins left after
+your pastry purchase, but you would be broke if your		your pastry purchase, but you would be broke if your
+spent your money on the sword.					spent your money on the sword.
+
+What would you like to do?					What would you like to do?
+
+ 1. Buy the sword						1.Buy the sword
+ 2. Decline and head out of town				2.Decline and head out of town
+You purchase a gleaming shiny sword, and head out of town.	You purchase a gleaming shiny sword, and head out of town.
+Surely this will keep you safe, no matter what you run into..	Surely this will keep you safe, no matter what you run into..
+
+What would you like to do?					What would you like to do?
+
+ 1. Now that you have a sword, head out of town			1.Now that you have a sword, head out of town
+As you head out of town, you notice a shadow pass over you as	As you head out of town, you notice a shadow pass over you as
+something large flies over your head.				something large flies over your head.
+
+What would you like to do?					What would you like to do?
+
+ 1. Jump off the road and hide behind a large rock		1.Jump off the road and hide behind a large rock
+ 2. Keep walking						2.Keep walking
+Good thing you jumped behind a rock!  A large dragon swooped	Good thing you jumped behind a rock!  A large dragon swooped
+down and landed on the road right where you just were.		down and landed on the road right where you just were.
+The dragon looks hungry and ferocious...			The dragon looks hungry and ferocious...
+
+What would you like to do?					What would you like to do?
+
+ 1. Offer the dragon your last coins.			      |	1.<UNAVAILABLE>
+ 2. Charge the dragon with your sword.				2.Charge the dragon with your sword.
+ 3. <UNAVAILABLE>						3.<UNAVAILABLE>
+ 4. Squirt the eclair filling in the dragon's eye.		4.Squirt the eclair filling in the dragon's eye.
+ 5. <UNAVAILABLE>						5.<UNAVAILABLE>
+ 6. Ask the dragon if he has heard any good jokes lately.	6.Ask the dragon if he has heard any good jokes lately.
+You squirt the eclair filling right in the dragon's eyes!	You squirt the eclair filling right in the dragon's eyes!
+The dragon can't see anything, but now you need			The dragon can't see anything, but now you need
+to quickly decide how to best take advantage of this situatio	to quickly decide how to best take advantage of this situatio
+
+What would you like to do?					What would you like to do?
+
+ 1. Fling your last coins at the dragon			      |	1.<UNAVAILABLE>
+ 2. Attack the dragon with your sword				2.Attack the dragon with your sword
+ 3. Run for it!						      |	3.<UNAVAILABLE>
+ 4. Run for it!							4.Run for it!
+You run away.  Not the most heroic victory,			You run away.  Not the most heroic victory,
+but we'll call it a win.					but we'll call it a win.
+
+Congratulations! You have won. Hooray!				Congratulations! You have won. Hooray!
+Your file did not match the expected ouput
+
+Step 4 EC intermediate deadline test 6
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input14.txt
+Your output differs from ours.
+Below is the diff (yours left/ours right)
+As you bask in the morning light pouring through the bakery w	As you bask in the morning light pouring through the bakery w
+your breath is taken away by the stunning display of pastries	your breath is taken away by the stunning display of pastries
+
+"What would you like?" The shop keeper ask cheerily.  Realizi	"What would you like?" The shop keeper ask cheerily.  Realizi
+have a long journey ahead of you, you decide it is best to or	have a long journey ahead of you, you decide it is best to or
+one, but choosing is so hard.					one, but choosing is so hard.
+
+What would you like to do?					What would you like to do?
+
+ 1. Purchase a chocolate croissant.				1.Purchase a chocolate croissant.
+ 2. Purchase an eclair.						2.Purchase an eclair.
+ 3. Purchase a muffin.						3.Purchase a muffin.
+You pay the baker, who carefully packs your eclair into a box	You pay the baker, who carefully packs your eclair into a box
+and hands it to you.  He wishes you a good day.			and hands it to you.  He wishes you a good day.
+
+
+What would you like to do?					What would you like to do?
+
+ 1. Leave the store						1.Leave the store
+As you leave the store, something feels...strange about the m	As you leave the store, something feels...strange about the m
+You aren't quite sure what, but you sense that something unus	You aren't quite sure what, but you sense that something unus
+and strange is about to happen.  The street in front of you r	and strange is about to happen.  The street in front of you r
+east, out of town, or west deeper into town.  			east, out of town, or west deeper into town.  
+
+What would you like to do?					What would you like to do?
+
+ 1. Go east, out of town					1.Go east, out of town
+ 2. Go west, into town						2.Go west, into town
+As you wander through town, you notice the blacksmith working	As you wander through town, you notice the blacksmith working
+shiny, glowing sword.  He looks up from his work and says	shiny, glowing sword.  He looks up from his work and says
+"You look like the sort of hero who might need a sword?		"You look like the sort of hero who might need a sword?
+Strange things in the air, can't go wrong with a sword.."	Strange things in the air, can't go wrong with a sword.."
+Checking your pockets, you find a few coins left after		Checking your pockets, you find a few coins left after
+your pastry purchase, but you would be broke if your		your pastry purchase, but you would be broke if your
+spent your money on the sword.					spent your money on the sword.
+
+What would you like to do?					What would you like to do?
+
+ 1. Buy the sword						1.Buy the sword
+ 2. Decline and head out of town				2.Decline and head out of town
+You purchase a gleaming shiny sword, and head out of town.	You purchase a gleaming shiny sword, and head out of town.
+Surely this will keep you safe, no matter what you run into..	Surely this will keep you safe, no matter what you run into..
+
+What would you like to do?					What would you like to do?
+
+ 1. Now that you have a sword, head out of town			1.Now that you have a sword, head out of town
+As you head out of town, you notice a shadow pass over you as	As you head out of town, you notice a shadow pass over you as
+something large flies over your head.				something large flies over your head.
+
+What would you like to do?					What would you like to do?
+
+ 1. Jump off the road and hide behind a large rock		1.Jump off the road and hide behind a large rock
+ 2. Keep walking						2.Keep walking
+Good thing you jumped behind a rock!  A large dragon swooped	Good thing you jumped behind a rock!  A large dragon swooped
+down and landed on the road right where you just were.		down and landed on the road right where you just were.
+The dragon looks hungry and ferocious...			The dragon looks hungry and ferocious...
+
+What would you like to do?					What would you like to do?
+
+ 1. Offer the dragon your last coins.			      |	1.<UNAVAILABLE>
+ 2. Charge the dragon with your sword.				2.Charge the dragon with your sword.
+ 3. <UNAVAILABLE>						3.<UNAVAILABLE>
+ 4. Squirt the eclair filling in the dragon's eye.		4.Squirt the eclair filling in the dragon's eye.
+ 5. <UNAVAILABLE>						5.<UNAVAILABLE>
+ 6. Ask the dragon if he has heard any good jokes lately.	6.Ask the dragon if he has heard any good jokes lately.
+That choice is not available at this time, please try again	That choice is not available at this time, please try again
+As you charge the dragon with your sword, you realize		As you charge the dragon with your sword, you realize
+that you don't really have training in sword fighting.		that you don't really have training in sword fighting.
+The dragon happily eats you for breakfast.			The dragon happily eats you for breakfast.
+
+Sorry, you have lost. Better luck next time!			Sorry, you have lost. Better luck next time!
+Your file did not match the expected ouput
+
+Step 4 EC intermediate deadline test 7
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input15.txt
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean for this testcase
+You have passed this test case
+
+Step 4 EC intermediate deadline test 8
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input16.txt
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean for this testcase
+You have passed this test case
+
+Step 4 EC intermediate deadline test 9
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input17.txt
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean for this testcase
+You have passed this test case
+
+Step 4 EC intermediate deadline test 10
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input18.txt
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean for this testcase
+You have passed this test case
+
+Step 4 EC intermediate deadline test 11
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input19.txt
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean for this testcase
+You have passed this test case
+
+Step 4 EC intermediate deadline test 12
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input1.txt
+Your output differs from ours.
+Below is the diff (yours left/ours right)
+As you bask in the morning light pouring through the bakery w	As you bask in the morning light pouring through the bakery w
+your breath is taken away by the stunning display of pastries	your breath is taken away by the stunning display of pastries
+
+"What would you like?" The shop keeper ask cheerily.  Realizi	"What would you like?" The shop keeper ask cheerily.  Realizi
+have a long journey ahead of you, you decide it is best to or	have a long journey ahead of you, you decide it is best to or
+one, but choosing is so hard.					one, but choosing is so hard.
+
+What would you like to do?					What would you like to do?
+
+ 1. Purchase a chocolate croissant.				1.Purchase a chocolate croissant.
+ 2. Purchase an eclair.						2.Purchase an eclair.
+ 3. Purchase a muffin.						3.Purchase a muffin.
+You pay the baker, who puts your croissant into a bag,		You pay the baker, who puts your croissant into a bag,
+and hands it to you.  He wishes you a good day.			and hands it to you.  He wishes you a good day.
+
+
+What would you like to do?					What would you like to do?
+
+ 1. Leave the store						1.Leave the store
+As you leave the store, something feels...strange about the m	As you leave the store, something feels...strange about the m
+You aren't quite sure what, but you sense that something unus	You aren't quite sure what, but you sense that something unus
+and strange is about to happen.  The street in front of you r	and strange is about to happen.  The street in front of you r
+east, out of town, or west deeper into town.  			east, out of town, or west deeper into town.  
+
+What would you like to do?					What would you like to do?
+
+ 1. Go east, out of town					1.Go east, out of town
+ 2. Go west, into town						2.Go west, into town
+As you wander through town, you notice the blacksmith working	As you wander through town, you notice the blacksmith working
+shiny, glowing sword.  He looks up from his work and says	shiny, glowing sword.  He looks up from his work and says
+"You look like the sort of hero who might need a sword?		"You look like the sort of hero who might need a sword?
+Strange things in the air, can't go wrong with a sword.."	Strange things in the air, can't go wrong with a sword.."
+Checking your pockets, you find a few coins left after		Checking your pockets, you find a few coins left after
+your pastry purchase, but you would be broke if your		your pastry purchase, but you would be broke if your
+spent your money on the sword.					spent your money on the sword.
+
+What would you like to do?					What would you like to do?
+
+ 1. Buy the sword						1.Buy the sword
+ 2. Decline and head out of town				2.Decline and head out of town
+You purchase a gleaming shiny sword, and head out of town.	You purchase a gleaming shiny sword, and head out of town.
+Surely this will keep you safe, no matter what you run into..	Surely this will keep you safe, no matter what you run into..
+
+What would you like to do?					What would you like to do?
+
+ 1. Now that you have a sword, head out of town			1.Now that you have a sword, head out of town
+As you head out of town, you notice a shadow pass over you as	As you head out of town, you notice a shadow pass over you as
+something large flies over your head.				something large flies over your head.
+
+What would you like to do?					What would you like to do?
+
+ 1. Jump off the road and hide behind a large rock		1.Jump off the road and hide behind a large rock
+ 2. Keep walking						2.Keep walking
+Good thing you jumped behind a rock!  A large dragon swooped	Good thing you jumped behind a rock!  A large dragon swooped
+down and landed on the road right where you just were.		down and landed on the road right where you just were.
+The dragon looks hungry and ferocious...			The dragon looks hungry and ferocious...
+
+What would you like to do?					What would you like to do?
+
+ 1. Offer the dragon your last coins.			      |	1.<UNAVAILABLE>
+ 2. Charge the dragon with your sword.				2.Charge the dragon with your sword.
+ 3. Offer the dragon the chocolate croissant.			3.Offer the dragon the chocolate croissant.
+ 4. <UNAVAILABLE>						4.<UNAVAILABLE>
+ 5. <UNAVAILABLE>						5.<UNAVAILABLE>
+ 6. Ask the dragon if he has heard any good jokes lately.	6.Ask the dragon if he has heard any good jokes lately.
+You offer the last of your money to the dragon, who seems a b |	That choice is not available at this time, please try again
+"Oh thank you!" he says.  Now, I can just go buy some breafka |	As you charge the dragon with your sword, you realize
+at the bakery rather than eating travelers who wander on the  |	that you don't really have training in sword fighting.
+							      >	The dragon happily eats you for breakfast.
+
+And everyone lived happily ever after.			      |	Sorry, you have lost. Better luck next time!
+							      <
+Congratulations! You have won. Hooray!			      <
+Your file did not match the expected ouput
+
+Step 4 EC intermediate deadline test 13
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input20.txt
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean for this testcase
+You have passed this test case
+
+Step 4 EC intermediate deadline test 14
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input21.txt
+Your output differs from ours.
+Below is the diff (yours left/ours right)
+As you bask in the morning light pouring through the bakery w	As you bask in the morning light pouring through the bakery w
+your breath is taken away by the stunning display of pastries	your breath is taken away by the stunning display of pastries
+
+"What would you like?" The shop keeper ask cheerily.  Realizi	"What would you like?" The shop keeper ask cheerily.  Realizi
+have a long journey ahead of you, you decide it is best to or	have a long journey ahead of you, you decide it is best to or
+one, but choosing is so hard.					one, but choosing is so hard.
+
+What would you like to do?					What would you like to do?
+
+ 1. Purchase a chocolate croissant.				1.Purchase a chocolate croissant.
+ 2. Purchase an eclair.						2.Purchase an eclair.
+ 3. Purchase a muffin.						3.Purchase a muffin.
+You pay the baker, who puts your muffin into a bag,		You pay the baker, who puts your muffin into a bag,
+and hands it to you.  He wishes you a good day.			and hands it to you.  He wishes you a good day.
+
+
+What would you like to do?					What would you like to do?
+
+ 1. Leave the store						1.Leave the store
+As you leave the store, something feels...strange about the m	As you leave the store, something feels...strange about the m
+You aren't quite sure what, but you sense that something unus	You aren't quite sure what, but you sense that something unus
+and strange is about to happen.  The street in front of you r	and strange is about to happen.  The street in front of you r
+east, out of town, or west deeper into town.  			east, out of town, or west deeper into town.  
+
+What would you like to do?					What would you like to do?
+
+ 1. Go east, out of town					1.Go east, out of town
+ 2. Go west, into town						2.Go west, into town
+As you wander through town, you notice the blacksmith working	As you wander through town, you notice the blacksmith working
+shiny, glowing sword.  He looks up from his work and says	shiny, glowing sword.  He looks up from his work and says
+"You look like the sort of hero who might need a sword?		"You look like the sort of hero who might need a sword?
+Strange things in the air, can't go wrong with a sword.."	Strange things in the air, can't go wrong with a sword.."
+Checking your pockets, you find a few coins left after		Checking your pockets, you find a few coins left after
+your pastry purchase, but you would be broke if your		your pastry purchase, but you would be broke if your
+spent your money on the sword.					spent your money on the sword.
+
+What would you like to do?					What would you like to do?
+
+ 1. Buy the sword						1.Buy the sword
+ 2. Decline and head out of town				2.Decline and head out of town
+You purchase a gleaming shiny sword, and head out of town.	You purchase a gleaming shiny sword, and head out of town.
+Surely this will keep you safe, no matter what you run into..	Surely this will keep you safe, no matter what you run into..
+
+What would you like to do?					What would you like to do?
+
+ 1. Now that you have a sword, head out of town			1.Now that you have a sword, head out of town
+As you head out of town, you notice a shadow pass over you as	As you head out of town, you notice a shadow pass over you as
+something large flies over your head.				something large flies over your head.
+
+What would you like to do?					What would you like to do?
+
+ 1. Jump off the road and hide behind a large rock		1.Jump off the road and hide behind a large rock
+ 2. Keep walking						2.Keep walking
+Good thing you jumped behind a rock!  A large dragon swooped	Good thing you jumped behind a rock!  A large dragon swooped
+down and landed on the road right where you just were.		down and landed on the road right where you just were.
+The dragon looks hungry and ferocious...			The dragon looks hungry and ferocious...
+
+What would you like to do?					What would you like to do?
+
+ 1. Offer the dragon your last coins.			      |	1.<UNAVAILABLE>
+ 2. Charge the dragon with your sword.				2.Charge the dragon with your sword.
+ 3. <UNAVAILABLE>						3.<UNAVAILABLE>
+ 4. <UNAVAILABLE>						4.<UNAVAILABLE>
+ 5. Throw the muffin at the dragon's nose and run for it!	5.Throw the muffin at the dragon's nose and run for it!
+ 6. Ask the dragon if he has heard any good jokes lately.	6.Ask the dragon if he has heard any good jokes lately.
+You offer the last of your money to the dragon, who seems a b |	That choice is not available at this time, please try again
+"Oh thank you!" he says.  Now, I can just go buy some breafka |	That choice is not available at this time, please try again
+at the bakery rather than eating travelers who wander on the  |	That choice is not available at this time, please try again
+							      >	As you charge the dragon with your sword, you realize
+							      >	that you don't really have training in sword fighting.
+							      >	The dragon happily eats you for breakfast.
+
+And everyone lived happily ever after.			      |	Sorry, you have lost. Better luck next time!
+							      <
+Congratulations! You have won. Hooray!			      <
+Your file did not match the expected ouput
+
+Step 4 EC intermediate deadline test 15
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input22.txt
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean for this testcase
+You have passed this test case
+
+Step 4 EC intermediate deadline test 16
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input23.txt
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean for this testcase
+You have passed this test case
+
+Step 4 EC intermediate deadline test 17
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input24.txt
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean for this testcase
+You have passed this test case
+
+Step 4 EC intermediate deadline test 18
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input25.txt
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean for this testcase
+You have passed this test case
+
+Step 4 EC intermediate deadline test 19
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input2.txt
+You indicated this was a failure, but it was not
+timeout: the monitored command dumped core
+
+Step 4 EC intermediate deadline test 20
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input3.txt
+Your output differs from ours.
+Below is the diff (yours left/ours right)
+As you bask in the morning light pouring through the bakery w	As you bask in the morning light pouring through the bakery w
+your breath is taken away by the stunning display of pastries	your breath is taken away by the stunning display of pastries
+
+"What would you like?" The shop keeper ask cheerily.  Realizi	"What would you like?" The shop keeper ask cheerily.  Realizi
+have a long journey ahead of you, you decide it is best to or	have a long journey ahead of you, you decide it is best to or
+one, but choosing is so hard.					one, but choosing is so hard.
+
+What would you like to do?					What would you like to do?
+
+ 1. Purchase a chocolate croissant.				1.Purchase a chocolate croissant.
+ 2. Purchase an eclair.						2.Purchase an eclair.
+ 3. Purchase a muffin.						3.Purchase a muffin.
+You pay the baker, who puts your croissant into a bag,		You pay the baker, who puts your croissant into a bag,
+and hands it to you.  He wishes you a good day.			and hands it to you.  He wishes you a good day.
+
+
+What would you like to do?					What would you like to do?
+
+ 1. Leave the store						1.Leave the store
+As you leave the store, something feels...strange about the m	As you leave the store, something feels...strange about the m
+You aren't quite sure what, but you sense that something unus	You aren't quite sure what, but you sense that something unus
+and strange is about to happen.  The street in front of you r	and strange is about to happen.  The street in front of you r
+east, out of town, or west deeper into town.  			east, out of town, or west deeper into town.  
+
+What would you like to do?					What would you like to do?
+
+ 1. Go east, out of town					1.Go east, out of town
+ 2. Go west, into town						2.Go west, into town
+As you wander through town, you notice the blacksmith working	As you wander through town, you notice the blacksmith working
+shiny, glowing sword.  He looks up from his work and says	shiny, glowing sword.  He looks up from his work and says
+"You look like the sort of hero who might need a sword?		"You look like the sort of hero who might need a sword?
+Strange things in the air, can't go wrong with a sword.."	Strange things in the air, can't go wrong with a sword.."
+Checking your pockets, you find a few coins left after		Checking your pockets, you find a few coins left after
+your pastry purchase, but you would be broke if your		your pastry purchase, but you would be broke if your
+spent your money on the sword.					spent your money on the sword.
+
+What would you like to do?					What would you like to do?
+
+ 1. Buy the sword						1.Buy the sword
+ 2. Decline and head out of town				2.Decline and head out of town
+You purchase a gleaming shiny sword, and head out of town.	You purchase a gleaming shiny sword, and head out of town.
+Surely this will keep you safe, no matter what you run into..	Surely this will keep you safe, no matter what you run into..
+
+What would you like to do?					What would you like to do?
+
+ 1. Now that you have a sword, head out of town			1.Now that you have a sword, head out of town
+As you head out of town, you notice a shadow pass over you as	As you head out of town, you notice a shadow pass over you as
+something large flies over your head.				something large flies over your head.
+
+What would you like to do?					What would you like to do?
+
+ 1. Jump off the road and hide behind a large rock		1.Jump off the road and hide behind a large rock
+ 2. Keep walking						2.Keep walking
+Good thing you jumped behind a rock!  A large dragon swooped	Good thing you jumped behind a rock!  A large dragon swooped
+down and landed on the road right where you just were.		down and landed on the road right where you just were.
+The dragon looks hungry and ferocious...			The dragon looks hungry and ferocious...
+
+What would you like to do?					What would you like to do?
+
+ 1. Offer the dragon your last coins.			      |	1.<UNAVAILABLE>
+ 2. Charge the dragon with your sword.				2.Charge the dragon with your sword.
+ 3. Offer the dragon the chocolate croissant.			3.Offer the dragon the chocolate croissant.
+ 4. <UNAVAILABLE>						4.<UNAVAILABLE>
+ 5. <UNAVAILABLE>						5.<UNAVAILABLE>
+ 6. Ask the dragon if he has heard any good jokes lately.	6.Ask the dragon if he has heard any good jokes lately.
+That choice is not available at this time, please try again	That choice is not available at this time, please try again
+"Oh thank you this looks delicious!" the dragon says		"Oh thank you this looks delicious!" the dragon says
+as he devours the pastry.   "I was so hungry I couldn't		as he devours the pastry.   "I was so hungry I couldn't
+think straight and was about to eat you!  How terrible		think straight and was about to eat you!  How terrible
+would that have been."						would that have been."
+
+Having solved the dragon's hunger problems, he is happy		Having solved the dragon's hunger problems, he is happy
+to give you a ride back to your house.  Everyone lives		to give you a ride back to your house.  Everyone lives
+happily ever after.						happily ever after.
+
+Congratulations! You have won. Hooray!				Congratulations! You have won. Hooray!
+Your file did not match the expected ouput
+
+Step 4 EC intermediate deadline test 21
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input4.txt
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean for this testcase
+You have passed this test case
+
+Step 4 EC intermediate deadline test 22
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input5.txt
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean for this testcase
+You have passed this test case
+
+Step 4 EC intermediate deadline test 23
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input6.txt
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean for this testcase
+You have passed this test case
+
+Step 4 EC intermediate deadline test 24
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input7.txt
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean for this testcase
+You have passed this test case
+
+Step 4 EC intermediate deadline test 25
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input8.txt
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean for this testcase
+You have passed this test case
+
+Step 4 EC intermediate deadline test 26
+===========================================================
+./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input9.txt
+  - Valgrind was clean (no errors, no memory leaks)
+Valgrind was clean for this testcase
+You have passed this test case
+
+It looks like you did not provide any test cases
 
 Overall Grade: NO GRADE YET
