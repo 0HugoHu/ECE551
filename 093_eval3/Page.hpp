@@ -4,7 +4,7 @@
 #include <cstdlib>
 #include <vector>
 #include <string>
-#include <utility> 
+#include <utility>
 
 // Abstract Class for different kinds of pages
 class Page

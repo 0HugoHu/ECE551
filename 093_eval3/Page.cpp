@@ -106,21 +106,25 @@ void NormalPage::printPage(std::string prefix, std::vector<std::pair<size_t, std
             {
                 if (umap[j].first == var)
                 {
-                    if ( umap[j].second == val) {
-                    std::cout << " " << i + 1 << ". " << choiceContent[i] << std::endl;
-                    break;
+                    if (umap[j].second == val)
+                    {
+                        std::cout << " " << i + 1 << ". " << choiceContent[i] << std::endl;
+                        break;
                     }
-                    else {
+                    else
+                    {
                         std::cout << " " << i + 1 << ". <UNAVAILABLE>" << std::endl;
                         break;
                     }
                 }
             }
-            if (j == umap.size() && val != 0) {
+            if (j == umap.size() && val != 0)
+            {
                 std::cout << " " << i + 1 << ". <UNAVAILABLE>" << std::endl;
-            } 
+            }
             // No this variable name, but condition is 0
-            else if (j == umap.size() && val == 0) {
+            else if (j == umap.size() && val == 0)
+            {
                 std::cout << " " << i + 1 << ". " << choiceContent[i] << std::endl;
             }
         }

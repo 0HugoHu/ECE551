@@ -8,18 +8,23 @@ size_t GamePlay::play(std::vector<Page *> &pages)
         this->addPath(curr);
 
         // Add variable
-        for (size_t i = 0; i < pages[0]->varList.size(); i++) {
-            if (pages[0]->varList[i].first == curr) {
+        for (size_t i = 0; i < pages[0]->varList.size(); i++)
+        {
+            if (pages[0]->varList[i].first == curr)
+            {
                 size_t j = 0;
-                for (; j < this->umap.size(); j++) {
+                for (; j < this->umap.size(); j++)
+                {
                     // Var exists, update value
-                    if (this->umap[j].first == pages[0]->varList[i].second) {
+                    if (this->umap[j].first == pages[0]->varList[i].second)
+                    {
                         this->umap[j].second = pages[0]->varValList[i].second;
                         break;
                     }
                 }
                 // Add new variable
-                if (j == this->umap.size()) {
+                if (j == this->umap.size())
+                {
                     this->putMap(pages[0]->varValList[i].first, pages[0]->varValList[i].second);
                 }
             }
@@ -40,7 +45,8 @@ size_t GamePlay::play(std::vector<Page *> &pages)
         do
         {
             jumpTo = this->readInput(pages[curr]->getChoice().size());
-            if (isStep4) {
+            if (isStep4)
+            {
                 std::string var = pages[curr]->getChoiceCondition()[jumpTo - 1].first;
                 long int val = pages[curr]->getChoiceCondition()[jumpTo - 1].second;
 
@@ -48,23 +54,26 @@ size_t GamePlay::play(std::vector<Page *> &pages)
                 for (; j < umap.size(); j++)
                 {
                     if (umap[j].first == var)
+                    {
+                        if (umap[j].second == val)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            std::cout << "That choice is not available at this time, please try again" << std::endl;
+                            jumpTo = 0;
+                            break;
+                        }
+                    }
+                }
+                if (j == umap.size() && val != 0)
                 {
-                    if ( umap[j].second == val) {
-                    break;
-                    }
-                    else {
-                        std::cout << "That choice is not available at this time, please try again" << std::endl;
-                    jumpTo = 0;
-                        break;
-                    }
-                }
-                }
-                if (j == umap.size() && val != 0) {
                     std::cout << "That choice is not available at this time, please try again" << std::endl;
                     jumpTo = 0;
-                } 
+                }
             }
-                           
+
         } while (jumpTo == 0);
 
         // Jump to another page
@@ -156,8 +165,10 @@ void GamePlay::addPath(size_t page)
 
 long int GamePlay::getMap(std::string var)
 {
-    for (size_t i = 0; i < umap.size(); i++) {
-        if (umap[i].first == var) {
+    for (size_t i = 0; i < umap.size(); i++)
+    {
+        if (umap[i].first == var)
+        {
             return umap[i].second;
         }
     }
