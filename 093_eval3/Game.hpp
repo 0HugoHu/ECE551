@@ -17,7 +17,7 @@ private:
     std::vector<std::pair<std::string, long int> > umap;
 
 public:
-    GamePlay(std::string dir) : curr(0), directory(dir) {}
+    GamePlay(std::string dir) : curr(0), directory(dir), isStep4(false) {}
     size_t play(std::vector<Page *> &pages);
     std::vector<std::string> findWinPath(std::vector<Page *> &pages);
     void setIsStep4(bool b);

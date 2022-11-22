@@ -47,10 +47,17 @@ size_t GamePlay::play(std::vector<Page *> &pages)
                 size_t j = 0;
                 for (; j < umap.size(); j++)
                 {
-                    if (umap[j].first == var && umap[j].second == val)
-                    {
+                    if (umap[j].first == var)
+                {
+                    if ( umap[j].second == val) {
+                    break;
+                    }
+                    else {
+                        std::cout << "That choice is not available at this time, please try again" << std::endl;
+                    jumpTo = 0;
                         break;
                     }
+                }
                 }
                 if (j == umap.size() && val != 0) {
                     std::cout << "That choice is not available at this time, please try again" << std::endl;

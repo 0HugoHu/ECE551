@@ -104,10 +104,16 @@ void NormalPage::printPage(std::string prefix, std::vector<std::pair<size_t, std
             size_t j = 0;
             for (; j < umap.size(); j++)
             {
-                if (umap[j].first == var && umap[j].second == val)
+                if (umap[j].first == var)
                 {
+                    if ( umap[j].second == val) {
                     std::cout << " " << i + 1 << ". " << choiceContent[i] << std::endl;
                     break;
+                    }
+                    else {
+                        std::cout << " " << i + 1 << ". <UNAVAILABLE>" << std::endl;
+                        break;
+                    }
                 }
             }
             if (j == umap.size() && val != 0) {
