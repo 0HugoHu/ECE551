@@ -311,6 +311,7 @@ bool CheckPages::checkPages()
         size_t k = 0;
         for (; j < choices.size(); j++)
         {
+            k = 0;
             for (; choices[j][k] != RANDOM_NUM1 && choices[j][k + 1] != RANDOM_NUM2; k++)
             {
                 if (choices[j][k] == page)
