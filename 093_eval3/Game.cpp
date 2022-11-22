@@ -40,21 +40,23 @@ size_t GamePlay::play(std::vector<Page *> &pages)
         do
         {
             jumpTo = this->readInput(pages[curr]->getChoice().size());
-            std::string var = pages[curr]->getChoiceCondition()[jumpTo - 1].first;
-            long int val = pages[curr]->getChoiceCondition()[jumpTo - 1].second;
+            if (isStep4) {
+                std::string var = pages[curr]->getChoiceCondition()[jumpTo - 1].first;
+                long int val = pages[curr]->getChoiceCondition()[jumpTo - 1].second;
 
-            size_t j = 0;
-            for (; j < umap.size(); j++)
-            {
-                if (umap[j].first == var && umap[j].second == val)
+                size_t j = 0;
+                for (; j < umap.size(); j++)
                 {
-                    break;
+                    if (umap[j].first == var && umap[j].second == val)
+                    {
+                        break;
+                    }
                 }
+                if (j == umap.size() && val != 0) {
+                    std::cout << "That choice is not available at this time, please try again" << std::endl;
+                    jumpTo = 0;
+                } 
             }
-            if (j == umap.size() && val != 0) {
-                std::cout << "That choice is not available at this time, please try again" << std::endl;
-                jumpTo = 0;
-            } 
                            
         } while (jumpTo == 0);
 
