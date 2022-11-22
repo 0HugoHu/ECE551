@@ -14,6 +14,7 @@ private:
     std::size_t getIndexByPageNum(std::vector<Page *> &pages, std::size_t num);
     bool isStep4;
     std::vector<std::size_t> path;
+    std::vector<std::pair<std::string, long int> > umap;
 
 public:
     GamePlay(std::string dir) : curr(0), directory(dir) {}
@@ -21,6 +22,8 @@ public:
     std::vector<std::string> findWinPath(std::vector<Page *> &pages);
     void setIsStep4(bool b);
     void addPath(size_t page);
+    long int getMap(std::string var);
+    void putMap(std::string var, long int val);
     ~GamePlay() {}
 };
 

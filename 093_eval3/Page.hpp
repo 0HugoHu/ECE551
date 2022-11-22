@@ -32,7 +32,7 @@ public:
     std::vector<std::pair<std::string, long int> > varValList;
     virtual std::string getType();
     virtual void printPage(std::string prefix) = 0;
-    virtual void printPage(std::string prefix, std::vector<std::pair<size_t, std::string> > &varList, std::vector<std::pair<std::string, long int> > &varValList, std::vector<std::size_t> path) = 0;
+    virtual void printPage(std::string prefix, std::vector<std::pair<size_t, std::string> > &varList, std::vector<std::pair<std::string, long int> > &varValList, std::vector<std::pair<std::string, long int> > &umap) = 0;
     virtual void addChoice(std::size_t choice) = 0;
     virtual void addChoiceContent(std::string choiceContent) = 0;
     virtual void addChoiceCondition(std::pair<std::string, long int> choiceCondition) = 0;
@@ -63,7 +63,7 @@ public:
     virtual std::vector<std::pair<std::string, long int> > getChoiceCondition();
     virtual std::string getType();
     virtual void printPage(std::string prefix);
-    virtual void printPage(std::string prefix, std::vector<std::pair<size_t, std::string> > &varList, std::vector<std::pair<std::string, long int> > &varValList, std::vector<std::size_t> path);
+    virtual void printPage(std::string prefix, std::vector<std::pair<size_t, std::string> > &varList, std::vector<std::pair<std::string, long int> > &varValList, std::vector<std::pair<std::string, long int> > &umap);
     virtual ~NormalPage() {}
 };
 
@@ -76,7 +76,7 @@ private:
 public:
     virtual std::string getType();
     virtual void printPage(std::string prefix);
-    virtual void printPage(std::string prefix, std::vector<std::pair<size_t, std::string> > &varList, std::vector<std::pair<std::string, long int> > &varValList, std::vector<std::size_t> path);
+    virtual void printPage(std::string prefix, std::vector<std::pair<size_t, std::string> > &varList, std::vector<std::pair<std::string, long int> > &varValList, std::vector<std::pair<std::string, long int> > &umap);
     virtual void addChoice(std::size_t choice);
     virtual void addChoiceContent(std::string choiceContent);
     virtual void addChoiceCondition(std::pair<std::string, long int> choiceCondition);
@@ -94,7 +94,7 @@ private:
 public:
     virtual std::string getType();
     virtual void printPage(std::string prefix);
-    virtual void printPage(std::string prefix, std::vector<std::pair<size_t, std::string> > &varList, std::vector<std::pair<std::string, long int> > &varValList, std::vector<std::size_t> path);
+    virtual void printPage(std::string prefix, std::vector<std::pair<size_t, std::string> > &varList, std::vector<std::pair<std::string, long int> > &varValList, std::vector<std::pair<std::string, long int> > &umap);
     virtual void addChoice(std::size_t choice);
     virtual void addChoiceContent(std::string choiceContent);
     virtual void addChoiceCondition(std::pair<std::string, long int> choiceCondition);

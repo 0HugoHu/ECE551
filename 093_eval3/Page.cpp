@@ -84,7 +84,7 @@ void NormalPage::printPage(std::string prefix)
     }
 }
 
-void NormalPage::printPage(std::string prefix, std::vector<std::pair<size_t, std::string> > &varList, std::vector<std::pair<std::string, long int> > &varValList, std::vector<std::size_t> path)
+void NormalPage::printPage(std::string prefix, std::vector<std::pair<size_t, std::string> > &varList, std::vector<std::pair<std::string, long int> > &varValList, std::vector<std::pair<std::string, long int> > &umap)
 {
     ReadLine r;
     r.printLine(prefix + this->getPageName());
@@ -102,29 +102,19 @@ void NormalPage::printPage(std::string prefix, std::vector<std::pair<size_t, std
         else
         {
             size_t j = 0;
-            long int vVal = 0;
-            for (j = 0; j < varList.size(); j++)
+            for (; j < umap.size(); j++)
             {
-                // Found variable name
-                if (varList[j].second == var)
+                if (umap[j].first == var && umap[j].second == val)
                 {
-                    for (size_t k = 0; k < path.size(); k++) {
-                        if (varList[j].first == path[k]) {
-                            vVal = varValList[j].second;
-                        }
-                    }
-                    if (val != vVal) {
-                        std::cout << " " << i + 1 << ". <UNAVAILABLE>" << std::endl;
-                        break;
-                    } else {
-                        std::cout << " " << i + 1 << ". " << choiceContent[i] << std::endl;
-                        break;
-                    }
+                    std::cout << " " << i + 1 << ". " << choiceContent[i] << std::endl;
+                    break;
                 }
             }
+            if (j == umap.size() && val != 0) {
+                std::cout << " " << i + 1 << ". <UNAVAILABLE>" << std::endl;
+            } 
             // No this variable name, but condition is 0
-            if (j == 0 && val == 0)
-            {
+            else if (j == umap.size() && val == 0) {
                 std::cout << " " << i + 1 << ". " << choiceContent[i] << std::endl;
             }
         }
@@ -176,8 +166,8 @@ void WinPage::printPage(std::string prefix)
     std::cout << this->fixedString << std::endl;
 }
 
-void WinPage::printPage(std::string prefix, std::vector<std::pair<size_t, std::string> > &varList, std::vector<std::pair<std::string, long int> > &varValList, std::vector<std::size_t> path) {
-    
+void WinPage::printPage(std::string prefix, std::vector<std::pair<size_t, std::string> > &varList, std::vector<std::pair<std::string, long int> > &varValList, std::vector<std::pair<std::string, long int> > &umap)
+{
 }
 
 void WinPage::addChoice(std::size_t choice)
@@ -224,8 +214,8 @@ void LosePage::printPage(std::string prefix)
     std::cout << this->fixedString << std::endl;
 }
 
-void LosePage::printPage(std::string prefix, std::vector<std::pair<size_t, std::string> > &varList, std::vector<std::pair<std::string, long int> > &varValList, std::vector<std::size_t> path) {
-
+void LosePage::printPage(std::string prefix, std::vector<std::pair<size_t, std::string> > &varList, std::vector<std::pair<std::string, long int> > &varValList, std::vector<std::pair<std::string, long int> > &umap)
+{
 }
 
 void LosePage::addChoice(std::size_t choice)
