@@ -26,6 +26,7 @@ public:
     void incPageNums();
     void setIndex(std::size_t index);
     void setPageName(std::string name);
+    std::vector<bool> choiceVisited;
     virtual std::string getType();
     virtual void printPage(std::string prefix) = 0;
     virtual void addChoice(std::size_t choice) = 0;

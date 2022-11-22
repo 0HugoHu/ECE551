@@ -311,7 +311,7 @@ bool CheckPages::checkPages()
         size_t k = 0;
         for (; j < choices.size(); j++)
         {
-            for (; choices[j][k] == RANDOM_NUM1 && choices[j][k + 1] == RANDOM_NUM2; k++)
+            for (; choices[j][k] != RANDOM_NUM1 && choices[j][k + 1] != RANDOM_NUM2; k++)
             {
                 if (choices[j][k] == page)
                     break;
@@ -319,7 +319,7 @@ bool CheckPages::checkPages()
             if (choices[j][k] == page)
                 break;
         }
-        if (j == choices.size() && choices[j - 1][k] == RANDOM_NUM1 && choices[j - 1][k + 1] == RANDOM_NUM2)
+        if (j == choices.size() && choices[j - 1][k] != RANDOM_NUM1 && choices[j - 1][k + 1] != RANDOM_NUM2)
         {
             return false;
         }

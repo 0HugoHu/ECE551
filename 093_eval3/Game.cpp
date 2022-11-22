@@ -35,7 +35,58 @@ int GamePlay::readInput(size_t size)
     {
         std::cout << "That is not a valid choice, please try again" << std::endl;
         read = 0;
-    } 
+    }
 
     return read;
+}
+
+std::vector<std::string> GamePlay::findWinPath(std::vector<Page *> &pages)
+{
+    std::vector<std::string> res;
+    this->backtracking(res, pages, 0, 0, "");
+    return res;
+}
+
+void GamePlay::backtracking(std::vector<std::string> &res, std::vector<Page *> &pages, size_t pageIndex, size_t choiceIndex, std::string s)
+{
+    if (pages[pageIndex]->getType() == "Win")
+    {
+        std::stringstream ss;
+        ss << pages[pageIndex]->getIndex();
+        s += (ss.str() + "(win)");
+        res.push_back(s);
+    }
+
+    if (pages[pageIndex]->getChoice().size() == 0 || pages[pageIndex]->choiceVisited[choiceIndex])
+    {
+        return;
+    }
+    
+    // Mark current node as visited
+    pages[pageIndex]->choiceVisited[choiceIndex] = true;
+
+    // Traveral all pages and choices
+    
+    for (size_t j = 0; j < pages[pageIndex]->getChoice().size(); j++)
+    {
+        std::stringstream ss, ss2;
+        ss << pages[pageIndex]->getIndex();
+        ss2 << j + 1;
+        backtracking(res, pages, this->getIndexByPageNum(pages, pages[pageIndex]->getChoice()[j]), 0, s + ss.str() + "(" + ss2.str() + "),");
+    }
+
+    // Mark current node as visited
+    pages[pageIndex]->choiceVisited[choiceIndex] = false;
+}
+
+std::size_t GamePlay::getIndexByPageNum(std::vector<Page *> &pages, std::size_t num)
+{
+    for (size_t i = 0; i < pages.size(); i++)
+    {
+        if (pages[i]->getIndex() == num)
+        {
+            return i;
+        }
+    }
+    return 0;
 }

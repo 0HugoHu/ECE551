@@ -31,10 +31,15 @@ int main(int argc, char **argv)
         abort();
     }
 
-    // Play game
+    // Find win paths
     GamePlay g(directory + "/");
-    // Print result page
-    pages[g.play(pages)]->printPage(directory + "/");
+    // Result pths
+    std::vector<std::string> res = g.findWinPath(pages);
+
+    // Print results
+    for (size_t i = 0; i < res.size(); i++) {
+        std::cout << res[i] << std::endl;
+    }
 
     // Free memory
     for (size_t i = 0; i < pages.size(); i++)

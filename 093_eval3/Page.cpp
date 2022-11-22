@@ -88,6 +88,7 @@ void NormalPage::printPage(std::string prefix)
 void NormalPage::addChoice(std::size_t choice)
 {
     this->choice.push_back(choice);
+    this->choiceVisited.push_back(false);
 }
 
 void NormalPage::addChoiceContent(std::string choiceContent)
