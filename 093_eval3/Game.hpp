@@ -12,11 +12,15 @@ private:
     int readInput(size_t size);
     void backtracking(std::vector<std::string> &res, std::vector<Page *> &pages, size_t pageIndex, size_t choiceIndex, std::string ss);
     std::size_t getIndexByPageNum(std::vector<Page *> &pages, std::size_t num);
+    bool isStep4;
+    std::vector<std::size_t> path;
 
 public:
     GamePlay(std::string dir) : curr(0), directory(dir) {}
-    int play(std::vector<Page *> &pages);
+    size_t play(std::vector<Page *> &pages);
     std::vector<std::string> findWinPath(std::vector<Page *> &pages);
+    void setIsStep4(bool b);
+    void addPath(size_t page);
     ~GamePlay() {}
 };
 

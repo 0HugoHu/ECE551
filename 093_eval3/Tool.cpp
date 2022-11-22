@@ -6,9 +6,46 @@ int ReadLine::parseLineType(std::string line)
 {
     std::size_t foundCol = line.find(":");
     std::size_t foundAt = line.find("@");
+    std::size_t foundDollar = line.find("$");
 
     std::size_t index = 0;
+    long int variableValue = 0;
     int type = 0;
+
+    // Variable Type
+    // 7$sword=1
+    if (this->isStep4)
+    {
+        if (foundDollar != std::string::npos)
+        {
+            std::string segmentIndex = line.substr(0, foundDollar);
+            char *endptr;
+            index = strtoul(segmentIndex.c_str(), &endptr, 10);
+            this->index = index;
+
+            if (!(endptr == segmentIndex.c_str() || *endptr != '\0' || index < 0))
+            {
+                std::string lineAfter = line.substr(foundDollar + 1);
+                std::size_t foundEqaual = lineAfter.find("=");
+                // variable name
+                if (foundEqaual != std::string::npos)
+                {
+                    std::string segmentVariableName = lineAfter.substr(0, foundEqaual);
+
+                    std::string lineLeft = lineAfter.substr(foundEqaual + 1);
+                    // variable value
+                    char *endptr2;
+                    variableValue = strtol(lineLeft.c_str(), &endptr2, 10);
+                    if (!(endptr2 == lineLeft.c_str() || *endptr2 != '\0' || variableValue < 0))
+                    {
+                        this->pageStartVar = std::make_pair(index, segmentVariableName);
+                        this->pageStartVarValue = std::make_pair(segmentVariableName, variableValue);
+                        return VARIABLE;
+                    }
+                }
+            }
+        }
+    }
 
     // Choice Type
     // 2:1:Something
@@ -40,6 +77,68 @@ int ReadLine::parseLineType(std::string line)
                     {
                         this->choiceContent = segmentChoiceContent;
                         return CHOICE;
+                    }
+                }
+            }
+        }
+
+        // Choice Condition
+        // 8[broke=0]:10:Offer the dragon your last coins.
+        else if (this->isStep4)
+        {
+            std::string pre = line.substr(0, foundCol);
+            std::size_t foundLeftBracket = pre.find("[");
+
+            if (foundLeftBracket != std::string::npos)
+            {
+                std::string segmentIndex = pre.substr(0, foundLeftBracket);
+                char *endptr;
+                index = strtoul(segmentIndex.c_str(), &endptr, 10);
+                // index
+                if (!(endptr == segmentIndex.c_str() || *endptr != '\0' || index < 0))
+                {
+                    this->index = index;
+
+                    segmentIndex = pre.substr(0, foundLeftBracket);
+                    std::size_t foundEqual = pre.find("=");
+                    if (foundEqual != std::string::npos)
+                    {
+                        // variable name
+                        std::string segmentVariableName = pre.substr(foundLeftBracket + 1, foundEqual - foundLeftBracket - 1);
+                        std::size_t foundRightBracket = pre.find("]");
+
+                        std::string segmentVariableValue = pre.substr(foundEqual + 1, foundRightBracket - foundEqual - 1);
+
+                        char *endptr2;
+                        long int value = strtoul(segmentVariableValue.c_str(), &endptr2, 10);
+                        // variable value
+                        if (!(endptr2 == segmentVariableValue.c_str() || *endptr2 != '\0' || value < 0))
+                        {
+                            this->choiceCondition = std::make_pair(segmentVariableName, value);
+
+                            std::string lineAfter = line.substr(foundCol + 1);
+                            std::size_t foundSecondCol = lineAfter.find(":");
+                            // choice (goto)
+                            if (foundSecondCol != std::string::npos)
+                            {
+                                std::string segmentChoice = lineAfter.substr(0, foundSecondCol);
+
+                                char *endptr3;
+                                index = strtoul(segmentChoice.c_str(), &endptr3, 10);
+                                if (!(endptr3 == segmentChoice.c_str() || *endptr3 != '\0' || index < 0))
+                                {
+                                    this->choice = index;
+
+                                    // Choice Content
+                                    std::string segmentChoiceContent = lineAfter.substr(foundSecondCol + 1);
+                                    if (segmentChoiceContent.size() != 0)
+                                    {
+                                        this->choiceContent = segmentChoiceContent;
+                                        return CONDITION;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -121,12 +220,18 @@ void ReadLine::initPage(std::string inputFile, std::vector<Page *> &pages)
         // std::cout << lines[i] << std::endl;
         Page *page = new NormalPage();
         int type = parseLineType(lines[i]);
-        // Page number must increasely declared
 
+        // Page number must increasely declared
         if (page->getMaxPageIndex() != 0 && page->getMaxPageIndex() >= getIndex())
         {
             std::cerr << "Errors in story.txt!" << std::endl;
             abort();
+        }
+
+        // Enable step 4 format
+        if (!this->isStep4 && (type == VARIABLE || type == CONDITION))
+        {
+            type = INVALID;
         }
 
         switch (type)
@@ -143,7 +248,21 @@ void ReadLine::initPage(std::string inputFile, std::vector<Page *> &pages)
             delete page;
             page = new LosePage();
             break;
+        case VARIABLE:
+        {
+            // WARNING!! VITAL ERROR!
+            if (0 == page->getPageNums())
+            {
+                std::cerr << "This is my mistake!" << std::endl;
+                abort();
+            }
 
+            pages[0]->varList.push_back(this->getPageStartVar());
+            pages[0]->varValList.push_back(this->getPageStartVarValue());
+
+            break;
+        }
+        case CONDITION:
         case CHOICE:
         {
             if (0 == page->getPageNums())
@@ -158,6 +277,18 @@ void ReadLine::initPage(std::string inputFile, std::vector<Page *> &pages)
                 {
                     pages[j]->addChoice(getChoice());
                     pages[j]->addChoiceContent(getChoiceContent());
+                    if (this->isStep4)
+                    {
+                        if (type == CONDITION)
+                        {
+                            pages[j]->addChoiceCondition(getChoiceCondition());
+                        }
+                        else
+                        {
+                            std::pair<std::string, long int> tmp = std::make_pair("NO_CON", 0);
+                            pages[j]->addChoiceCondition(tmp);
+                        }
+                    }
                     break;
                 }
             }
@@ -177,7 +308,7 @@ void ReadLine::initPage(std::string inputFile, std::vector<Page *> &pages)
             abort();
             break;
         }
-        if (type != CHOICE)
+        if (type != CHOICE && type != VARIABLE && type != CONDITION)
         {
             page->incPageNums();
             page->setIndex(getIndex());
@@ -240,6 +371,20 @@ std::size_t ReadLine::getChoice()
     return this->choice;
 }
 
+std::pair<size_t, std::string> ReadLine::getPageStartVar()
+{
+    return this->pageStartVar;
+}
+std::pair<std::string, long int> ReadLine::getPageStartVarValue()
+{
+    return this->pageStartVarValue;
+}
+
+std::pair<std::string, long int> ReadLine::getChoiceCondition()
+{
+    return this->choiceCondition;
+}
+
 std::string ReadLine::getPageName()
 {
     return this->pageName;
@@ -248,6 +393,11 @@ std::string ReadLine::getPageName()
 std::string ReadLine::getChoiceContent()
 {
     return this->choiceContent;
+}
+
+void ReadLine::setIsStep4(bool b)
+{
+    this->isStep4 = b;
 }
 
 CheckPages::CheckPages(std::vector<Page *> &pages) : checkedWinAndLose(false)

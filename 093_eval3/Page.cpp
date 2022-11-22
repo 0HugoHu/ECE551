@@ -75,13 +75,59 @@ std::string NormalPage::getType()
 void NormalPage::printPage(std::string prefix)
 {
     ReadLine r;
-    // std::cout<<prefix + this->getPageName() <<std::endl;
     r.printLine(prefix + this->getPageName());
     std::cout << std::endl;
     std::cout << this->fixedString << std::endl;
     for (size_t i = 0; i < this->choiceContent.size(); i++)
     {
         std::cout << " " << i + 1 << ". " << choiceContent[i] << std::endl;
+    }
+}
+
+void NormalPage::printPage(std::string prefix, std::vector<std::pair<size_t, std::string> > &varList, std::vector<std::pair<std::string, long int> > &varValList, std::vector<std::size_t> path)
+{
+    ReadLine r;
+    r.printLine(prefix + this->getPageName());
+    std::cout << std::endl;
+    std::cout << this->fixedString << std::endl;
+    for (size_t i = 0; i < this->choiceContent.size(); i++)
+    {
+        std::string var = getChoiceCondition()[i].first;
+        long int val = getChoiceCondition()[i].second;
+        if (var == "NO_CON" && val == 0)
+        {
+            std::cout << " " << i + 1 << ". " << choiceContent[i] << std::endl;
+            continue;
+        }
+        else
+        {
+            size_t j = 0;
+            long int vVal = 0;
+            for (j = 0; j < varList.size(); j++)
+            {
+                // Found variable name
+                if (varList[j].second == var)
+                {
+                    for (size_t k = 0; k < path.size(); k++) {
+                        if (varList[j].first == path[k]) {
+                            vVal = varValList[j].second;
+                        }
+                    }
+                    if (val != vVal) {
+                        std::cout << " " << i + 1 << ". <UNAVAILABLE>" << std::endl;
+                        break;
+                    } else {
+                        std::cout << " " << i + 1 << ". " << choiceContent[i] << std::endl;
+                        break;
+                    }
+                }
+            }
+            // No this variable name, but condition is 0
+            if (j == 0 && val == 0)
+            {
+                std::cout << " " << i + 1 << ". " << choiceContent[i] << std::endl;
+            }
+        }
     }
 }
 
@@ -94,6 +140,16 @@ void NormalPage::addChoice(std::size_t choice)
 void NormalPage::addChoiceContent(std::string choiceContent)
 {
     this->choiceContent.push_back(choiceContent);
+}
+
+void NormalPage::addChoiceCondition(std::pair<std::string, long int> choiceCondition)
+{
+    this->choiceCondition.push_back(choiceCondition);
+}
+
+std::vector<std::pair<std::string, long int> > NormalPage::getChoiceCondition()
+{
+    return this->choiceCondition;
 }
 
 std::vector<std::size_t> NormalPage::getChoice()
@@ -120,11 +176,19 @@ void WinPage::printPage(std::string prefix)
     std::cout << this->fixedString << std::endl;
 }
 
+void WinPage::printPage(std::string prefix, std::vector<std::pair<size_t, std::string> > &varList, std::vector<std::pair<std::string, long int> > &varValList, std::vector<std::size_t> path) {
+    
+}
+
 void WinPage::addChoice(std::size_t choice)
 {
 }
 
 void WinPage::addChoiceContent(std::string choiceContent)
+{
+}
+
+void WinPage::addChoiceCondition(std::pair<std::string, long int> choiceCondition)
 {
 }
 
@@ -137,6 +201,12 @@ std::vector<std::size_t> WinPage::getChoice()
 std::vector<std::string> WinPage::getChoiceContent()
 {
     std::vector<std::string> res;
+    return res;
+}
+
+std::vector<std::pair<std::string, long int> > WinPage::getChoiceCondition()
+{
+    std::vector<std::pair<std::string, long int> > res;
     return res;
 }
 
@@ -154,12 +224,26 @@ void LosePage::printPage(std::string prefix)
     std::cout << this->fixedString << std::endl;
 }
 
+void LosePage::printPage(std::string prefix, std::vector<std::pair<size_t, std::string> > &varList, std::vector<std::pair<std::string, long int> > &varValList, std::vector<std::size_t> path) {
+
+}
+
 void LosePage::addChoice(std::size_t choice)
 {
 }
 
 void LosePage::addChoiceContent(std::string choiceContent)
 {
+}
+
+void LosePage::addChoiceCondition(std::pair<std::string, long int> choiceCondition)
+{
+}
+
+std::vector<std::pair<std::string, long int> > LosePage::getChoiceCondition()
+{
+    std::vector<std::pair<std::string, long int> > res;
+    return res;
 }
 
 std::vector<std::size_t> LosePage::getChoice()

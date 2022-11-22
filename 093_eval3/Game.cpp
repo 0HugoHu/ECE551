@@ -1,17 +1,59 @@
 #include "Game.hpp"
 
-int GamePlay::play(std::vector<Page *> &pages)
+size_t GamePlay::play(std::vector<Page *> &pages)
 {
     std::string type = pages[this->curr]->getType();
     while (type == "Normal")
     {
+        this->addPath(curr);
+
         // Print current page
-        pages[curr]->printPage(this->directory);
+        if (isStep4)
+        {
+            pages[curr]->printPage(this->directory, pages[0]->varList, pages[0]->varValList, this->path);
+        }
+        else
+        {
+            pages[curr]->printPage(this->directory);
+        }
+
         size_t jumpTo = 0;
         // Continuelly read from user input
         do
         {
             jumpTo = this->readInput(pages[curr]->getChoice().size());
+            std::string var = pages[curr]->getChoiceCondition()[jumpTo - 1].first;
+            long int val = pages[curr]->getChoiceCondition()[jumpTo - 1].second;
+
+            if (isStep4 && !(var == "NO_CON" && val == 0))
+            {
+                size_t j = 0;
+                long int vVal = 0;
+                for (j = 0; j < pages[0]->varList.size(); j++)
+                {
+                    // Found variable name
+                    if (pages[0]->varList[j].second == var)
+                    {
+                        for (size_t k = 0; k < this->path.size(); k++)
+                        {
+                            if (pages[0]->varList[j].first == this->path[k])
+                            {
+                                vVal = pages[0]->varValList[j].second;
+                            }
+                        }
+                        if (val != vVal)
+                        {
+                            std::cout << "That choice is not available at this time, please try again" << std::endl;
+                            jumpTo = 0;
+                            break;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
         } while (jumpTo == 0);
 
         // Jump to another page
@@ -40,6 +82,11 @@ int GamePlay::readInput(size_t size)
     return read;
 }
 
+void GamePlay::setIsStep4(bool b)
+{
+    this->isStep4 = b;
+}
+
 std::vector<std::string> GamePlay::findWinPath(std::vector<Page *> &pages)
 {
     std::vector<std::string> res;
@@ -61,12 +108,12 @@ void GamePlay::backtracking(std::vector<std::string> &res, std::vector<Page *> &
     {
         return;
     }
-    
+
     // Mark current node as visited
     pages[pageIndex]->choiceVisited[choiceIndex] = true;
 
     // Traveral all pages and choices
-    
+
     for (size_t j = 0; j < pages[pageIndex]->getChoice().size(); j++)
     {
         std::stringstream ss, ss2;
@@ -89,4 +136,9 @@ std::size_t GamePlay::getIndexByPageNum(std::vector<Page *> &pages, std::size_t 
         }
     }
     return 0;
+}
+
+void GamePlay::addPath(size_t page)
+{
+    this->path.push_back(page);
 }
