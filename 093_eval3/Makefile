@@ -5,5 +5,5 @@ all:
 	g++ -std=c++98 -o cyoa-step4 -pedantic -Wall -Werror -ggdb3 -std=gnu++98 cyoa-step4.cpp Page.cpp Tool.cpp Game.cpp
 
 clean:
-	rm -f $(OBJS) $(OUT)
+	rm -f $(OBJS) $(OUT) cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4
 
