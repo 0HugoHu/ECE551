@@ -1,6 +1,6 @@
-Grading at 11/25/2022:03:02:42.255255
-For commit ID ae9cdcfcc810f7a3b9e92860bbde06877069104e
-Grading at Thu Nov 24 10:01:47 PM EST 2022
+Grading at 11/26/2022:23:13:54.606289
+For commit ID ca21042f89548cc1ce3c19213ceca28d3bcc96bb
+Grading at Sat Nov 26 06:13:01 PM EST 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -29,7 +29,7 @@ Step 1 EC intermediate deadline test 2
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean for this testcase
 You have passed this test case
-Intermediate deadline requirements for Step 1 passed at Thu Nov 24 10:01:51 PM EST 2022
+Intermediate deadline requirements for Step 1 passed at Sat Nov 26 06:13:05 PM EST 2022
 
 Step 2
 Checking that cyoa-step2 compiles
@@ -61,9 +61,102 @@ You have passed this test case
 Step 2 EC intermediate deadline test 3
 ===========================================================
 ./cyoa-step2 /usr/local/ece551/cyoa/story1 < /usr/local/ece551/cyoa/story1/inputs/input11.txt
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean for this testcase
-You have passed this test case
+Your output differs from ours.
+Below is the diff (yours left/ours right)
+Welcome to choose your own adventure.				Welcome to choose your own adventure.
+Get ready for the thrilling tale of dragons and brunches.	Get ready for the thrilling tale of dragons and brunches.
+Will you get help from Grew and/or Denevieve?			Will you get help from Grew and/or Denevieve?
+Will you be eaten by a dragon?					Will you be eaten by a dragon?
+
+Only you can decide....						Only you can decide....
+
+What would you like to do?					What would you like to do?
+
+ 1. I am ready for this story!					 1. I am ready for this story!
+One day, a strange old wizard comes to your village and tells	One day, a strange old wizard comes to your village and tells
+there is an evil dragon lurking in the hills. This wizard's s	there is an evil dragon lurking in the hills. This wizard's s
+why the village's goats and cows have been going missing late	why the village's goats and cows have been going missing late
+
+The wizard tells you: "It is up to you, hero, to stop this dr	The wizard tells you: "It is up to you, hero, to stop this dr
+else in this village is foolish...errrr I mean brave enough t	else in this village is foolish...errrr I mean brave enough t
+dragon." 							dragon." 
+
+The wizard offers you a choice of one of three magic items to	The wizard offers you a choice of one of three magic items to
+your quest. 							your quest. 
+
+The first is a magic whistle that lets you make any bird call	The first is a magic whistle that lets you make any bird call
+want. The second is a pair of magic shoes that let you jump 1	want. The second is a pair of magic shoes that let you jump 1
+air. The third is a magic toaster, which can take any item th	air. The third is a magic toaster, which can take any item th
+into it, and turn it into perfectly cooked toast (optionally 	into it, and turn it into perfectly cooked toast (optionally 
+and/or jam). 							and/or jam). 
+
+"Choose wisely, for your quest and your village depend on you	"Choose wisely, for your quest and your village depend on you
+
+What would you like to do?					What would you like to do?
+
+ 1. Choose the magic whistle.					 1. Choose the magic whistle.
+ 2. Choose the magic shoes.					 2. Choose the magic shoes.
+ 3. Choose the magic toaster.					 3. Choose the magic toaster.
+As you take the magic whistle from the wizard's hand, he disa	As you take the magic whistle from the wizard's hand, he disa
+puff of smoke. You decide that you should give the whistle a 	puff of smoke. You decide that you should give the whistle a 
+set off to deal with the dragon (after all, if you learned no	set off to deal with the dragon (after all, if you learned no
+school, it was that testing is VERY important). 		school, it was that testing is VERY important). 
+
+You think of a raven and blow on the whistle "CAW CAW CAW CAW	You think of a raven and blow on the whistle "CAW CAW CAW CAW
+think of a chicken and blow "COCKADOODLEDOOOO". It seems like	think of a chicken and blow "COCKADOODLEDOOOO". It seems like
+works great, though you wonder how many different birds you c	works great, though you wonder how many different birds you c
+and how they would help you deal with the dragon. 		and how they would help you deal with the dragon. 
+
+Putting that question in the back of your mind, you contempla	Putting that question in the back of your mind, you contempla
+not you should get some help before you set out. On the one h	not you should get some help before you set out. On the one h
+alone, you might be able to better sneak into the dragon's la	alone, you might be able to better sneak into the dragon's la
+other hand, help might be useful.				other hand, help might be useful.
+
+Fortunately for you, the two wisest people you know, Deneviev	Fortunately for you, the two wisest people you know, Deneviev
+live in the next village over. Thinking about it for several 	live in the next village over. Thinking about it for several 
+decide whom to go to for help.					decide whom to go to for help.
+
+What would you like to do?					What would you like to do?
+
+ 1. Go to Denevieve for help.					 1. Go to Denevieve for help.
+ 2. Go to Grew for help.					 2. Go to Grew for help.
+ 3. Go alone.							 3. Go alone.
+After thinking about it a bit, you decide that Denevieve is p	After thinking about it a bit, you decide that Denevieve is p
+better choice. After all, her singing skills are likely to co	better choice. After all, her singing skills are likely to co
+especially with your magic whistle. Maybe dragons can be tame	especially with your magic whistle. Maybe dragons can be tame
+music and bird calls? That could be right, but you aren't sur	music and bird calls? That could be right, but you aren't sur
+through that day of Magical Creature Biology class. 		through that day of Magical Creature Biology class. 
+
+After knocking on the door, Denevieve is surprised to hear ab	After knocking on the door, Denevieve is surprised to hear ab
+threat but is happy to help you. After all, you were her best	threat but is happy to help you. After all, you were her best
+tested every piece of code extensively and incrementally. Sur	tested every piece of code extensively and incrementally. Sur
+trusted with a quest about dragons.				trusted with a quest about dragons.
+
+The two of you set off into the hills and find the cave of th	The two of you set off into the hills and find the cave of th
+take a minute to confer about your musical options and come u	take a minute to confer about your musical options and come u
+list of three possible combinations to tame the dragon. 	list of three possible combinations to tame the dragon. 
+
+What would you like to do?					What would you like to do?
+
+ 1. Silent Night, accompanied by raven calls			 1. Silent Night, accompanied by raven calls
+ 2. Angels We Have Heard on High, accompanied by roosters cro	 2. Angels We Have Heard on High, accompanied by roosters cro
+ 3. Bohemian Rhapsody, accompanied by the magestic call of a 	 3. Bohemian Rhapsody, accompanied by the magestic call of a 
+							      >	That is not a valid choice, please try again
+You take out your whistle and Denevieve starts to sing		You take out your whistle and Denevieve starts to sing
+
+"Si--iii-lent niiight" (CAW CAW CAW)				"Si--iii-lent niiight" (CAW CAW CAW)
+"Ho--oly night" (CAW CAW).					"Ho--oly night" (CAW CAW).
+"Aaaalll iiss calm aaaalll is bright" (CAW CAW).		"Aaaalll iiss calm aaaalll is bright" (CAW CAW).
+
+As Denevieve sings and you make bird calls, the dragon comes 	As Denevieve sings and you make bird calls, the dragon comes 
+cave looking quite angry. 					cave looking quite angry. 
+
+"WHO DARES DISTURB MY SLUMBER... Oh hello. You look tasty."	"WHO DARES DISTURB MY SLUMBER... Oh hello. You look tasty."
+
+The dragon eats you.						The dragon eats you.
+
+Sorry, you have lost. Better luck next time!			Sorry, you have lost. Better luck next time!
+Your file did not match the expected ouput
 
 Step 2 EC intermediate deadline test 4
 ===========================================================
@@ -201,10 +294,63 @@ You have passed this test case
 Step 2 EC intermediate deadline test 23
 ===========================================================
 ./cyoa-step2 /usr/local/ece551/cyoa/story2 < /usr/local/ece551/cyoa/story2/inputs/input9.txt
-  - Valgrind was clean (no errors, no memory leaks)
-Valgrind was clean for this testcase
-You have passed this test case
-Intermediate deadline requirements for Step 2 passed at Thu Nov 24 10:02:13 PM EST 2022
+Your output differs from ours.
+Below is the diff (yours left/ours right)
+One bright weekend afternoon, you decide to adventure, puttin	One bright weekend afternoon, you decide to adventure, puttin
+of the Niebelungen and traveler's cloak and strapping the fam	of the Niebelungen and traveler's cloak and strapping the fam
+to your back.							to your back.
+
+Half-way up the mountain Matterhorn, you see a cave opening w	Half-way up the mountain Matterhorn, you see a cave opening w
+coming out. You enter the cave and tiptoe inside, straining y	coming out. You enter the cave and tiptoe inside, straining y
+the gloomy mist.						the gloomy mist.
+
+You encounter a dragon.						You encounter a dragon.
+
+What would you like to do?					What would you like to do?
+
+ 1. Try to sneak past the sleeping dragon			 1. Try to sneak past the sleeping dragon
+ 2. Leave the dragon's cave and go home				 2. Leave the dragon's cave and go home
+ 3. Stab the dragon in the neck					 3. Stab the dragon in the neck
+							      >	That is not a valid choice, please try again
+As you tiptoe past the sleeping dragon, steam rising from her	As you tiptoe past the sleeping dragon, steam rising from her
+see a gleaming treasure hoard, just beyond the scaly tail.	see a gleaming treasure hoard, just beyond the scaly tail.
+
+An enormous, rare Scythian ruby gleams atop a pedestal, becko	An enormous, rare Scythian ruby gleams atop a pedestal, becko
+
+What would you like to do?					What would you like to do?
+
+ 1. Pick up the ruby						 1. Pick up the ruby
+ 2. Pass the ruby to explore the rest of the hoard		 2. Pass the ruby to explore the rest of the hoard
+A mountain of treasure rises before you, but two things are m	A mountain of treasure rises before you, but two things are m
+interesting than the sapphires and gold doubloons. To your ri	interesting than the sapphires and gold doubloons. To your ri
+unique and elegant coat stand, rests a silvery cloak. To your	unique and elegant coat stand, rests a silvery cloak. To your
+grand marble desk, lies an ancient book with gold-leaf trim. 	grand marble desk, lies an ancient book with gold-leaf trim. 
+
+What would you like to do?					What would you like to do?
+
+ 1. Put on the cloak						 1. Put on the cloak
+ 2. Open the book						 2. Open the book
+It appears to be a cloak of invisibility! You pass what shoul	It appears to be a cloak of invisibility! You pass what shoul
+in front of your face, but you see nothing.			in front of your face, but you see nothing.
+
+Emboldened, you explore the treasure hoard further.		Emboldened, you explore the treasure hoard further.
+
+What would you like to do?					What would you like to do?
+
+ 1. Go back and take the ruby					 1. Go back and take the ruby
+ 2. Go back and open the book					 2. Go back and open the book
+You wrap the Scythian ruby in the cloak, and sneak back to wh	You wrap the Scythian ruby in the cloak, and sneak back to wh
+slumbers. 							slumbers. 
+
+What would you like to do?					What would you like to do?
+
+ 1. Take your prize and go home					 1. Take your prize and go home
+ 2. Stab the dragon in the neck					 2. Stab the dragon in the neck
+Your famed sword Ice becomes embedded in the dragon's neck sc	Your famed sword Ice becomes embedded in the dragon's neck sc
+dragon rolls over, crushing you.				dragon rolls over, crushing you.
+
+Sorry, you have lost. Better luck next time!			Sorry, you have lost. Better luck next time!
+Your file did not match the expected ouput
 
 Step 3
 Checking that cyoa-step3 compiles
@@ -232,7 +378,7 @@ Step 3 EC intermediate deadline test 2
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean for this testcase
 You have passed this test case
-Intermediate deadline requirements for Step 3 passed at Thu Nov 24 10:02:16 PM EST 2022
+Intermediate deadline requirements for Step 3 passed at Sat Nov 26 06:13:29 PM EST 2022
 
 Step 4
 Checking that cyoa-step4 compiles
@@ -376,8 +522,104 @@ You have passed this test case
 Step 4 EC intermediate deadline test 19
 ===========================================================
 ./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input2.txt
-You indicated this was a failure, but it was not
-timeout: the monitored command dumped core
+Your output differs from ours.
+Below is the diff (yours left/ours right)
+As you bask in the morning light pouring through the bakery w	As you bask in the morning light pouring through the bakery w
+your breath is taken away by the stunning display of pastries	your breath is taken away by the stunning display of pastries
+
+"What would you like?" The shop keeper ask cheerily.  Realizi	"What would you like?" The shop keeper ask cheerily.  Realizi
+have a long journey ahead of you, you decide it is best to or	have a long journey ahead of you, you decide it is best to or
+one, but choosing is so hard.					one, but choosing is so hard.
+
+What would you like to do?					What would you like to do?
+
+ 1. Purchase a chocolate croissant.				 1. Purchase a chocolate croissant.
+ 2. Purchase an eclair.						 2. Purchase an eclair.
+ 3. Purchase a muffin.						 3. Purchase a muffin.
+You pay the baker, who puts your croissant into a bag,		You pay the baker, who puts your croissant into a bag,
+and hands it to you.  He wishes you a good day.			and hands it to you.  He wishes you a good day.
+
+
+What would you like to do?					What would you like to do?
+
+ 1. Leave the store						 1. Leave the store
+As you leave the store, something feels...strange about the m	As you leave the store, something feels...strange about the m
+You aren't quite sure what, but you sense that something unus	You aren't quite sure what, but you sense that something unus
+and strange is about to happen.  The street in front of you r	and strange is about to happen.  The street in front of you r
+east, out of town, or west deeper into town.  			east, out of town, or west deeper into town.  
+
+What would you like to do?					What would you like to do?
+
+ 1. Go east, out of town					 1. Go east, out of town
+ 2. Go west, into town						 2. Go west, into town
+As you wander through town, you notice the blacksmith working	As you wander through town, you notice the blacksmith working
+shiny, glowing sword.  He looks up from his work and says	shiny, glowing sword.  He looks up from his work and says
+"You look like the sort of hero who might need a sword?		"You look like the sort of hero who might need a sword?
+Strange things in the air, can't go wrong with a sword.."	Strange things in the air, can't go wrong with a sword.."
+Checking your pockets, you find a few coins left after		Checking your pockets, you find a few coins left after
+your pastry purchase, but you would be broke if your		your pastry purchase, but you would be broke if your
+spent your money on the sword.					spent your money on the sword.
+
+What would you like to do?					What would you like to do?
+
+ 1. Buy the sword						 1. Buy the sword
+ 2. Decline and head out of town				 2. Decline and head out of town
+You purchase a gleaming shiny sword, and head out of town.	You purchase a gleaming shiny sword, and head out of town.
+Surely this will keep you safe, no matter what you run into..	Surely this will keep you safe, no matter what you run into..
+
+What would you like to do?					What would you like to do?
+
+ 1. Now that you have a sword, head out of town			 1. Now that you have a sword, head out of town
+As you head out of town, you notice a shadow pass over you as	As you head out of town, you notice a shadow pass over you as
+something large flies over your head.				something large flies over your head.
+
+What would you like to do?					What would you like to do?
+
+ 1. Jump off the road and hide behind a large rock		 1. Jump off the road and hide behind a large rock
+ 2. Keep walking						 2. Keep walking
+Good thing you jumped behind a rock!  A large dragon swooped	Good thing you jumped behind a rock!  A large dragon swooped
+down and landed on the road right where you just were.		down and landed on the road right where you just were.
+The dragon looks hungry and ferocious...			The dragon looks hungry and ferocious...
+
+What would you like to do?					What would you like to do?
+
+ 1. <UNAVAILABLE>						 1. <UNAVAILABLE>
+ 2. Charge the dragon with your sword.				 2. Charge the dragon with your sword.
+ 3. Offer the dragon the chocolate croissant.			 3. Offer the dragon the chocolate croissant.
+ 4. <UNAVAILABLE>						 4. <UNAVAILABLE>
+ 5. <UNAVAILABLE>						 5. <UNAVAILABLE>
+ 6. Ask the dragon if he has heard any good jokes lately.	 6. Ask the dragon if he has heard any good jokes lately.
+							      >	That is not a valid choice, please try again
+That choice is not available at this time, please try again	That choice is not available at this time, please try again
+"Oh my! I'm so hungry, but I do love a good joke.   The		"Oh my! I'm so hungry, but I do love a good joke.   The
+best one I've heard lately is					best one I've heard lately is
+  Why can't you hear a pterodactyl go to the bathroom?"		  Why can't you hear a pterodactyl go to the bathroom?"
+
+The dragon asks waiting a moment for you to reply.		The dragon asks waiting a moment for you to reply.
+"...because the P is silent?"  you guess.			"...because the P is silent?"  you guess.
+
+"HAHAH YES!  I love that one.  Tell you what,			"HAHAH YES!  I love that one.  Tell you what,
+if you tell me a great joke in return, I'll go find		if you tell me a great joke in return, I'll go find
+someone else to eat..."						someone else to eat..."
+
+What would you like to do?					What would you like to do?
+
+ 1. What 80s band would sing "You have to fight for your righ	 1. What 80s band would sing "You have to fight for your righ
+ 2. What do you call it when you see the same ghost twice?	 2. What do you call it when you see the same ghost twice?
+ 3. Knock knock.						 3. Knock knock.
+"Who is there?" asks the dragon.				"Who is there?" asks the dragon.
+
+"Mansplain" you reply						"Mansplain" you reply
+
+"Mansplain who?" The dragon asks.				"Mansplain who?" The dragon asks.
+
+"Well actually, you see mansplaining is about some particular	"Well actually, you see mansplaining is about some particular
+So the right question for you to ask is 'Mansplain what?'..."	So the right question for you to ask is 'Mansplain what?'..."
+
+"Haha, ok you can go." The dragon says as he flies off.		"Haha, ok you can go." The dragon says as he flies off.
+
+Congratulations! You have won. Hooray!				Congratulations! You have won. Hooray!
+Your file did not match the expected ouput
 
 Step 4 EC intermediate deadline test 20
 ===========================================================
