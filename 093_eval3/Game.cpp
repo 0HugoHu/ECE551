@@ -95,7 +95,7 @@ int GamePlay::readInput(size_t size)
 
     char *endptr;
     read = strtoul(line.c_str(), &endptr, 10);
-    if (endptr == line.c_str() || *endptr != '\0' || read < 0 || read > size)
+    if (endptr == line.c_str() || *endptr != '\0' || read <= 0 || read > size)
     {
         std::cout << "That is not a valid choice, please try again" << std::endl;
         read = 0;
