@@ -45,10 +45,12 @@ size_t GamePlay::play(std::vector<Page *> &pages)
         do
         {
             jumpTo = this->readInput(pages[curr]->getChoice().size());
-            if (isStep4)
+            if (isStep4 && jumpTo != 0)
             {
                 std::string var = pages[curr]->getChoiceCondition()[jumpTo - 1].first;
                 long int val = pages[curr]->getChoiceCondition()[jumpTo - 1].second;
+
+                //std::cout<<jumpTo<<std::endl;
 
                 size_t j = 0;
                 for (; j < umap.size(); j++)
@@ -93,7 +95,7 @@ int GamePlay::readInput(size_t size)
 
     char *endptr;
     read = strtoul(line.c_str(), &endptr, 10);
-    if (endptr == line.c_str() || *endptr != '\0' || read <= 0 || read > size)
+    if (endptr == line.c_str() || *endptr != '\0' || read < 0 || read > size)
     {
         std::cout << "That is not a valid choice, please try again" << std::endl;
         read = 0;
