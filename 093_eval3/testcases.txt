@@ -3,27 +3,32 @@ ec:step2
 ec:step3
 ec:step4
 
-./cyoa-step1 /test/story1
-./cyoa-step1 /test/story2
-./cyoa-step1 /test/story3
-./cyoa-step1 /test/story4
-./cyoa-step1 /test/story5
+cyoa-step1 /test/story1
+cyoa-step1 /test/story2
+cyoa-step1 /test/story3
+cyoa-step1 /test/story4
+cyoa-step1 /test/story5
 
-./cyoa-step2 /test/story1
-./cyoa-step2 /test/story2
-./cyoa-step2 /test/story3
-./cyoa-step2 /test/story4
-./cyoa-step2 /test/story5
+cyoa-step2 /test/story1 < /test/story1/inputs/input2.txt
+cyoa-step2 /test/story2 < /test/story1/inputs/input2.txt
+cyoa-step2 /test/story3 < /test/story1/inputs/input2.txt
+cyoa-step2 /test/story4 < /test/story1/inputs/input2.txt
+cyoa-step2 /test/story5 < /test/story1/inputs/input2.txt
 
-./cyoa-step3 /test/story1
-./cyoa-step3 /test/story2
-./cyoa-step3 /test/story3
-./cyoa-step3 /test/story4
-./cyoa-step3 /test/story5
+cyoa-step3 /test/story1
+cyoa-step3 /test/story2
+cyoa-step3 /test/story3
+cyoa-step3 /test/story4
+cyoa-step3 /test/story5
 
-./cyoa-step4 /test/story1
-./cyoa-step4 /test/story2
-./cyoa-step4 /test/story3
-./cyoa-step4 /test/story4
-./cyoa-step4 /test/story5
+cyoa-step4 /test/story1 < /test/story1/inputs/input2.txt
+cyoa-step4 /test/story2 < /test/story1/inputs/input2.txt
+cyoa-step4 /test/story3 < /test/story1/inputs/input2.txt
+cyoa-step4 /test/story4 < /test/story1/inputs/input2.txt
+cyoa-step4 /test/story5 < /test/story1/inputs/input2.txt
 
+cyoa-step4 /test/story1 < /test/story1/inputs/input0.txt
+cyoa-step4 /test/story2 < /test/story1/inputs/input1.txt
+cyoa-step4 /test/story3 < /test/story1/inputs/input3.txt
+cyoa-step4 /test/story4 < /test/story1/inputs/input5.txt
+cyoa-step4 /test/story5 < /test/story1/inputs/input4.txt
