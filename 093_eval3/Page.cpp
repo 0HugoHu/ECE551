@@ -2,7 +2,9 @@
 #include "Tool.hpp"
 
 std::size_t Page::pageNums = 0;
-std::size_t Page::maxPageIndex = 0;
+bool Page::isDelayStorage = false;
+std::pair<size_t, std::string> Page::delayVar = std::make_pair(0, "");
+std::pair<std::string, long int> Page::delayVal = std::make_pair("", 0);
 const std::string NormalPage::fixedString = "What would you like to do?\n";
 const std::string WinPage::fixedString = "Congratulations! You have won. Hooray!";
 const std::string LosePage::fixedString = "Sorry, you have lost. Better luck next time!";
@@ -34,20 +36,9 @@ std::size_t Page::getPageNums()
     return this->pageNums;
 }
 
-std::size_t Page::getMaxPageIndex()
-{
-    return this->maxPageIndex;
-}
-
 void Page::incPageNums()
 {
     this->pageNums++;
-    this->updateMaxPageIndex(index);
-}
-
-void Page::updateMaxPageIndex(std::size_t index)
-{
-    this->maxPageIndex = index;
 }
 
 void Page::setIndex(std::size_t index)

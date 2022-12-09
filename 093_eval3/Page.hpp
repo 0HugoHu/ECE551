@@ -12,9 +12,7 @@ class Page
 private:
     std::size_t index;
     std::string pageName;
-    static std::size_t maxPageIndex;
     static std::size_t pageNums;
-    void updateMaxPageIndex(size_t index);
 
 public:
     Page() : index(0) {}
@@ -23,11 +21,13 @@ public:
     std::size_t getIndex();
     std::string getPageName();
     std::size_t getPageNums();
-    std::size_t getMaxPageIndex();
     void incPageNums();
     void setIndex(std::size_t index);
     void setPageName(std::string name);
     std::vector<bool> choiceVisited;
+    static bool isDelayStorage;
+    static std::pair<size_t, std::string> delayVar;
+    static std::pair<std::string, long int> delayVal;
     std::vector<std::pair<size_t, std::string> > varList;
     std::vector<std::pair<std::string, long int> > varValList;
     virtual std::string getType();

@@ -20,13 +20,15 @@ int main(int argc, char **argv)
 
     // Check for page and choice ref
     CheckPages c(pages);
-    if (!c.checkChoices() || !c.checkPages()) {
+    if (!c.checkChoices() || !c.checkPages())
+    {
         std::cerr << "Reference: pages and choices must be referenced once!" << std::endl;
         abort();
     }
 
     // Check for win and lose page
-    if (!c.getWinAndLoseStatus()) {
+    if (!c.getWinAndLoseStatus())
+    {
         std::cerr << "Win | Lose: Win and Lose page must exist!" << std::endl;
         abort();
     }
@@ -36,9 +38,18 @@ int main(int argc, char **argv)
     // Result pths
     std::vector<std::string> res = g.findWinPath(pages);
 
-    // Print results
-    for (size_t i = 0; i < res.size(); i++) {
-        std::cout << res[i] << std::endl;
+    // No valid path
+    if (res.size() == 0)
+    {
+        std::cout<< "This story is unwinnable!" << std::endl;
+    }
+    else
+    {
+        // Print results
+        for (size_t i = 0; i < res.size(); i++)
+        {
+            std::cout << res[i] << std::endl;
+        }
     }
 
     // Free memory

@@ -36,7 +36,7 @@ int ReadLine::parseLineType(std::string line)
                     // variable value
                     char *endptr2;
                     variableValue = strtol(lineLeft.c_str(), &endptr2, 10);
-                    if (!(endptr2 == lineLeft.c_str() || *endptr2 != '\0' || variableValue < 0))
+                    if (!(endptr2 == lineLeft.c_str() || *endptr2 != '\0'))
                     {
                         this->pageStartVar = std::make_pair(index, segmentVariableName);
                         this->pageStartVarValue = std::make_pair(segmentVariableName, variableValue);
@@ -73,11 +73,8 @@ int ReadLine::parseLineType(std::string line)
 
                     // Choice Content
                     std::string segmentChoiceContent = lineAfter.substr(foundSecondCol + 1);
-                    if (segmentChoiceContent.size() != 0)
-                    {
-                        this->choiceContent = segmentChoiceContent;
-                        return CHOICE;
-                    }
+                    this->choiceContent = segmentChoiceContent;
+                    return CHOICE;
                 }
             }
         }
@@ -112,7 +109,7 @@ int ReadLine::parseLineType(std::string line)
                         char *endptr2;
                         long int value = strtoul(segmentVariableValue.c_str(), &endptr2, 10);
                         // variable value
-                        if (!(endptr2 == segmentVariableValue.c_str() || *endptr2 != '\0' || value < 0))
+                        if (!(endptr2 == segmentVariableValue.c_str() || *endptr2 != '\0'))
                         {
                             this->choiceCondition = std::make_pair(segmentVariableName, value);
 
@@ -131,11 +128,8 @@ int ReadLine::parseLineType(std::string line)
 
                                     // Choice Content
                                     std::string segmentChoiceContent = lineAfter.substr(foundSecondCol + 1);
-                                    if (segmentChoiceContent.size() != 0)
-                                    {
-                                        this->choiceContent = segmentChoiceContent;
-                                        return CONDITION;
-                                    }
+                                    this->choiceContent = segmentChoiceContent;
+                                    return CONDITION;
                                 }
                             }
                         }
@@ -221,17 +215,25 @@ void ReadLine::initPage(std::string inputFile, std::vector<Page *> &pages)
         Page *page = new NormalPage();
         int type = parseLineType(lines[i]);
 
-        // Page number must increasely declared
-        if (page->getMaxPageIndex() != 0 && page->getMaxPageIndex() >= getIndex())
-        {
-            std::cerr << "Errors in story.txt!" << std::endl;
-            abort();
-        }
-
         // Enable step 4 format
         if (!this->isStep4 && (type == VARIABLE || type == CONDITION))
         {
             type = INVALID;
+        }
+
+        // Page number must in-orderly declared
+        if (type == NORMAL || type == WIN || type == LOSE)
+        {
+            if (page->getPageNums() == 0 && getIndex() != 0)
+            {
+                std::cerr << "Errors in story.txt0!" << std::endl;
+                abort();
+            }
+            if (page->getPageNums() != 0 && page->getPageNums() != getIndex())
+            {
+                std::cerr << "Errors in story.txt1!" << std::endl;
+                abort();
+            }
         }
 
         switch (type)
@@ -250,15 +252,17 @@ void ReadLine::initPage(std::string inputFile, std::vector<Page *> &pages)
             break;
         case VARIABLE:
         {
-            // WARNING!! VITAL ERROR!
             if (0 == page->getPageNums())
             {
-                std::cerr << "This is my mistake!" << std::endl;
-                abort();
+                page->isDelayStorage = true;
+                page->delayVar = this->getPageStartVar();
+                page->delayVal = this->getPageStartVarValue();
             }
-
-            pages[0]->varList.push_back(this->getPageStartVar());
-            pages[0]->varValList.push_back(this->getPageStartVarValue());
+            else
+            {
+                pages[0]->varList.push_back(this->getPageStartVar());
+                pages[0]->varValList.push_back(this->getPageStartVarValue());
+            }
 
             break;
         }
@@ -267,7 +271,7 @@ void ReadLine::initPage(std::string inputFile, std::vector<Page *> &pages)
         {
             if (0 == page->getPageNums())
             {
-                std::cerr << "Errors in story.txt!" << std::endl;
+                std::cerr << "Errors in story.txt2!" << std::endl;
                 abort();
             }
             size_t j = 0;
@@ -292,10 +296,10 @@ void ReadLine::initPage(std::string inputFile, std::vector<Page *> &pages)
                     break;
                 }
             }
-            // Must declare a page before jump
+            // Must declare a Normal page before jump
             if (j == pages[0]->getPageNums())
             {
-                std::cerr << "Errors in story.txt!" << std::endl;
+                std::cerr << "Errors in story.txt3!" << std::endl;
                 abort();
             }
             break;
@@ -304,7 +308,7 @@ void ReadLine::initPage(std::string inputFile, std::vector<Page *> &pages)
         case INVALID:
         default:
             // Invalid format in story.txt
-            std::cerr << "Errors in story.txt!" << std::endl;
+            std::cerr << "Errors in story.txt4!" << std::endl;
             abort();
             break;
         }
@@ -314,6 +318,11 @@ void ReadLine::initPage(std::string inputFile, std::vector<Page *> &pages)
             page->setIndex(getIndex());
             page->setPageName(getPageName());
             pages.push_back(page);
+            if (page->isDelayStorage)
+            {
+                pages[0]->varList.push_back(page->delayVar);
+                pages[0]->varValList.push_back(page->delayVal);
+            }
         }
         else
         {
@@ -335,7 +344,13 @@ std::vector<std::string> ReadLine::readLine(std::string filename)
     std::string line;
     while (getline(f, line))
     {
-        if (line != "\n" && line.size() >= 4)
+        size_t index = 0;
+        if (line.size() > 0)
+        {
+            while (line[index++] == ' ')
+                ;
+        }
+        if (index != line.size() && line != "\n" && line.size() >= 4)
         {
             res.push_back(line);
         }
