@@ -1,6 +1,6 @@
-Grading at 12/09/2022:05:01:40.244553
-For commit ID e2e96e49d902c269a0de1e618d68dad34b876953
-Grading at Fri Dec  9 12:00:41 AM EST 2022
+Grading at 12/09/2022:05:08:51.623760
+For commit ID ce910436af28bb29c32f2a2226f35aa554df0868
+Grading at Fri Dec  9 12:07:41 AM EST 2022
 Doing some basic checking for your submission
 
 Step 1
@@ -12,6 +12,61 @@ Executable cyoa-step1 exists (good)
 ------------------------------------
 Now running YOUR tests for step 1
 ------------------------------------
+
+
+1.1: Current test is ./cyoa-step1 /test/story1 < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Cannot open the file!
+timeout: the monitored command dumped core
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+1.2: Current test is ./cyoa-step1 /test/story2 < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Cannot open the file!
+timeout: the monitored command dumped core
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+1.3: Current test is ./cyoa-step1 /test/story3 < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Cannot open the file!
+timeout: the monitored command dumped core
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+1.4: Current test is ./cyoa-step1 /test/story4 < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Cannot open the file!
+timeout: the monitored command dumped core
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+1.5: Current test is ./cyoa-step1 /test/story5 < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Cannot open the file!
+timeout: the monitored command dumped core
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 ------------------------------------
 You have requested that we check for intermediate deadline completion on step 1
 ------------------------------------
@@ -29,7 +84,7 @@ Step 1 EC intermediate deadline test 2
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean for this testcase
 You have passed this test case
-Intermediate deadline requirements for Step 1 passed at Fri Dec  9 12:00:45 AM EST 2022
+Intermediate deadline requirements for Step 1 passed at Fri Dec  9 12:07:51 AM EST 2022
 
 Step 2
 Checking that cyoa-step2 compiles
@@ -40,6 +95,56 @@ Executable cyoa-step2 exists (good)
 ------------------------------------
 Now running YOUR tests for step 2
 ------------------------------------
+
+
+2.1: Current test is ./cyoa-step2 /test/story1  <  /test/story1/inputs/input2.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+/dev/fd/3: line 528: /test/story1/inputs/input2.txt: No such file or directory
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+2.2: Current test is ./cyoa-step2 /test/story2  <  /test/story1/inputs/input2.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+/dev/fd/3: line 528: /test/story1/inputs/input2.txt: No such file or directory
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+2.3: Current test is ./cyoa-step2 /test/story3  <  /test/story1/inputs/input2.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+/dev/fd/3: line 528: /test/story1/inputs/input2.txt: No such file or directory
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+2.4: Current test is ./cyoa-step2 /test/story4  <  /test/story1/inputs/input2.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+/dev/fd/3: line 528: /test/story1/inputs/input2.txt: No such file or directory
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+2.5: Current test is ./cyoa-step2 /test/story5  <  /test/story1/inputs/input2.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+/dev/fd/3: line 528: /test/story1/inputs/input2.txt: No such file or directory
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 ------------------------------------
 You have requested that we check for intermediate deadline completion on step 2
 ------------------------------------
@@ -204,7 +309,7 @@ Step 2 EC intermediate deadline test 23
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean for this testcase
 You have passed this test case
-Intermediate deadline requirements for Step 2 passed at Fri Dec  9 12:01:08 AM EST 2022
+Intermediate deadline requirements for Step 2 passed at Fri Dec  9 12:08:15 AM EST 2022
 
 Step 3
 Checking that cyoa-step3 compiles
@@ -215,6 +320,61 @@ Executable cyoa-step3 exists (good)
 ------------------------------------
 Now running YOUR tests for step 3
 ------------------------------------
+
+
+3.1: Current test is ./cyoa-step3 /test/story1 < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Cannot open the file!
+timeout: the monitored command dumped core
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+3.2: Current test is ./cyoa-step3 /test/story2 < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Cannot open the file!
+timeout: the monitored command dumped core
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+3.3: Current test is ./cyoa-step3 /test/story3 < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Cannot open the file!
+timeout: the monitored command dumped core
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+3.4: Current test is ./cyoa-step3 /test/story4 < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Cannot open the file!
+timeout: the monitored command dumped core
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+3.5: Current test is ./cyoa-step3 /test/story5 < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Cannot open the file!
+timeout: the monitored command dumped core
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 ------------------------------------
 You have requested that we check for intermediate deadline completion on step 3
 ------------------------------------
@@ -232,7 +392,7 @@ Step 3 EC intermediate deadline test 2
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean for this testcase
 You have passed this test case
-Intermediate deadline requirements for Step 3 passed at Fri Dec  9 12:01:12 AM EST 2022
+Intermediate deadline requirements for Step 3 passed at Fri Dec  9 12:08:24 AM EST 2022
 
 Step 4
 Checking that cyoa-step4 compiles
@@ -243,6 +403,106 @@ Executable cyoa-step4 exists (good)
 ------------------------------------
 Now running YOUR tests for step 4
 ------------------------------------
+
+
+4.1: Current test is ./cyoa-step4 /test/story1  <  /test/story1/inputs/input2.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+/dev/fd/3: line 528: /test/story1/inputs/input2.txt: No such file or directory
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.2: Current test is ./cyoa-step4 /test/story2  <  /test/story1/inputs/input2.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+/dev/fd/3: line 528: /test/story1/inputs/input2.txt: No such file or directory
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.3: Current test is ./cyoa-step4 /test/story3  <  /test/story1/inputs/input2.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+/dev/fd/3: line 528: /test/story1/inputs/input2.txt: No such file or directory
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.4: Current test is ./cyoa-step4 /test/story4  <  /test/story1/inputs/input2.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+/dev/fd/3: line 528: /test/story1/inputs/input2.txt: No such file or directory
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.5: Current test is ./cyoa-step4 /test/story5  <  /test/story1/inputs/input2.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+/dev/fd/3: line 528: /test/story1/inputs/input2.txt: No such file or directory
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.6: Current test is ./cyoa-step4 /test/story1  <  /test/story1/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+/dev/fd/3: line 528: /test/story1/inputs/input0.txt: No such file or directory
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.7: Current test is ./cyoa-step4 /test/story2  <  /test/story1/inputs/input1.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+/dev/fd/3: line 528: /test/story1/inputs/input1.txt: No such file or directory
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.8: Current test is ./cyoa-step4 /test/story3  <  /test/story1/inputs/input3.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+/dev/fd/3: line 528: /test/story1/inputs/input3.txt: No such file or directory
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.9: Current test is ./cyoa-step4 /test/story4  <  /test/story1/inputs/input5.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+/dev/fd/3: line 528: /test/story1/inputs/input5.txt: No such file or directory
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.10: Current test is ./cyoa-step4 /test/story5  <  /test/story1/inputs/input4.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+/dev/fd/3: line 528: /test/story1/inputs/input4.txt: No such file or directory
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 ------------------------------------
 You have requested that we check for intermediate deadline completion on step 4
 ------------------------------------
@@ -428,8 +688,10 @@ Step 4 EC intermediate deadline test 26
   - Valgrind was clean (no errors, no memory leaks)
 Valgrind was clean for this testcase
 You have passed this test case
-Intermediate deadline requirements for Step 4 passed at Fri Dec  9 12:01:40 AM EST 2022
+Intermediate deadline requirements for Step 4 passed at Fri Dec  9 12:08:51 AM EST 2022
 
-It looks like you did not provide any test cases
+You have passed the test cases YOU provided
+If your tests are good, this is great. 
+If your tests are insufficient, you should do much more testing
 
 Overall Grade: NO GRADE YET
